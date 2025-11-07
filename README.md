@@ -92,7 +92,9 @@ kayak_project/
 │   │   └── weather_forecast_6days.csv # ✅ Données météo (6 jours)
 │   │
 │   └── processed/                    # Données nettoyées
-│       └── (à venir)
+│       ├── city_weather_scores.csv   # ✅ Scores météo de toutes les villes
+│       ├── top5_destinations.csv     # ✅ Top 5 des meilleures destinations
+│       └── weather_analysis_report.txt # ✅ Rapport d'analyse complet
 │
 ├── notebooks/
 │   └── 01_data_collection.ipynb      # ✅ Collecte des données
@@ -101,7 +103,11 @@ kayak_project/
 │   └── (scripts Python à venir)
 │
 ├── visualizations/
-│   └── (graphiques à venir)
+│   ├── weather_distributions.png     # ✅ Distributions des variables météo
+│   ├── top10_weather_scores.png      # ✅ Graphique Top 10 destinations
+│   ├── top5_destinations_map.html    # ✅ Carte interactive Top 5
+│   ├── weather_scores_heatmap.png    # ✅ Évolution des scores sur 6 jours
+│   └── top5_radar_comparison.html    # ✅ Comparaison radar du Top 5
 │
 ├── .gitignore                        # Fichiers à ignorer
 ├── README.md                         # Ce fichier
@@ -211,6 +217,8 @@ DB_PASSWORD=votre_mot_de_passe
 - 📊 35 villes géocodées
 - 🗂️ Colonnes : city_id, city, latitude, longitude, display_name
 
+---
+
 #### Étape 2.2 : Récupération des Données Météo
 - [x] Fonction `get_weather_6days()` créée
 - [x] Météo actuelle (jour 0) récupérée pour chaque ville
@@ -240,6 +248,38 @@ DB_PASSWORD=votre_mot_de_passe
 | wind_speed | Vitesse du vent (m/s) |
 | clouds | Couverture nuageuse (%) |
 | weather_description | Description météo (français) |
+
+---
+
+#### Étape 2.3 : Scoring Météo et Identification du Top 5
+- [x] Critères de "beau temps" définis
+- [x] Fonction de scoring créée (score sur 100)
+- [x] Scores calculés pour chaque jour de chaque ville
+- [x] Score moyen calculé par ville (sur 6 jours)
+- [x] Top 5 des meilleures destinations identifié
+- [x] Visualisations créées (graphiques + cartes)
+- [x] Rapport d'analyse généré
+
+**Critères de scoring (total 100 points) :**
+- 🌡️ Température idéale (18-28°C) : **25 points**
+- 🌧️ Faible probabilité de pluie : **25 points**
+- 💧 Peu de volume de pluie : **20 points**
+- 💧 Humidité modérée (40-70%) : **10 points**
+- 💨 Vent faible (< 5 m/s) : **10 points**
+- ☁️ Ciel dégagé (< 50% nuages) : **10 points**
+
+**Résultat :**
+- 📁 `data/processed/city_weather_scores.csv` (35 villes classées)
+- 📁 `data/processed/top5_destinations.csv` (Top 5)
+- 📁 `data/processed/weather_analysis_report.txt` (Rapport)
+- 📊 5 visualisations créées
+
+**Visualisations générées :**
+1. 📊 Distributions des variables météo
+2. 📊 Graphique Top 10 destinations (barres)
+3. 🗺️ Carte interactive du Top 5 (Plotly)
+4. 📊 Heatmap évolution des scores sur 6 jours
+5. 📊 Radar chart comparaison détaillée du Top 5
 
 ---
 
@@ -314,6 +354,22 @@ jupyter notebook
 2. **Fichier CSV - Données Météo**
    - 📁 `data/raw/weather_forecast_6days.csv`
    - 210 prévisions météo (35 villes × 6 jours)
+
+3. **Fichier CSV - Scores Météo**
+   - 📁 `data/processed/city_weather_scores.csv`
+   - Classement des 35 villes avec scores
+
+4. **Fichier CSV - Top 5 Destinations**
+   - 📁 `data/processed/top5_destinations.csv`
+   - Les 5 meilleures destinations identifiées
+
+5. **Rapport d'Analyse Météo**
+   - 📁 `data/processed/weather_analysis_report.txt`
+   - Synthèse complète avec statistiques
+
+6. **Visualisations**
+   - 📊 5 graphiques et cartes interactives
+   - Formats : PNG et HTML interactif
 
 ### 🔜 Livrables à Venir
 
@@ -468,8 +524,8 @@ Ce projet est réalisé à des fins éducatives dans le cadre d'une formation en
 
 ---
 
-**Dernière mise à jour :** 7 novembre 2025
+**Dernière mise à jour :** 8 novembre 2025
 
-**Statut du projet :** 🟡 En cours - Phase 2 terminée (Collecte météo)
+**Statut du projet :** 🟢 En cours - Phase 2 terminée (Scoring météo)
 
-**Progression :** ████████░░░░░░░░░░░░ 40%
+**Progression :** ████████████░░░░░░░░ 60%
