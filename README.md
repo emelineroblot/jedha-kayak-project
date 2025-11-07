@@ -516,7 +516,6 @@ Ce projet est réalisé à des fins éducatives dans le cadre d'une formation en
 
 ## 🎯 Prochaines Étapes
 
-1. **Étape 2.3** : Calculer un score météo et identifier le Top 5 destinations
 2. **Étape 3** : Scraper les données hôtels depuis Booking.com
 3. **Étape 4** : Upload des données vers AWS S3
 4. **Étape 5** : Création du Data Warehouse sur RDS
