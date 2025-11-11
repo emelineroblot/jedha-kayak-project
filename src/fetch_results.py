@@ -23,7 +23,6 @@ SNAPSHOTS_REGISTRY = 'data/raw/snapshots/snapshots_registry.json'
 
 def load_config():
     """Charge la configuration API."""
-    # Chemin vers le .env
     if 'notebooks' in str(Path.cwd()):
         env_path = Path.cwd().parent / 'config' / '.env'
     else:
@@ -62,9 +61,24 @@ def update_snapshot_status(city, status, num_hotels=0):
         if status in ["ready", "error"]:
             registry["snapshots"][city]["timestamp_complete"] = datetime.now().isoformat()
         
-        # Sauvegarder
         with open(SNAPSHOTS_REGISTRY, 'w', encoding='utf-8') as f:
             json.dump(registry, f, indent=2, ensure_ascii=False)
+
+
+# ═══════════════════════════════════════════════════════════════════════
+# SAUVEGARDE JSON
+# ═══════════════════════════════════════════════════════════════════════
+
+def save_json_response(city, hotels_data):
+    """Sauvegarde la réponse JSON brute de l'API."""
+    os.makedirs('data/raw/hotels_json', exist_ok=True)
+    
+    filename = f"data/raw/hotels_json/{city.replace(' ', '_').lower()}_raw.json"
+    
+    with open(filename, 'w', encoding='utf-8') as f:
+        json.dump(hotels_data, f, indent=2, ensure_ascii=False)
+    
+    print(f"   💾 JSON brut : {filename}")
 
 
 # ═══════════════════════════════════════════════════════════════════════
@@ -72,18 +86,11 @@ def update_snapshot_status(city, status, num_hotels=0):
 # ═══════════════════════════════════════════════════════════════════════
 
 async def fetch_snapshot_results(session, city, snapshot_id, api_key, max_wait=600, check_interval=30):
-    """
-    Récupère les résultats d'un snapshot (GET avec polling).
-    """
+    """Récupère les résultats d'un snapshot (GET avec polling)."""
     url = f"https://api.brightdata.com/datasets/v3/snapshot/{snapshot_id}"
     
-    headers = {
-        "Authorization": f"Bearer {api_key}"
-    }
-    
-    params = {
-        "format": "json"
-    }
+    headers = {"Authorization": f"Bearer {api_key}"}
+    params = {"format": "json"}
     
     start_time = time.time()
     attempts = 0
@@ -97,26 +104,28 @@ async def fetch_snapshot_results(session, city, snapshot_id, api_key, max_wait=6
                 response_text = await response.text()
                 
                 if response.status == 200:
-                    # Parser la réponse
                     try:
                         result = json.loads(response_text)
                     except json.JSONDecodeError:
                         print(f"❌ {city:20s} → Erreur JSON")
                         return None
                     
-                    # CAS 1 : La réponse est directement une liste (données prêtes)
+                    # CAS 1 : Liste directe (données prêtes)
                     if isinstance(result, list):
                         num_hotels = len(result)
                         print(f"✅ {city:20s} → {num_hotels} hôtels ({elapsed}s)")
                         update_snapshot_status(city, "ready", num_hotels)
+                        
+                        # SAUVEGARDER LE JSON BRUT
+                        save_json_response(city, result)
+                        
                         return result
                     
-                    # CAS 2 : La réponse est un objet avec un statut
+                    # CAS 2 : Objet avec statut
                     elif isinstance(result, dict):
                         status = result.get('status')
                         
                         if status == 'ready':
-                            # Vérifier s'il y a une URL de téléchargement
                             snapshot_url = result.get('snapshot_url')
                             if snapshot_url:
                                 async with session.get(snapshot_url) as data_response:
@@ -125,6 +134,10 @@ async def fetch_snapshot_results(session, city, snapshot_id, api_key, max_wait=6
                                         num_hotels = len(hotels_data) if isinstance(hotels_data, list) else 0
                                         print(f"✅ {city:20s} → {num_hotels} hôtels ({elapsed}s)")
                                         update_snapshot_status(city, "ready", num_hotels)
+                                        
+                                        # SAUVEGARDER LE JSON BRUT
+                                        save_json_response(city, hotels_data)
+                                        
                                         return hotels_data
                             
                             print(f"❌ {city:20s} → Données non accessibles")
@@ -142,12 +155,11 @@ async def fetch_snapshot_results(session, city, snapshot_id, api_key, max_wait=6
                             return None
                         
                         else:
-                            # Statut inconnu, attendre
                             print(f"⏳ {city:20s} → statut: {status} (t.{attempts:2d}, {elapsed:3d}s)")
                             await asyncio.sleep(check_interval)
                     
                     else:
-                        print(f"❌ {city:20s} → Format de réponse inattendu: {type(result)}")
+                        print(f"❌ {city:20s} → Format inattendu: {type(result)}")
                         return None
                 
                 elif response.status == 202:
@@ -156,7 +168,6 @@ async def fetch_snapshot_results(session, city, snapshot_id, api_key, max_wait=6
                 
                 else:
                     print(f"❌ {city:20s} → HTTP {response.status}")
-                    print(f"   Réponse: {response_text[:200]}")
                     update_snapshot_status(city, "error", 0)
                     return None
         
@@ -170,7 +181,7 @@ async def fetch_snapshot_results(session, city, snapshot_id, api_key, max_wait=6
 
 
 # ═══════════════════════════════════════════════════════════════════════
-# PARSING DES RÉSULTATS
+# PARSING DES RÉSULTATS (CORRIGÉ)
 # ═══════════════════════════════════════════════════════════════════════
 
 def parse_hotels_data(hotels_data, city):
@@ -179,6 +190,7 @@ def parse_hotels_data(hotels_data, city):
         return pd.DataFrame()
     
     parsed = []
+    coords_found = 0
     
     for idx, hotel in enumerate(hotels_data, 1):
         try:
@@ -187,39 +199,78 @@ def parse_hotels_data(hotels_data, city):
                 'city': city,
                 'hotel_name': hotel.get('title'),
                 'url': hotel.get('url'),
-                'latitude': hotel.get('coordinates', {}).get('lat'),
-                'longitude': hotel.get('coordinates', {}).get('lon'),
                 'score': hotel.get('review_score'),
                 'number_of_reviews': hotel.get('number_of_reviews'),
                 'description': (hotel.get('description', '') or '')[:500],
                 'property_type': hotel.get('property_type'),
             }
             
-            # Prix
+            # ═══════════════════════════════════════════════════════════════
+            # PARSING GPS CORRIGÉ - GÈRE "lan" et "lat"
+            # ═══════════════════════════════════════════════════════════════
+            
+            coordinates = hotel.get('coordinates')
+            
+            if coordinates and isinstance(coordinates, dict):
+                # Essayer "lat" puis "lan" (bug de l'API)
+                lat = coordinates.get('lat') or coordinates.get('lan') or coordinates.get('latitude')
+                lon = coordinates.get('lon') or coordinates.get('lng') or coordinates.get('longitude')
+                
+                if lat is not None and lon is not None:
+                    info['latitude'] = float(lat)
+                    info['longitude'] = float(lon)
+                    coords_found += 1
+                else:
+                    info['latitude'] = None
+                    info['longitude'] = None
+            else:
+                info['latitude'] = None
+                info['longitude'] = None
+            
+            # ═══════════════════════════════════════════════════════════════
+            # PRIX
+            # ═══════════════════════════════════════════════════════════════
+            
             pricing = hotel.get('pricing', [])
-            if pricing and pricing[0].get('offers'):
-                price_info = pricing[0]['offers'][0].get('price', {})
-                info['price'] = price_info.get('final_price')
-                info['currency'] = price_info.get('currency', 'EUR')
+            if pricing and len(pricing) > 0:
+                offers = pricing[0].get('offers', [])
+                if offers:
+                    price_info = offers[0].get('price', {})
+                    info['price'] = price_info.get('final_price')
+                    info['currency'] = price_info.get('currency', 'EUR')
+                else:
+                    info['price'] = None
+                    info['currency'] = None
             else:
                 info['price'] = None
                 info['currency'] = None
             
-            # Équipements
+            # ═══════════════════════════════════════════════════════════════
+            # ÉQUIPEMENTS
+            # ═══════════════════════════════════════════════════════════════
+            
             facilities = hotel.get('most_popular_facilities', [])
             info['facilities'] = ', '.join(facilities[:5]) if facilities else None
             
-            # Images
+            # ═══════════════════════════════════════════════════════════════
+            # IMAGES
+            # ═══════════════════════════════════════════════════════════════
+            
             images = hotel.get('images', [])
             info['image_url'] = images[0] if images else None
             
             if info['hotel_name'] and info['url']:
                 parsed.append(info)
         
-        except Exception:
+        except Exception as e:
             continue
     
-    return pd.DataFrame(parsed)
+    df = pd.DataFrame(parsed)
+    
+    if not df.empty:
+        print(f"   ✅ {city:25s} → {len(df)} hôtels | {coords_found} GPS ({coords_found/len(df)*100:.0f}%)")
+    
+    return df
 
 
 # ═══════════════════════════════════════════════════════════════════════
@@ -238,7 +289,7 @@ async def fetch_all_results():
     snapshots = registry.get("snapshots", {})
     
     if not snapshots:
-        print("❌ Aucun snapshot trouvé dans le registre")
+        print("❌ Aucun snapshot trouvé")
         return {}
     
     print(f"📊 {len(snapshots)} snapshot(s) à récupérer :")
@@ -254,7 +305,7 @@ async def fetch_all_results():
     
     async with aiohttp.ClientSession(timeout=timeout) as session:
         
-        # Créer les tâches pour chaque ville
+        # Créer les tâches
         tasks = []
         for city, info in snapshots.items():
             snapshot_id = info['snapshot_id']
@@ -279,19 +330,26 @@ async def fetch_all_results():
                 if not df.empty:
                     filename = f"data/raw/hotels/hotels_{city.replace(' ', '_').lower()}.csv"
                     df.to_csv(filename, index=False, encoding='utf-8')
-                    print(f"✅ {filename} ({len(df)} hôtels)")
+                    print(f"   💾 CSV : {filename}")
                     all_results[city] = df
     
-    # Combiner tous les résultats
+    # Combiner
     if all_results:
         all_hotels = pd.concat(list(all_results.values()), ignore_index=True)
         all_hotels.to_csv('data/raw/hotels_top5_all.csv', index=False)
-        print(f"\n✅ hotels_top5_all.csv ({len(all_hotels)} hôtels)")
+        
+        # Stats GPS
+        total_hotels = len(all_hotels)
+        with_gps = all_hotels['latitude'].notna().sum()
+        
+        print(f"\n{'='*80}")
+        print(f"✅ hotels_top5_all.csv ({total_hotels} hôtels)")
+        print(f"📍 Coordonnées GPS : {with_gps}/{total_hotels} ({with_gps/total_hotels*100:.1f}%)")
     
     print(f"\n{'='*80}")
     print(f"✅ STEP 2 TERMINÉ")
     print(f"{'='*80}")
-    print(f"📊 Villes récupérées : {len(all_results)}/{len(snapshots)}\n")
+    print(f"📊 Villes : {len(all_results)}/{len(snapshots)}\n")
     
     return all_results
 
