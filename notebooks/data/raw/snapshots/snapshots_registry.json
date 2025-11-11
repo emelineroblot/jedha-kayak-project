@@ -1,0 +1,50 @@
+{
+  "timestamp": "2025-11-11T19:32:22.057199",
+  "snapshots": {
+    "Aix en Provence": {
+      "city": "Aix en Provence",
+      "snapshot_id": "sd_mhuwrnms1vhvy0jx7g",
+      "status": "ready",
+      "timestamp": "2025-11-11T19:32:22.057140",
+      "max_hotels": 15,
+      "num_hotels": 15,
+      "timestamp_complete": "2025-11-11T20:25:09.868580"
+    },
+    "Marseille": {
+      "city": "Marseille",
+      "snapshot_id": "sd_mhuwrnla1i698hvu25",
+      "status": "ready",
+      "timestamp": "2025-11-11T19:32:22.003202",
+      "max_hotels": 15,
+      "num_hotels": 15,
+      "timestamp_complete": "2025-11-11T20:27:11.619547"
+    },
+    "Bormes les Mimosas": {
+      "city": "Bormes les Mimosas",
+      "snapshot_id": "sd_mhuwrnki2j0jgytc6x",
+      "status": "ready",
+      "timestamp": "2025-11-11T19:32:21.971920",
+      "max_hotels": 15,
+      "num_hotels": 15,
+      "timestamp_complete": "2025-11-11T20:25:09.671330"
+    },
+    "Cassis": {
+      "city": "Cassis",
+      "snapshot_id": "sd_mhuwrnm31jdc1323zf",
+      "status": "ready",
+      "timestamp": "2025-11-11T19:32:22.028778",
+      "max_hotels": 15,
+      "num_hotels": 15,
+      "timestamp_complete": "2025-11-11T20:25:09.753912"
+    },
+    "Avignon": {
+      "city": "Avignon",
+      "snapshot_id": "sd_mhuwrnmq2bhcbfb0gr",
+      "status": "ready",
+      "timestamp": "2025-11-11T19:32:22.055844",
+      "max_hotels": 15,
+      "num_hotels": 15,
+      "timestamp_complete": "2025-11-11T20:25:09.889406"
+    }
+  }
+}
