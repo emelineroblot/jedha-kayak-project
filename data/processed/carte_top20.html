@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_068ba6be9d2f892b73cc1e6f29d72247 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_068ba6be9d2f892b73cc1e6f29d72247" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_068ba6be9d2f892b73cc1e6f29d72247 = L.map(
+                "map_068ba6be9d2f892b73cc1e6f29d72247",
+                {
+                    center: [43.422288047879654, 5.502664817132811],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 10,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_f1a6afe6ac54f5a037cb2b92fb6f3a1b = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_f1a6afe6ac54f5a037cb2b92fb6f3a1b.addTo(map_068ba6be9d2f892b73cc1e6f29d72247);
+        
+    
+            var marker_4df7a81430b87f5b311ff9eaca6913c3 = L.marker(
+                [43.5587933, 5.4488615],
+                {
+}
+            ).addTo(map_068ba6be9d2f892b73cc1e6f29d72247);
+        
+    
+            var div_icon_36883d45cda3decbf6cf8bec049c7223 = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e1\u003c/div\u003e\n        ",
+  "className": "empty",
+});
+        
+    
+        var popup_dc36963d7286a56854f3b07e3c9335eb = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_999ee40e6147cf54020c68ed57beb9a7 = $(`<div id="html_999ee40e6147cf54020c68ed57beb9a7" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #1</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">La Villa Rustica</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Aix en Provence</p>         <p><b>⭐</b> 9.8/10 (66 avis)</p>         <p><b>💰</b> 234 USD</p>         <p><b>🌤️</b> Score météo: 76.33</p>         <p><b>🌡️</b> 13.0°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 9.86/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/la-villa-rustica.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=&chal_t=1762887750037&force_referer=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_dc36963d7286a56854f3b07e3c9335eb.setContent(html_999ee40e6147cf54020c68ed57beb9a7);
+            
+        
+
+        marker_4df7a81430b87f5b311ff9eaca6913c3.bindPopup(popup_dc36963d7286a56854f3b07e3c9335eb)
+        ;
+
+        
+    
+    
+            marker_4df7a81430b87f5b311ff9eaca6913c3.bindTooltip(
+                `<div>
+                     #1 - La Villa Rustica
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4df7a81430b87f5b311ff9eaca6913c3.setIcon(div_icon_36883d45cda3decbf6cf8bec049c7223);
+            
+    
+            var marker_878a891fbf9017e755361696ac323c4a = L.marker(
+                [43.1272081, 6.3316222],
+                {
+}
+            ).addTo(map_068ba6be9d2f892b73cc1e6f29d72247);
+        
+    
+            var div_icon_5e905e7426dd3fdaeaa6ce597703ed53 = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e2\u003c/div\u003e\n        ",
+  "className": "empty",
+});
+        
+    
+        var popup_12b4d2c4ea8eca6e554416842d38a953 = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_d4ac7647d63b06bbe58b23b417ee5a12 = $(`<div id="html_d4ac7647d63b06bbe58b23b417ee5a12" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #2</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Le Mas de la Palmeraie - Studio dans propriété privée au calme avec piscine et tennis</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Bormes les Mimosas</p>         <p><b>⭐</b> 9.7/10 (4 avis)</p>         <p><b>💰</b> 198 USD</p>         <p><b>🌤️</b> Score météo: 76.00</p>         <p><b>🌡️</b> 13.0°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 9.57/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/le-mas-de-la-palmeraie-studio-dans-propriete-privee-au-calme-avec-piscine-et-ten.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=&chal_t=1762887420179&force_referer=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_12b4d2c4ea8eca6e554416842d38a953.setContent(html_d4ac7647d63b06bbe58b23b417ee5a12);
+            
+        
+
+        marker_878a891fbf9017e755361696ac323c4a.bindPopup(popup_12b4d2c4ea8eca6e554416842d38a953)
+        ;
+
+        
+    
+    
+            marker_878a891fbf9017e755361696ac323c4a.bindTooltip(
+                `<div>
+                     #2 - Le Mas de la Palmeraie - Studio dans propriété privée au calme avec piscine et tennis
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_878a891fbf9017e755361696ac323c4a.setIcon(div_icon_5e905e7426dd3fdaeaa6ce597703ed53);
+            
+    
+            var marker_86d360caffe4d0baa989bac3f20df8bb = L.marker(
+                [43.5269723441162, 5.44928753701095],
+                {
+}
+            ).addTo(map_068ba6be9d2f892b73cc1e6f29d72247);
+        
+    
+            var div_icon_35722d09cb6d8972cfca273707f5b70b = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e3\u003c/div\u003e\n        ",
+  "className": "empty",
+});
+        
+    
+        var popup_dd3a423cdcf428b8b4dd94ef4115e36f = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_e7fe475ddfda0d908ea3501ade7d0644 = $(`<div id="html_e7fe475ddfda0d908ea3501ade7d0644" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #3</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Les Suites du Cours & Spa</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Aix en Provence</p>         <p><b>⭐</b> 9.2/10 (377 avis)</p>         <p><b>💰</b> 398 USD</p>         <p><b>🌤️</b> Score météo: 76.33</p>         <p><b>🌡️</b> 13.0°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 9.45/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/les-suites-du-cours.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_dd3a423cdcf428b8b4dd94ef4115e36f.setContent(html_e7fe475ddfda0d908ea3501ade7d0644);
+            
+        
+
+        marker_86d360caffe4d0baa989bac3f20df8bb.bindPopup(popup_dd3a423cdcf428b8b4dd94ef4115e36f)
+        ;
+
+        
+    
+    
+            marker_86d360caffe4d0baa989bac3f20df8bb.bindTooltip(
+                `<div>
+                     #3 - Les Suites du Cours & Spa
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_86d360caffe4d0baa989bac3f20df8bb.setIcon(div_icon_35722d09cb6d8972cfca273707f5b70b);
+            
+    
+            var marker_18ce22525cb72b3147ec06b6c99cc2fc = L.marker(
+                [43.12345, 6.35285],
+                {
+}
+            ).addTo(map_068ba6be9d2f892b73cc1e6f29d72247);
+        
+    
+            var div_icon_e4096ab06e7a925feb9fb506f95313d6 = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e4\u003c/div\u003e\n        ",
+  "className": "empty",
+});
+        
+    
+        var popup_f49dac6a49b624e324dea3c7cd0ea5a3 = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_1344e041f561036f250e818a24b3d090 = $(`<div id="html_1344e041f561036f250e818a24b3d090" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #4</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">La Favière proche de la plage</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Bormes les Mimosas</p>         <p><b>⭐</b> 9.5/10 (12 avis)</p>         <p><b>💰</b> 242 USD</p>         <p><b>🌤️</b> Score météo: 76.00</p>         <p><b>🌡️</b> 13.0°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 9.44/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/la-faviere-proche-de-la-plage.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_f49dac6a49b624e324dea3c7cd0ea5a3.setContent(html_1344e041f561036f250e818a24b3d090);
+            
+        
+
+        marker_18ce22525cb72b3147ec06b6c99cc2fc.bindPopup(popup_f49dac6a49b624e324dea3c7cd0ea5a3)
+        ;
+
+        
+    
+    
+            marker_18ce22525cb72b3147ec06b6c99cc2fc.bindTooltip(
+                `<div>
+                     #4 - La Favière proche de la plage
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_18ce22525cb72b3147ec06b6c99cc2fc.setIcon(div_icon_e4096ab06e7a925feb9fb506f95313d6);
+            
+    
+            var marker_7db8b2918902efb785fe47bcf65e7a68 = L.marker(
+                [43.149232813225, 6.341970146281],
+                {
+}
+            ).addTo(map_068ba6be9d2f892b73cc1e6f29d72247);
+        
+    
+            var div_icon_54193b0d498d5576a7bce08f9c05ebfa = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e5\u003c/div\u003e\n        ",
+  "className": "empty",
+});
+        
+    
+        var popup_b589fc83ecbb210cc1ea2cc53b36865a = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_b77577ebbdf67626aecf81c3a5b9854c = $(`<div id="html_b77577ebbdf67626aecf81c3a5b9854c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #5</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Boulevard du Soleil</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Bormes les Mimosas</p>         <p><b>⭐</b> 9.5/10 (58 avis)</p>         <p><b>💰</b> 242 USD</p>         <p><b>🌤️</b> Score météo: 76.00</p>         <p><b>🌡️</b> 13.0°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 9.44/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/boulevard-du-soleil.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=&chal_t=1762886881324&force_referer=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_b589fc83ecbb210cc1ea2cc53b36865a.setContent(html_b77577ebbdf67626aecf81c3a5b9854c);
+            
+        
+
+        marker_7db8b2918902efb785fe47bcf65e7a68.bindPopup(popup_b589fc83ecbb210cc1ea2cc53b36865a)
+        ;
+
+        
+    
+    
+            marker_7db8b2918902efb785fe47bcf65e7a68.bindTooltip(
+                `<div>
+                     #5 - Boulevard du Soleil
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7db8b2918902efb785fe47bcf65e7a68.setIcon(div_icon_54193b0d498d5576a7bce08f9c05ebfa);
+            
+    
+            var marker_a0601b3ad8e8d123479476a890fa7443 = L.marker(
+                [43.4991564242671, 5.43205648570552],
+                {
+}
+            ).addTo(map_068ba6be9d2f892b73cc1e6f29d72247);
+        
+    
+            var div_icon_ad0a112c5e03fd232bb56a7023189be3 = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e6\u003c/div\u003e\n        ",
+  "className": "empty",
+});
+        
+    
+        var popup_8a9a07f47c41fb06733c805c475464fc = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_60ffb8f0282cfe03b26171bd3b06f8e7 = $(`<div id="html_60ffb8f0282cfe03b26171bd3b06f8e7" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #6</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Domaine de Saint Clair</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Aix en Provence</p>         <p><b>⭐</b> 9.6/10 (187 avis)</p>         <p><b>💰</b> 561 USD</p>         <p><b>🌤️</b> Score météo: 76.33</p>         <p><b>🌡️</b> 13.0°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 9.44/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/domaine-de-saint-clair.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_8a9a07f47c41fb06733c805c475464fc.setContent(html_60ffb8f0282cfe03b26171bd3b06f8e7);
+            
+        
+
+        marker_a0601b3ad8e8d123479476a890fa7443.bindPopup(popup_8a9a07f47c41fb06733c805c475464fc)
+        ;
+
+        
+    
+    
+            marker_a0601b3ad8e8d123479476a890fa7443.bindTooltip(
+                `<div>
+                     #6 - Domaine de Saint Clair
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a0601b3ad8e8d123479476a890fa7443.setIcon(div_icon_ad0a112c5e03fd232bb56a7023189be3);
+            
+    
+            var marker_23c38fe8b878b37cc74173a117c9ad71 = L.marker(
+                [43.28282806447971, 5.387259051203728],
+                {
+}
+            ).addTo(map_068ba6be9d2f892b73cc1e6f29d72247);
+        
+    
+            var div_icon_c87047127d756a189c5e71f17218ace0 = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e7\u003c/div\u003e\n        ",
+  "className": "empty",
+});
+        
+    
+        var popup_add8eb34a5c182ea3c3e9e4b6751ca1f = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_54d6540c71a9df851aed132003504628 = $(`<div id="html_54d6540c71a9df851aed132003504628" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #7</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">RockyPop Marseille Hôtel</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Marseille</p>         <p><b>⭐</b> 9.1/10 (277 avis)</p>         <p><b>💰</b> 252 USD</p>         <p><b>🌤️</b> Score météo: 76.17</p>         <p><b>🌡️</b> 15.1°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 9.42/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/citadines-aparthotel-marseilleprado.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=&chal_t=1762886125651&force_referer=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_add8eb34a5c182ea3c3e9e4b6751ca1f.setContent(html_54d6540c71a9df851aed132003504628);
+            
+        
+
+        marker_23c38fe8b878b37cc74173a117c9ad71.bindPopup(popup_add8eb34a5c182ea3c3e9e4b6751ca1f)
+        ;
+
+        
+    
+    
+            marker_23c38fe8b878b37cc74173a117c9ad71.bindTooltip(
+                `<div>
+                     #7 - RockyPop Marseille Hôtel
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_23c38fe8b878b37cc74173a117c9ad71.setIcon(div_icon_c87047127d756a189c5e71f17218ace0);
+            
+    
+            var marker_0ae9f3d560bd32809f4a2f0a0905620a = L.marker(
+                [43.2865487, 5.3797922],
+                {
+}
+            ).addTo(map_068ba6be9d2f892b73cc1e6f29d72247);
+        
+    
+            var div_icon_b067a436786457f4c3d1a811251a8181 = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e8\u003c/div\u003e\n        ",
+  "className": "empty",
+});
+        
+    
+        var popup_c01fa76bf2f9eb1b0f363f0fde62e4cd = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_5b41402478dca5a5aaa64342f2aaedd3 = $(`<div id="html_5b41402478dca5a5aaa64342f2aaedd3" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #8</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Loft 200m2 avec écran led géant de 10m2</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Marseille</p>         <p><b>⭐</b> 9.4/10 (52 avis)</p>         <p><b>💰</b> 397 USD</p>         <p><b>🌤️</b> Score météo: 76.17</p>         <p><b>🌡️</b> 15.1°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 9.39/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/t4-loft-paradis.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_c01fa76bf2f9eb1b0f363f0fde62e4cd.setContent(html_5b41402478dca5a5aaa64342f2aaedd3);
+            
+        
+
+        marker_0ae9f3d560bd32809f4a2f0a0905620a.bindPopup(popup_c01fa76bf2f9eb1b0f363f0fde62e4cd)
+        ;
+
+        
+    
+    
+            marker_0ae9f3d560bd32809f4a2f0a0905620a.bindTooltip(
+                `<div>
+                     #8 - Loft 200m2 avec écran led géant de 10m2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0ae9f3d560bd32809f4a2f0a0905620a.setIcon(div_icon_b067a436786457f4c3d1a811251a8181);
+            
+    
+            var marker_eb0ae0cf66c7abe00a37abd2abde1e92 = L.marker(
+                [43.5255712, 5.4423252],
+                {
+}
+            ).addTo(map_068ba6be9d2f892b73cc1e6f29d72247);
+        
+    
+            var div_icon_3a7e47f802f9fc5bb6effbf76694d147 = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e9\u003c/div\u003e\n        ",
+  "className": "empty",
+});
+        
+    
+        var popup_fb841b67eb0201ee1e7f1613b0d21611 = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_b048feb2b0abb9104ff264682a2bfa8c = $(`<div id="html_b048feb2b0abb9104ff264682a2bfa8c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #9</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Terrasse & Spa dans Aix Hypercentre</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Aix en Provence</p>         <p><b>⭐</b> 8.8/10 (29 avis)</p>         <p><b>💰</b> 303 USD</p>         <p><b>🌤️</b> Score météo: 76.33</p>         <p><b>🌡️</b> 13.0°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 9.38/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/waves-house.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_fb841b67eb0201ee1e7f1613b0d21611.setContent(html_b048feb2b0abb9104ff264682a2bfa8c);
+            
+        
+
+        marker_eb0ae0cf66c7abe00a37abd2abde1e92.bindPopup(popup_fb841b67eb0201ee1e7f1613b0d21611)
+        ;
+
+        
+    
+    
+            marker_eb0ae0cf66c7abe00a37abd2abde1e92.bindTooltip(
+                `<div>
+                     #9 - Terrasse & Spa dans Aix Hypercentre
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_eb0ae0cf66c7abe00a37abd2abde1e92.setIcon(div_icon_3a7e47f802f9fc5bb6effbf76694d147);
+            
+    
+            var marker_421df2619bc08af7b5f29e7e91b280e6 = L.marker(
+                [43.150652, 6.3411229],
+                {
+}
+            ).addTo(map_068ba6be9d2f892b73cc1e6f29d72247);
+        
+    
+            var div_icon_2025f6c1498fbf30e645812d7bc6452b = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e10\u003c/div\u003e\n        ",
+  "className": "empty",
+});
+        
+    
+        var popup_86742a88b036f3069abe6785a6bcbd4e = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_14570063d6b0784d593842bf2e4ccf38 = $(`<div id="html_14570063d6b0784d593842bf2e4ccf38" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #10</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Romantic getaway in Bormes</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Bormes les Mimosas</p>         <p><b>⭐</b> 9.5/10 (12 avis)</p>         <p><b>💰</b> 298 USD</p>         <p><b>🌤️</b> Score météo: 76.00</p>         <p><b>🌡️</b> 13.0°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 9.38/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/romantic-getaway-in-bormes.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_86742a88b036f3069abe6785a6bcbd4e.setContent(html_14570063d6b0784d593842bf2e4ccf38);
+            
+        
+
+        marker_421df2619bc08af7b5f29e7e91b280e6.bindPopup(popup_86742a88b036f3069abe6785a6bcbd4e)
+        ;
+
+        
+    
+    
+            marker_421df2619bc08af7b5f29e7e91b280e6.bindTooltip(
+                `<div>
+                     #10 - Romantic getaway in Bormes
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_421df2619bc08af7b5f29e7e91b280e6.setIcon(div_icon_2025f6c1498fbf30e645812d7bc6452b);
+            
+    
+            var marker_2853b30ac2a9b78a213be7b7b6a8a9e1 = L.marker(
+                [43.5302425, 5.4470586],
+                {
+}
+            ).addTo(map_068ba6be9d2f892b73cc1e6f29d72247);
+        
+    
+            var div_icon_133ac5dd7d03b7ec96ee0228fcbcf3d8 = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e11\u003c/div\u003e\n        ",
+  "className": "empty",
+});
+        
+    
+        var popup_ffbff8c95476ff21d7bea042d1b2adb4 = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_b41a0eda186ba73e578386ddc1a05b98 = $(`<div id="html_b41a0eda186ba73e578386ddc1a05b98" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #11</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Studio climatisé plein centre 4eme étage</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Aix en Provence</p>         <p><b>⭐</b> 8.4/10 (24 avis)</p>         <p><b>💰</b> 174 USD</p>         <p><b>🌤️</b> Score météo: 76.33</p>         <p><b>🌡️</b> 13.0°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 9.36/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/studio-plein-centre-3eme-etage.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=&chal_t=1762886886874&force_referer=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_ffbff8c95476ff21d7bea042d1b2adb4.setContent(html_b41a0eda186ba73e578386ddc1a05b98);
+            
+        
+
+        marker_2853b30ac2a9b78a213be7b7b6a8a9e1.bindPopup(popup_ffbff8c95476ff21d7bea042d1b2adb4)
+        ;
+
+        
+    
+    
+            marker_2853b30ac2a9b78a213be7b7b6a8a9e1.bindTooltip(
+                `<div>
+                     #11 - Studio climatisé plein centre 4eme étage
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2853b30ac2a9b78a213be7b7b6a8a9e1.setIcon(div_icon_133ac5dd7d03b7ec96ee0228fcbcf3d8);
+            
+    
+            var marker_bc2133f329d8470b73a7bf8b6127e17b = L.marker(
+                [43.52890621393209, 5.440869033336639],
+                {
+}
+            ).addTo(map_068ba6be9d2f892b73cc1e6f29d72247);
+        
+    
+            var div_icon_fc420ad071e57914a7f57342ab74ae3c = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e12\u003c/div\u003e\n        ",
+  "className": "empty",
+});
+        
+    
+        var popup_902b06f9c0e7f056d0798811c5c34e7a = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_6f73e1e504bd54bfd65e79406938e79c = $(`<div id="html_6f73e1e504bd54bfd65e79406938e79c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #12</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Aparthotel Adagio Aix-en-Provence Centre</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Aix en Provence</p>         <p><b>⭐</b> 8.5/10 (1916 avis)</p>         <p><b>💰</b> 221 USD</p>         <p><b>🌤️</b> Score météo: 76.33</p>         <p><b>🌡️</b> 13.0°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 9.35/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/pierre-vacances-city-centre.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_902b06f9c0e7f056d0798811c5c34e7a.setContent(html_6f73e1e504bd54bfd65e79406938e79c);
+            
+        
+
+        marker_bc2133f329d8470b73a7bf8b6127e17b.bindPopup(popup_902b06f9c0e7f056d0798811c5c34e7a)
+        ;
+
+        
+    
+    
+            marker_bc2133f329d8470b73a7bf8b6127e17b.bindTooltip(
+                `<div>
+                     #12 - Aparthotel Adagio Aix-en-Provence Centre
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_bc2133f329d8470b73a7bf8b6127e17b.setIcon(div_icon_fc420ad071e57914a7f57342ab74ae3c);
+            
+    
+            var marker_22884f3e8865be3fc3bf1de87e68ca16 = L.marker(
+                [43.5310473, 5.4495993],
+                {
+}
+            ).addTo(map_068ba6be9d2f892b73cc1e6f29d72247);
+        
+    
+            var div_icon_6b031a24ed274d597e72c07bf398b423 = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e13\u003c/div\u003e\n        ",
+  "className": "empty",
+});
+        
+    
+        var popup_fbb980ae72c6ba177e4ccf1eb2c6ec6d = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_388b44177937cfd1d70c2d5bd207d0eb = $(`<div id="html_388b44177937cfd1d70c2d5bd207d0eb" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #13</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Lou Pitchoun</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Aix en Provence</p>         <p><b>⭐</b> 8.5/10 (101 avis)</p>         <p><b>💰</b> 247 USD</p>         <p><b>🌤️</b> Score météo: 76.33</p>         <p><b>🌡️</b> 13.0°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 9.32/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/lou-pitchoun-aix-en-provence.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=&chal_t=1762887522922&force_referer=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_fbb980ae72c6ba177e4ccf1eb2c6ec6d.setContent(html_388b44177937cfd1d70c2d5bd207d0eb);
+            
+        
+
+        marker_22884f3e8865be3fc3bf1de87e68ca16.bindPopup(popup_fbb980ae72c6ba177e4ccf1eb2c6ec6d)
+        ;
+
+        
+    
+    
+            marker_22884f3e8865be3fc3bf1de87e68ca16.bindTooltip(
+                `<div>
+                     #13 - Lou Pitchoun
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_22884f3e8865be3fc3bf1de87e68ca16.setIcon(div_icon_6b031a24ed274d597e72c07bf398b423);
+            
+    
+            var marker_ee684d6943344b668c5b3c794c44f4a9 = L.marker(
+                [43.490778, 5.383993],
+                {
+}
+            ).addTo(map_068ba6be9d2f892b73cc1e6f29d72247);
+        
+    
+            var div_icon_ddfe4b7ef90a0ca3e50a9713f1d0da3e = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e14\u003c/div\u003e\n        ",
+  "className": "empty",
+});
+        
+    
+        var popup_f7ad057d145cb33590013c917ce9c142 = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_2bea759a86b6644963db9ecea495bac9 = $(`<div id="html_2bea759a86b6644963db9ecea495bac9" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #14</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">La Gracette</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Aix en Provence</p>         <p><b>⭐</b> 8.5/10 (68 avis)</p>         <p><b>💰</b> 249 USD</p>         <p><b>🌤️</b> Score météo: 76.33</p>         <p><b>🌡️</b> 13.0°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 9.32/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/la-gracette.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=&chal_t=1762887784311&force_referer=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_f7ad057d145cb33590013c917ce9c142.setContent(html_2bea759a86b6644963db9ecea495bac9);
+            
+        
+
+        marker_ee684d6943344b668c5b3c794c44f4a9.bindPopup(popup_f7ad057d145cb33590013c917ce9c142)
+        ;
+
+        
+    
+    
+            marker_ee684d6943344b668c5b3c794c44f4a9.bindTooltip(
+                `<div>
+                     #14 - La Gracette
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ee684d6943344b668c5b3c794c44f4a9.setIcon(div_icon_ddfe4b7ef90a0ca3e50a9713f1d0da3e);
+            
+    
+            var marker_9557662c540fc293248713bdeef6bf14 = L.marker(
+                [43.5255987, 5.45172079999998],
+                {
+}
+            ).addTo(map_068ba6be9d2f892b73cc1e6f29d72247);
+        
+    
+            var div_icon_8ebd2f4df3d49e45dc5254c0c3daeeec = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e15\u003c/div\u003e\n        ",
+  "className": "empty",
+});
+        
+    
+        var popup_919c331d861a50cba3894c5208c14554 = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_90f63384418709d56f5e7aa7afeaaf7a = $(`<div id="html_90f63384418709d56f5e7aa7afeaaf7a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #15</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Hotel Cardinal</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Aix en Provence</p>         <p><b>⭐</b> 8.6/10 (1481 avis)</p>         <p><b>💰</b> 313 USD</p>         <p><b>🌤️</b> Score météo: 76.33</p>         <p><b>🌡️</b> 13.0°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 9.29/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/cardinal.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=&chal_t=1762886394488&force_referer=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_919c331d861a50cba3894c5208c14554.setContent(html_90f63384418709d56f5e7aa7afeaaf7a);
+            
+        
+
+        marker_9557662c540fc293248713bdeef6bf14.bindPopup(popup_919c331d861a50cba3894c5208c14554)
+        ;
+
+        
+    
+    
+            marker_9557662c540fc293248713bdeef6bf14.bindTooltip(
+                `<div>
+                     #15 - Hotel Cardinal
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9557662c540fc293248713bdeef6bf14.setIcon(div_icon_8ebd2f4df3d49e45dc5254c0c3daeeec);
+            
+    
+            var marker_d912d5927174b537259764938400ac60 = L.marker(
+                [43.3024211, 5.36863370000003],
+                {
+}
+            ).addTo(map_068ba6be9d2f892b73cc1e6f29d72247);
+        
+    
+            var div_icon_2745848304bc44c5d19abd5e090b12bb = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e16\u003c/div\u003e\n        ",
+  "className": "empty",
+});
+        
+    
+        var popup_924a3071aba56d226acd919105999258 = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_d41cbc3738dd3234dae04823e5468de2 = $(`<div id="html_d41cbc3738dd3234dae04823e5468de2" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #16</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">NH Collection Marseille</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Marseille</p>         <p><b>⭐</b> 8.8/10 (3084 avis)</p>         <p><b>💰</b> 318 USD</p>         <p><b>🌤️</b> Score météo: 76.17</p>         <p><b>🌡️</b> 15.1°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 9.22/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/nh-collection-marseille.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_924a3071aba56d226acd919105999258.setContent(html_d41cbc3738dd3234dae04823e5468de2);
+            
+        
+
+        marker_d912d5927174b537259764938400ac60.bindPopup(popup_924a3071aba56d226acd919105999258)
+        ;
+
+        
+    
+    
+            marker_d912d5927174b537259764938400ac60.bindTooltip(
+                `<div>
+                     #16 - NH Collection Marseille
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d912d5927174b537259764938400ac60.setIcon(div_icon_2745848304bc44c5d19abd5e090b12bb);
+            
+    
+            var marker_6c25299eb7f57977f4e587e1eda5564f = L.marker(
+                [43.293512, 5.372234],
+                {
+}
+            ).addTo(map_068ba6be9d2f892b73cc1e6f29d72247);
+        
+    
+            var div_icon_53f50b2f052cd48f1acab284e798e49f = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e17\u003c/div\u003e\n        ",
+  "className": "empty",
+});
+        
+    
+        var popup_e106719feb6634f86cf610eca2c2c27f = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_532826c5fb04bdbf93e39d048ecd694a = $(`<div id="html_532826c5fb04bdbf93e39d048ecd694a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #17</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Maison Galante au Vieux Port</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Marseille</p>         <p><b>⭐</b> 8.8/10 (83 avis)</p>         <p><b>💰</b> 373 USD</p>         <p><b>🌤️</b> Score météo: 76.17</p>         <p><b>🌡️</b> 15.1°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 9.17/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/maison-galante-au-vieux-port.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_e106719feb6634f86cf610eca2c2c27f.setContent(html_532826c5fb04bdbf93e39d048ecd694a);
+            
+        
+
+        marker_6c25299eb7f57977f4e587e1eda5564f.bindPopup(popup_e106719feb6634f86cf610eca2c2c27f)
+        ;
+
+        
+    
+    
+            marker_6c25299eb7f57977f4e587e1eda5564f.bindTooltip(
+                `<div>
+                     #17 - Maison Galante au Vieux Port
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6c25299eb7f57977f4e587e1eda5564f.setIcon(div_icon_53f50b2f052cd48f1acab284e798e49f);
+            
+    
+            var marker_5966ee49144677bd75391bd350acc1f7 = L.marker(
+                [43.278692338557065, 5.388060361146927],
+                {
+}
+            ).addTo(map_068ba6be9d2f892b73cc1e6f29d72247);
+        
+    
+            var div_icon_d90215ed182b740dd0344b0301120f9f = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e18\u003c/div\u003e\n        ",
+  "className": "empty",
+});
+        
+    
+        var popup_e6b18b1bdf6c2c7feab4c161ec6d36d7 = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_3fa26e4cc3a4bf57cd5ac2017ec8d57a = $(`<div id="html_3fa26e4cc3a4bf57cd5ac2017ec8d57a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #18</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Aparthotel Adagio Access Marseille Prado Périer</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Marseille</p>         <p><b>⭐</b> 8.2/10 (2014 avis)</p>         <p><b>💰</b> 149 USD</p>         <p><b>🌤️</b> Score météo: 76.17</p>         <p><b>🌡️</b> 15.1°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 9.16/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/citea-marseille-prado-perier.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=&chal_t=1762886238254&force_referer=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_e6b18b1bdf6c2c7feab4c161ec6d36d7.setContent(html_3fa26e4cc3a4bf57cd5ac2017ec8d57a);
+            
+        
+
+        marker_5966ee49144677bd75391bd350acc1f7.bindPopup(popup_e6b18b1bdf6c2c7feab4c161ec6d36d7)
+        ;
+
+        
+    
+    
+            marker_5966ee49144677bd75391bd350acc1f7.bindTooltip(
+                `<div>
+                     #18 - Aparthotel Adagio Access Marseille Prado Périer
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5966ee49144677bd75391bd350acc1f7.setIcon(div_icon_d90215ed182b740dd0344b0301120f9f);
+            
+    
+            var marker_3a6ebc4cdf6d1cd38e97a191850cb7bc = L.marker(
+                [43.278692338557065, 5.388060361146927],
+                {
+}
+            ).addTo(map_068ba6be9d2f892b73cc1e6f29d72247);
+        
+    
+            var div_icon_5a7169c44ab8e8f979ae23913b89383f = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e19\u003c/div\u003e\n        ",
+  "className": "empty",
+});
+        
+    
+        var popup_b9312667e8dfe3e9c499e2d05dc88646 = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_0a8db03e33dc316b116419ccb846d1fe = $(`<div id="html_0a8db03e33dc316b116419ccb846d1fe" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #19</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Aparthotel Adagio Access Marseille Prado Périer</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Marseille</p>         <p><b>⭐</b> 8.2/10 (2014 avis)</p>         <p><b>💰</b> 149 USD</p>         <p><b>🌤️</b> Score météo: 76.17</p>         <p><b>🌡️</b> 15.1°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 9.16/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/citea-marseille-prado-perier.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=&chal_t=1762886834666&force_referer=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_b9312667e8dfe3e9c499e2d05dc88646.setContent(html_0a8db03e33dc316b116419ccb846d1fe);
+            
+        
+
+        marker_3a6ebc4cdf6d1cd38e97a191850cb7bc.bindPopup(popup_b9312667e8dfe3e9c499e2d05dc88646)
+        ;
+
+        
+    
+    
+            marker_3a6ebc4cdf6d1cd38e97a191850cb7bc.bindTooltip(
+                `<div>
+                     #19 - Aparthotel Adagio Access Marseille Prado Périer
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3a6ebc4cdf6d1cd38e97a191850cb7bc.setIcon(div_icon_5a7169c44ab8e8f979ae23913b89383f);
+            
+    
+            var marker_70ee028b59c45a1d968969a8c1e6babe = L.marker(
+                [43.511916316958825, 5.436653941869736],
+                {
+}
+            ).addTo(map_068ba6be9d2f892b73cc1e6f29d72247);
+        
+    
+            var div_icon_06dea666e108f42577cf1f66545b7f19 = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e20\u003c/div\u003e\n        ",
+  "className": "empty",
+});
+        
+    
+        var popup_cb703443f87c18e862f2600a3e69a8c0 = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_6a721976905c8a35d572db89d348a486 = $(`<div id="html_6a721976905c8a35d572db89d348a486" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #20</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Campanile Prime - Aix-en-Provence Sud - Pont de l'Arc</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Aix en Provence</p>         <p><b>⭐</b> 7.8/10 (3003 avis)</p>         <p><b>💰</b> 155 USD</p>         <p><b>🌤️</b> Score météo: 76.33</p>         <p><b>🌡️</b> 13.0°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 9.13/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/campanile-aix-en-provence-sud.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_cb703443f87c18e862f2600a3e69a8c0.setContent(html_6a721976905c8a35d572db89d348a486);
+            
+        
+
+        marker_70ee028b59c45a1d968969a8c1e6babe.bindPopup(popup_cb703443f87c18e862f2600a3e69a8c0)
+        ;
+
+        
+    
+    
+            marker_70ee028b59c45a1d968969a8c1e6babe.bindTooltip(
+                `<div>
+                     #20 - Campanile Prime - Aix-en-Provence Sud - Pont de l'Arc
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_70ee028b59c45a1d968969a8c1e6babe.setIcon(div_icon_06dea666e108f42577cf1f66545b7f19);
+            
+</script>
+</html>

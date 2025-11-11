@@ -1,0 +1,415 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapport Kayak - Destinations PACA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 40px;
+            background: #f8f9fa;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+        }
+
+        .stat-card .number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+            margin: 10px 0;
+        }
+
+        .stat-card .label {
+            color: #666;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section {
+            padding: 40px;
+        }
+
+        .section h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .hotel-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border-left: 5px solid #667eea;
+        }
+
+        .hotel-card:hover {
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            transform: translateX(5px);
+        }
+
+        .hotel-card h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .hotel-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+
+        .badge-rank {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .badge-score {
+            background: #27ae60;
+            color: white;
+        }
+
+        .badge-price {
+            background: #f39c12;
+            color: white;
+        }
+
+        .maps {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .maps {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏖️ Rapport Kayak - Destinations PACA</h1>
+            <p>Analyse complète des meilleures destinations et hébergements</p>
+        </header>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="label">🏨 Hôtels Analysés</div>
+                <div class="number">75</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">🌍 Villes</div>
+                <div class="number">5</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">⭐ Score Moyen</div>
+                <div class="number">7.80/10</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">💰 Prix Moyen</div>
+                <div class="number">329€</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">☀️ Meilleure Météo</div>
+                <div class="number">Aix en Provence</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🏆 Top 5 Recommandations</h2>
+
+            <div class="hotel-card">
+                <span class="badge badge-rank">#1</span>
+                <h3>La Villa Rustica</h3>
+                <div class="hotel-info">
+                    <div class="info-item">
+                        <span>📍</span>
+                        <span><strong>Aix en Provence</strong></span>
+                    </div>
+                    <div class="info-item">
+                        <span>⭐</span>
+                        <span>9.8/10 (66 avis)</span>
+                    </div>
+                    <div class="info-item">
+                        <span>💰</span>
+                        <span>234 USD/nuit</span>
+                    </div>
+                    <div class="info-item">
+                        <span>🌤️</span>
+                        <span>Météo: 76.33</span>
+                    </div>
+                    <div class="info-item">
+                        <span>🎯</span>
+                        <span class="badge badge-score">Score: 9.86/10</span>
+                    </div>
+                </div>
+                <p style="margin-top: 15px;">
+                    <a href="https://www.booking.com/hotel/fr/la-villa-rustica.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=&chal_t=1762887750037&force_referer=" target="_blank" style="color: #667eea; text-decoration: none; font-weight: bold;">
+                        🔗 Voir sur Booking.com →
+                    </a>
+                </p>
+            </div>
+
+            <div class="hotel-card">
+                <span class="badge badge-rank">#2</span>
+                <h3>Le Mas de la Palmeraie - Studio dans propriété privée au calme avec piscine et tennis</h3>
+                <div class="hotel-info">
+                    <div class="info-item">
+                        <span>📍</span>
+                        <span><strong>Bormes les Mimosas</strong></span>
+                    </div>
+                    <div class="info-item">
+                        <span>⭐</span>
+                        <span>9.7/10 (4 avis)</span>
+                    </div>
+                    <div class="info-item">
+                        <span>💰</span>
+                        <span>198 USD/nuit</span>
+                    </div>
+                    <div class="info-item">
+                        <span>🌤️</span>
+                        <span>Météo: 76.00</span>
+                    </div>
+                    <div class="info-item">
+                        <span>🎯</span>
+                        <span class="badge badge-score">Score: 9.57/10</span>
+                    </div>
+                </div>
+                <p style="margin-top: 15px;">
+                    <a href="https://www.booking.com/hotel/fr/le-mas-de-la-palmeraie-studio-dans-propriete-privee-au-calme-avec-piscine-et-ten.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=&chal_t=1762887420179&force_referer=" target="_blank" style="color: #667eea; text-decoration: none; font-weight: bold;">
+                        🔗 Voir sur Booking.com →
+                    </a>
+                </p>
+            </div>
+
+            <div class="hotel-card">
+                <span class="badge badge-rank">#3</span>
+                <h3>Les Suites du Cours & Spa</h3>
+                <div class="hotel-info">
+                    <div class="info-item">
+                        <span>📍</span>
+                        <span><strong>Aix en Provence</strong></span>
+                    </div>
+                    <div class="info-item">
+                        <span>⭐</span>
+                        <span>9.2/10 (377 avis)</span>
+                    </div>
+                    <div class="info-item">
+                        <span>💰</span>
+                        <span>398 USD/nuit</span>
+                    </div>
+                    <div class="info-item">
+                        <span>🌤️</span>
+                        <span>Météo: 76.33</span>
+                    </div>
+                    <div class="info-item">
+                        <span>🎯</span>
+                        <span class="badge badge-score">Score: 9.45/10</span>
+                    </div>
+                </div>
+                <p style="margin-top: 15px;">
+                    <a href="https://www.booking.com/hotel/fr/les-suites-du-cours.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=" target="_blank" style="color: #667eea; text-decoration: none; font-weight: bold;">
+                        🔗 Voir sur Booking.com →
+                    </a>
+                </p>
+            </div>
+
+            <div class="hotel-card">
+                <span class="badge badge-rank">#4</span>
+                <h3>La Favière proche de la plage</h3>
+                <div class="hotel-info">
+                    <div class="info-item">
+                        <span>📍</span>
+                        <span><strong>Bormes les Mimosas</strong></span>
+                    </div>
+                    <div class="info-item">
+                        <span>⭐</span>
+                        <span>9.5/10 (12 avis)</span>
+                    </div>
+                    <div class="info-item">
+                        <span>💰</span>
+                        <span>242 USD/nuit</span>
+                    </div>
+                    <div class="info-item">
+                        <span>🌤️</span>
+                        <span>Météo: 76.00</span>
+                    </div>
+                    <div class="info-item">
+                        <span>🎯</span>
+                        <span class="badge badge-score">Score: 9.44/10</span>
+                    </div>
+                </div>
+                <p style="margin-top: 15px;">
+                    <a href="https://www.booking.com/hotel/fr/la-faviere-proche-de-la-plage.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=" target="_blank" style="color: #667eea; text-decoration: none; font-weight: bold;">
+                        🔗 Voir sur Booking.com →
+                    </a>
+                </p>
+            </div>
+
+            <div class="hotel-card">
+                <span class="badge badge-rank">#5</span>
+                <h3>Boulevard du Soleil</h3>
+                <div class="hotel-info">
+                    <div class="info-item">
+                        <span>📍</span>
+                        <span><strong>Bormes les Mimosas</strong></span>
+                    </div>
+                    <div class="info-item">
+                        <span>⭐</span>
+                        <span>9.5/10 (58 avis)</span>
+                    </div>
+                    <div class="info-item">
+                        <span>💰</span>
+                        <span>242 USD/nuit</span>
+                    </div>
+                    <div class="info-item">
+                        <span>🌤️</span>
+                        <span>Météo: 76.00</span>
+                    </div>
+                    <div class="info-item">
+                        <span>🎯</span>
+                        <span class="badge badge-score">Score: 9.44/10</span>
+                    </div>
+                </div>
+                <p style="margin-top: 15px;">
+                    <a href="https://www.booking.com/hotel/fr/boulevard-du-soleil.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=&chal_t=1762886881324&force_referer=" target="_blank" style="color: #667eea; text-decoration: none; font-weight: bold;">
+                        🔗 Voir sur Booking.com →
+                    </a>
+                </p>
+            </div>
+
+        </div>
+
+        <div class="section">
+            <h2>🗺️ Cartes Interactives</h2>
+            <div class="maps">
+                <div class="map-container">
+                    <h3 style="text-align: center; padding: 15px; background: #f8f9fa;">
+                        Tous les Hôtels (75)
+                    </h3>
+                    <iframe src="carte_tous_hotels.html"></iframe>
+                </div>
+                <div class="map-container">
+                    <h3 style="text-align: center; padding: 15px; background: #f8f9fa;">
+                        Top 20 Recommandations
+                    </h3>
+                    <iframe src="carte_top20.html"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📊 Analyse Visuelle</h2>
+            <img src="dashboard_complet.png" alt="Dashboard" style="width: 100%; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        </div>
+
+        <footer>
+            <p>Rapport généré le 11/11/2025 à 21:28</p>
+            <p>Projet Kayak - Analyse Data Science</p>
+        </footer>
+    </div>
+</body>
+</html>
