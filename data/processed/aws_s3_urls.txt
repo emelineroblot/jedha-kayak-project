@@ -1,0 +1,67 @@
+============================================================
+🌐 URLs AWS S3 - Projet Kayak
+============================================================
+
+📦 Bucket : 251107-140505-jedha-kayak-project
+🌍 Région : eu-west-3
+
+============================================================
+🎯 FICHIERS PRINCIPAUX
+============================================================
+
+📁 Données CSV
+https://251107-140505-jedha-kayak-project.s3.eu-west-3.amazonaws.com/data/final_recommendations.csv
+
+📄 Rapport Final
+https://251107-140505-jedha-kayak-project.s3.eu-west-3.amazonaws.com/rapport_final.html
+
+🗺️ Carte Complète
+https://251107-140505-jedha-kayak-project.s3.eu-west-3.amazonaws.com/cartes/carte_tous_hotels.html
+
+🏆 Carte Top 20
+https://251107-140505-jedha-kayak-project.s3.eu-west-3.amazonaws.com/cartes/carte_top20.html
+
+📊 Dashboard
+https://251107-140505-jedha-kayak-project.s3.eu-west-3.amazonaws.com/images/dashboard_complet.png
+
+📈 Analyse Fusion
+https://251107-140505-jedha-kayak-project.s3.eu-west-3.amazonaws.com/images/analysis_fusion.png
+
+============================================================
+📁 TOUS LES FICHIERS
+============================================================
+
+• ../data/final_recommendations.csv
+  https://251107-140505-jedha-kayak-project.s3.eu-west-3.amazonaws.com/../data/final_recommendations.csv
+
+• ../data/top20_recommendations.csv
+  https://251107-140505-jedha-kayak-project.s3.eu-west-3.amazonaws.com/../data/top20_recommendations.csv
+
+• ../data/city_weather_scores.csv
+  https://251107-140505-jedha-kayak-project.s3.eu-west-3.amazonaws.com/../data/city_weather_scores.csv
+
+• ../data/top5_destinations.csv
+  https://251107-140505-jedha-kayak-project.s3.eu-west-3.amazonaws.com/../data/top5_destinations.csv
+
+• ../data/raw/hotels_top5_all.csv
+  https://251107-140505-jedha-kayak-project.s3.eu-west-3.amazonaws.com/../data/raw/hotels_top5_all.csv
+
+• ../rapport_final.html
+  https://251107-140505-jedha-kayak-project.s3.eu-west-3.amazonaws.com/../rapport_final.html
+
+• ../cartes/carte_tous_hotels.html
+  https://251107-140505-jedha-kayak-project.s3.eu-west-3.amazonaws.com/../cartes/carte_tous_hotels.html
+
+• ../cartes/carte_top20.html
+  https://251107-140505-jedha-kayak-project.s3.eu-west-3.amazonaws.com/../cartes/carte_top20.html
+
+• ../images/dashboard_complet.png
+  https://251107-140505-jedha-kayak-project.s3.eu-west-3.amazonaws.com/../images/dashboard_complet.png
+
+• ../images/analysis_fusion.png
+  https://251107-140505-jedha-kayak-project.s3.eu-west-3.amazonaws.com/../images/analysis_fusion.png
+
+
+============================================================
+Généré le : 2025-11-12 22:15:58
+============================================================

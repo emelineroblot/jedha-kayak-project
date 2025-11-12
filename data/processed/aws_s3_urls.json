@@ -1,0 +1,14 @@
+{
+  "bucket": "251107-140505-jedha-kayak-project",
+  "region": "eu-west-3",
+  "base_url": "https://251107-140505-jedha-kayak-project.s3.eu-west-3.amazonaws.com",
+  "files": {
+    "📁 Données CSV": "https://251107-140505-jedha-kayak-project.s3.eu-west-3.amazonaws.com/data/final_recommendations.csv",
+    "📄 Rapport Final": "https://251107-140505-jedha-kayak-project.s3.eu-west-3.amazonaws.com/rapport_final.html",
+    "🗺️ Carte Complète": "https://251107-140505-jedha-kayak-project.s3.eu-west-3.amazonaws.com/cartes/carte_tous_hotels.html",
+    "🏆 Carte Top 20": "https://251107-140505-jedha-kayak-project.s3.eu-west-3.amazonaws.com/cartes/carte_top20.html",
+    "📊 Dashboard": "https://251107-140505-jedha-kayak-project.s3.eu-west-3.amazonaws.com/images/dashboard_complet.png",
+    "📈 Analyse Fusion": "https://251107-140505-jedha-kayak-project.s3.eu-west-3.amazonaws.com/images/analysis_fusion.png"
+  },
+  "timestamp": "2025-11-12T22:15:58.257184"
+}
