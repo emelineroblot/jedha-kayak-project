@@ -256,7 +256,7 @@ kayak_project/
 - Python 3.8+
 - pip
 - Jupyter Notebook
-- Compte Apify (pour scraping Booking.com)
+- Compte BrightData (pour scraping Booking.com)
 - Compte AWS (pour déploiement cloud)
 
 ### Étapes
