@@ -231,12 +231,18 @@ dans les données mais exclus du classement (une note absente n'est pas un 0/10)
 2. Configuration de l'accès public via Bucket Policy
 3. Génération des URLs publiques
 
-**Résultat** : 
+**Résultat** :
 ```
-📄 Rapport Final : https://251107-140505-jedha-kayak-project.s3.eu-west-3.amazonaws.com/rapport_final.html
-🗺️ Carte Complète : https://251107-140505-jedha-kayak-project.s3.eu-west-3.amazonaws.com/cartes/carte_tous_hotels.html
-🏆 Carte Top 20 : https://251107-140505-jedha-kayak-project.s3.eu-west-3.amazonaws.com/cartes/carte_top20.html
+📄 Rapport Final   : https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/rapport_final.html
+🗺️ Carte Complète  : https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/carte_tous_hotels.html
+🏆 Carte Top 20    : https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/carte_top20.html
+📊 Dashboard       : https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/dashboard_complet.png
+📁 Données CSV     : https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/data/final_recommendations.csv
 ```
+
+> Le rapport HTML référence ses cartes et son dashboard par des chemins **relatifs plats**.
+> Ces trois fichiers doivent donc être déposés dans le **même préfixe** que le rapport, à la
+> racine du bucket — sinon les deux iframes et l'image renvoient un 404 une fois en ligne.
 
 ---
 

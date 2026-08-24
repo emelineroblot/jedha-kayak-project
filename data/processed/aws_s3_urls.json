@@ -1,14 +1,26 @@
 {
-  "bucket": "251107-140505-jedha-kayak-project",
-  "region": "eu-west-3",
-  "base_url": "https://251107-140505-jedha-kayak-project.s3.eu-west-3.amazonaws.com",
+  "bucket": "260824-181205-jedha-kayak-project",
+  "region": "eu-north-1",
+  "base_url": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com",
   "files": {
-    "📁 Données CSV": "https://251107-140505-jedha-kayak-project.s3.eu-west-3.amazonaws.com/data/final_recommendations.csv",
-    "📄 Rapport Final": "https://251107-140505-jedha-kayak-project.s3.eu-west-3.amazonaws.com/rapport_final.html",
-    "🗺️ Carte Complète": "https://251107-140505-jedha-kayak-project.s3.eu-west-3.amazonaws.com/cartes/carte_tous_hotels.html",
-    "🏆 Carte Top 20": "https://251107-140505-jedha-kayak-project.s3.eu-west-3.amazonaws.com/cartes/carte_top20.html",
-    "📊 Dashboard": "https://251107-140505-jedha-kayak-project.s3.eu-west-3.amazonaws.com/images/dashboard_complet.png",
-    "📈 Analyse Fusion": "https://251107-140505-jedha-kayak-project.s3.eu-west-3.amazonaws.com/images/analysis_fusion.png"
+    "📁 Données CSV": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/data/final_recommendations.csv",
+    "📄 Rapport Final": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/rapport_final.html",
+    "🗺️ Carte Complète": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/carte_tous_hotels.html",
+    "🏆 Carte Top 20": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/carte_top20.html",
+    "📊 Dashboard": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/dashboard_complet.png",
+    "📈 Analyse Fusion": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/analysis_fusion.png"
   },
-  "timestamp": "2025-11-12T22:15:58.257184"
+  "all_keys": {
+    "data/final_recommendations.csv": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/data/final_recommendations.csv",
+    "data/top20_recommendations.csv": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/data/top20_recommendations.csv",
+    "data/top5_destinations.csv": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/data/top5_destinations.csv",
+    "data/hotels_cleaned.csv": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/data/hotels_cleaned.csv",
+    "data/raw/hotels_top5_all.csv": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/data/raw/hotels_top5_all.csv",
+    "rapport_final.html": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/rapport_final.html",
+    "carte_tous_hotels.html": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/carte_tous_hotels.html",
+    "carte_top20.html": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/carte_top20.html",
+    "dashboard_complet.png": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/dashboard_complet.png",
+    "analysis_fusion.png": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/analysis_fusion.png"
+  },
+  "timestamp": "2026-08-24T20:01:20.059300"
 }
