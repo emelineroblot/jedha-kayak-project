@@ -277,8 +277,16 @@ dans les données mais exclus du classement (une note absente n'est pas un 0/10)
 ✅ 74 hôtels importés
 ✅ 72 recommandations importées
 ✅ 5 enregistrements météo
-💾 Taille de la base : ~8 MB
+💾 Taille de la base : 8,4 MB
 ```
+
+Instance : `kayak-db.cta2iqgqyibu.eu-north-1.rds.amazonaws.com:5432`, PostgreSQL 18.3,
+`db.t4g.micro`, base `kayak`.
+
+Contrôles d'intégrité après import : aucun hôtel orphelin (tous rattachés à une ville),
+devise unique en base (`EUR`), prix de 45 à 863 €/nuit. Les 2 hôtels sans avis sont
+présents dans `hotels` mais absents de `recommendations` — une note absente n'est pas
+une note de 0/10, ils ne peuvent donc pas être classés.
 
 ---
 
