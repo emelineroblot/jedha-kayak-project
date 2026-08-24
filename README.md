@@ -44,7 +44,7 @@ Le système génère des **recommandations personnalisées** sous forme de :
 
 - **35 villes** analysées avec données météo complètes
 - **Top 5 destinations** identifiées
-- **75 hôtels** récupérés (15 par ville)
+- **75 hôtels** collectés (15 par ville), **74** après déduplication, **72** classés
 - **Score final** combinant météo (40%), qualité (40%), prix (20%)
 - **Cartes interactives** avec géolocalisation GPS
 - **Rapport HTML** professionnel
@@ -112,11 +112,18 @@ kayak_project/
 
 **Actions** :
 1. Collecte via API météo (OpenWeatherMap)
-2. Calcul d'un score composite pondéré :
-   - 🌡️ **Température** (30%) : optimal entre 20-28°C
-   - ☔ **Précipitations** (30%) : plus c'est faible, mieux c'est
-   - ☀️ **Ensoleillement** (25%) : maximum d'heures de soleil
-   - 💨 **Vent** (15%) : faible vitesse préférée
+2. Calcul d'un score composite pondéré (total 100 points) :
+   - 🌡️ **Température** (25 pts) : optimal entre 20-25°C
+   - ☔ **Probabilité de pluie** (25 pts) : plus c'est faible, mieux c'est
+   - 💧 **Volume de pluie** (20 pts) : équivalent 24 h, 0 mm = maximum
+   - 💦 **Humidité** (10 pts) : optimal entre 40 et 60%
+   - 💨 **Vent** (10 pts) : faible vitesse préférée
+   - ☁️ **Couverture nuageuse** (10 pts) : ciel dégagé préféré
+
+   > Les journées de prévision trop tronquées (moins de 3 créneaux de 3 h) sont
+   > écartées, et le volume de pluie est ramené à un équivalent 24 h : sans cela,
+   > une journée partielle affiche mécaniquement moins de pluie qu'une journée
+   > complète.
 
 **Résultat** : Top 5 destinations identifiées
 
@@ -135,7 +142,14 @@ kayak_project/
    - Équipements, images
    - Nombre d'avis
 
-**Résultat** : 75 hôtels récupérés avec 100% de données GPS
+**Résultat** : 75 hôtels collectés, 74 après suppression du doublon détecté sur
+`listing_id`, 100% de données GPS. Deux établissements sans aucun avis sont conservés
+dans les données mais exclus du classement (une note absente n'est pas un 0/10).
+
+> ⚠️ BrightData ignore le paramètre `currency: EUR` et renvoie des montants **en USD**,
+> pour la **durée totale du séjour** (2 nuits). Les prix sont donc reconstruits au
+> parsing : offre la moins chère de l'établissement, ramenée à la nuit et à la personne,
+> puis convertie au taux BCE du jour de la collecte (1 USD = 0,86393 EUR au 11/11/2025).
 
 ---
 
@@ -147,13 +161,26 @@ kayak_project/
 
 **Actions** :
 1. Merge des datasets météo + hôtels
-2. Normalisation des scores sur échelle 0-10
+2. Passage de chaque dimension sur une échelle **absolue** 0-10 :
+   - météo : score sur 100 ÷ 10
+   - qualité : note Booking, déjà sur 10
+   - prix : échelle linéaire inversée et bornée sur le prix par personne et par nuit
+     (20 € → 10/10, 120 € et au-delà → 0/10)
 3. Calcul du **score final** :
 ```
-   Score Final = 0.40 × Score Météo 
-                + 0.40 × Score Hôtel 
+   Score Final = 0.40 × Score Météo
+                + 0.40 × Score Hôtel
                 + 0.20 × Score Prix (inversé)
 ```
+
+> Une normalisation **min-max** avait initialement été utilisée. Comme le score météo
+> ne prend que 5 valeurs comprises entre 71,83 et 76,33, elle étirait 4,5 points d'écart
+> réel sur toute la plage 0-10 : la ville la moins bien classée perdait mécaniquement
+> 4 points de score final, et le classement départageait des villes plutôt que des
+> hôtels. L'échelle absolue conserve la proportion réelle des écarts.
+>
+> Quand le prix est absent, son poids de 20 % est redistribué sur les deux autres
+> dimensions plutôt que compté comme un zéro.
 
 #### 3.2 Visualisations et Rapport
 
@@ -233,16 +260,16 @@ kayak_project/
 
 **Actions** :
 1. Import des villes (5 destinations)
-2. Import des hôtels (75 hôtels)
-3. Import des recommandations (74 entrées)
+2. Import des hôtels (74 hôtels)
+3. Import des recommandations (72 entrées classées)
 4. Import de l'historique météo (5 enregistrements)
 5. Vérification de l'intégrité des données
 
 **Statistiques finales** :
 ```
 ✅ 5 villes importées
-✅ 75 hôtels importés
-✅ 74 recommandations importées
+✅ 74 hôtels importés
+✅ 72 recommandations importées
 ✅ 5 enregistrements météo
 💾 Taille de la base : ~8 MB
 ```

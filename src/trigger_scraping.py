@@ -8,7 +8,12 @@ import asyncio
 import json
 import os
 from datetime import datetime, timedelta
+from pathlib import Path
 from dotenv import load_dotenv
+
+import sys
+sys.path.append(str(Path(__file__).resolve().parent))
+from config import SEARCH_ADULTS, SEARCH_NIGHTS, SEARCH_LEAD_DAYS  # noqa: E402
 
 
 # ═══════════════════════════════════════════════════════════════════════
@@ -85,8 +90,8 @@ async def trigger_city_scraping(session, city_name, max_hotels, api_key, dataset
     Returns:
         dict: Informations du snapshot
     """
-    checkin = datetime.now() + timedelta(days=30)
-    checkout = checkin + timedelta(days=2)
+    checkin = datetime.now() + timedelta(days=SEARCH_LEAD_DAYS)
+    checkout = checkin + timedelta(days=SEARCH_NIGHTS)
     
     url = "https://api.brightdata.com/datasets/v3/trigger"
     
@@ -108,8 +113,10 @@ async def trigger_city_scraping(session, city_name, max_hotels, api_key, dataset
         "location": f"{city_name}, France",
         "check_in": checkin.strftime("%Y-%m-%dT00:00:00.000Z"),
         "check_out": checkout.strftime("%Y-%m-%dT00:00:00.000Z"),
-        "adults": 2,
+        "adults": SEARCH_ADULTS,
         "rooms": 1,
+        # BrightData ignore ce parametre et renvoie des montants en USD :
+        # la conversion est faite au parsing (voir config.FX_RATES).
         "currency": "EUR",
         "country": "FR"
     }]

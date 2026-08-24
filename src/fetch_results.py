@@ -13,6 +13,10 @@ from datetime import datetime
 from dotenv import load_dotenv
 from pathlib import Path
 
+import sys
+sys.path.append(str(Path(__file__).resolve().parent))
+from config import FX_RATES, FX_RATE_DATE, SEARCH_ADULTS  # noqa: E402
+
 
 # ═══════════════════════════════════════════════════════════════════════
 # CONFIGURATION
@@ -184,93 +188,169 @@ async def fetch_snapshot_results(session, city, snapshot_id, api_key, max_wait=6
 # PARSING DES RÉSULTATS (CORRIGÉ)
 # ═══════════════════════════════════════════════════════════════════════
 
+def _first_not_none(mapping, keys):
+    """Retourne la premiere valeur non-None parmi `keys` (0.0 est une valeur valide)."""
+    for key in keys:
+        value = mapping.get(key)
+        if value is not None:
+            return value
+    return None
+
+
+def _parse_coordinates(hotel):
+    """Extrait (latitude, longitude). L'API BrightData renvoie 'lan' au lieu de 'lat'."""
+    coordinates = hotel.get('coordinates')
+    if not isinstance(coordinates, dict):
+        return None, None
+
+    lat = _first_not_none(coordinates, ('lat', 'lan', 'latitude'))
+    lon = _first_not_none(coordinates, ('lon', 'lng', 'longitude'))
+
+    if lat is None or lon is None:
+        return None, None
+    return float(lat), float(lon)
+
+
+def _parse_best_offer(hotel):
+    """
+    Selectionne l'offre la moins chere par personne et par nuit.
+
+    Corrige trois defauts de la version initiale :
+      - le prix retenu etait celui de la 1re chambre listee, pas la moins chere ;
+      - `final_price` couvre la duree du sejour (`nights`), pas une nuit ;
+      - les biens n'ont pas la meme capacite, donc les totaux ne sont pas comparables.
+
+    La capacite vient de `availability` (jointure sur `room_type`). Elle est plafonnee
+    par le bas a SEARCH_ADULTS : la recherche a ete faite pour 2 adultes, donc toute
+    offre retournee loge au moins 2 personnes (des capacites a 0 ou 1 existent dans
+    les donnees brutes et relevent du bruit).
+    """
+    capacity_by_room = {
+        room.get('room_type'): room.get('max_number_of_guests')
+        for room in (hotel.get('availability') or [])
+    }
+
+    best = None
+    for room in (hotel.get('pricing') or []):
+        guests = capacity_by_room.get(room.get('room_type'))
+        guests = max(int(guests), SEARCH_ADULTS) if guests else SEARCH_ADULTS
+
+        for offer in (room.get('offers') or []):
+            price = offer.get('price') or {}
+            total = price.get('final_price')
+            if total is None:
+                continue
+
+            nights = price.get('nights') or 1
+            per_night = float(total) / nights
+            per_person_night = per_night / guests
+
+            if best is None or per_person_night < best['price_per_person_night']:
+                best = {
+                    'room_type': room.get('room_type'),
+                    'guests': guests,
+                    'nights': nights,
+                    'price_total': float(total),
+                    'price_per_night': round(per_night, 2),
+                    'price_per_person_night': round(per_person_night, 2),
+                    'currency': price.get('currency'),
+                    'taxes_fees_included': price.get('taxes_fees_included'),
+                }
+    return best
+
+
 def parse_hotels_data(hotels_data, city):
-    """Parse les données JSON en DataFrame."""
+    """Parse les donnees JSON en DataFrame."""
     if not hotels_data or not isinstance(hotels_data, list):
         return pd.DataFrame()
-    
+
     parsed = []
-    coords_found = 0
-    
+    skipped = []
+
     for idx, hotel in enumerate(hotels_data, 1):
         try:
+            # `listing_id` est l'identifiant stable de l'annonce Booking. L'ancien
+            # identifiant positionnel (f"{city}_{idx}") changeait a chaque execution
+            # et ne permettait pas de detecter les doublons : les URLs different par
+            # un parametre anti-bot `chal_t` horodate.
+            listing_id = hotel.get('listing_id')
+
+            score = hotel.get('review_score')
+            reviews = hotel.get('number_of_reviews')
+
             info = {
-                'hotel_id': f"{city}_{idx}",
+                'hotel_id': listing_id if listing_id is not None else '{}_{}'.format(city, idx),
                 'city': city,
                 'hotel_name': hotel.get('title'),
                 'url': hotel.get('url'),
-                'score': hotel.get('review_score'),
-                'number_of_reviews': hotel.get('number_of_reviews'),
+                # Un etablissement sans avis est renvoye avec review_score = 0.
+                # Ce n'est pas une note de 0/10, c'est une note absente.
+                'score': float(score) if score else None,
+                'number_of_reviews': reviews,
                 'description': (hotel.get('description', '') or '')[:500],
                 'property_type': hotel.get('property_type'),
             }
-            
-            # ═══════════════════════════════════════════════════════════════
-            # PARSING GPS CORRIGÉ - GÈRE "lan" et "lat"
-            # ═══════════════════════════════════════════════════════════════
-            
-            coordinates = hotel.get('coordinates')
-            
-            if coordinates and isinstance(coordinates, dict):
-                # Essayer "lat" puis "lan" (bug de l'API)
-                lat = coordinates.get('lat') or coordinates.get('lan') or coordinates.get('latitude')
-                lon = coordinates.get('lon') or coordinates.get('lng') or coordinates.get('longitude')
-                
-                if lat is not None and lon is not None:
-                    info['latitude'] = float(lat)
-                    info['longitude'] = float(lon)
-                    coords_found += 1
-                else:
-                    info['latitude'] = None
-                    info['longitude'] = None
-            else:
-                info['latitude'] = None
-                info['longitude'] = None
-            
-            # ═══════════════════════════════════════════════════════════════
+
+            latitude, longitude = _parse_coordinates(hotel)
+            info['latitude'] = latitude
+            info['longitude'] = longitude
+
             # PRIX
-            # ═══════════════════════════════════════════════════════════════
-            
-            pricing = hotel.get('pricing', [])
-            if pricing and len(pricing) > 0:
-                offers = pricing[0].get('offers', [])
-                if offers:
-                    price_info = offers[0].get('price', {})
-                    info['price'] = price_info.get('final_price')
-                    info['currency'] = price_info.get('currency', 'EUR')
-                else:
-                    info['price'] = None
-                    info['currency'] = None
+            offer = _parse_best_offer(hotel)
+            if offer:
+                rate = FX_RATES.get(offer['currency'], 1.0)
+                info['room_type'] = offer['room_type']
+                info['max_guests'] = offer['guests']
+                info['nights'] = offer['nights']
+                info['currency_source'] = offer['currency']
+                info['price_total_source'] = offer['price_total']
+                info['taxes_included'] = offer['taxes_fees_included']
+                info['price_per_night'] = round(offer['price_per_night'] * rate, 2)
+                info['price_per_person_night'] = round(offer['price_per_person_night'] * rate, 2)
+                info['currency'] = 'EUR'
             else:
-                info['price'] = None
-                info['currency'] = None
-            
-            # ═══════════════════════════════════════════════════════════════
-            # ÉQUIPEMENTS
-            # ═══════════════════════════════════════════════════════════════
-            
+                for column in ('room_type', 'max_guests', 'nights', 'currency_source',
+                               'price_total_source', 'taxes_included',
+                               'price_per_night', 'price_per_person_night', 'currency'):
+                    info[column] = None
+
             facilities = hotel.get('most_popular_facilities', [])
             info['facilities'] = ', '.join(facilities[:5]) if facilities else None
-            
-            # ═══════════════════════════════════════════════════════════════
-            # IMAGES
-            # ═══════════════════════════════════════════════════════════════
-            
+
             images = hotel.get('images', [])
             info['image_url'] = images[0] if images else None
-            
+
             if info['hotel_name'] and info['url']:
                 parsed.append(info)
-        
-        except Exception as e:
+            else:
+                skipped.append((info['hotel_id'], 'nom ou URL manquant'))
+
+        except Exception as exc:
+            # Ne jamais avaler silencieusement une erreur de parsing : une ligne
+            # perdue sans trace est indetectable en aval.
+            skipped.append((hotel.get('listing_id', idx), '{}: {}'.format(type(exc).__name__, exc)))
             continue
-    
+
     df = pd.DataFrame(parsed)
-    
+
+    # Deduplication sur l'identifiant d'annonce : Booking renvoie parfois deux fois
+    # le meme etablissement dans une meme recherche.
     if not df.empty:
-        print(f"   ✅ {city:25s} → {len(df)} hôtels | {coords_found} GPS ({coords_found/len(df)*100:.0f}%)")
-    
+        duplicates = int(df['hotel_id'].duplicated().sum())
+        if duplicates:
+            df = df.drop_duplicates(subset='hotel_id', keep='first').reset_index(drop=True)
+            print("   [dedup] {:25s} -> {} doublon(s) supprime(s)".format(city, duplicates))
+
+    for hotel_id, reason in skipped:
+        print("   [skip]  {:25s} -> hotel {} ignore ({})".format(city, hotel_id, reason))
+
+    if not df.empty:
+        coords_found = int(df["latitude"].notna().sum())
+        print("   [ok]    {:25s} -> {} hotels | {} GPS ({:.0f}%)".format(
+            city, len(df), coords_found, coords_found / len(df) * 100))
+
     return df
+
 
 
 # ═══════════════════════════════════════════════════════════════════════
