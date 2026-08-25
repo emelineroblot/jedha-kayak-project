@@ -8,7 +8,6 @@
     "📄 Rapport Final": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/rapport_final.html",
     "🗺️ Carte Complète": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/carte_tous_hotels.html",
     "🏆 Carte Top 20": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/carte_top20.html",
-    "📊 Dashboard": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/dashboard_complet.png",
     "📈 Analyse Fusion": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/analysis_fusion.png"
   },
   "all_keys": {
@@ -22,8 +21,14 @@
     "rapport_final.html": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/rapport_final.html",
     "carte_tous_hotels.html": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/carte_tous_hotels.html",
     "carte_top20.html": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/carte_top20.html",
-    "dashboard_complet.png": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/dashboard_complet.png",
-    "analysis_fusion.png": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/analysis_fusion.png"
+    "analysis_fusion.png": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/analysis_fusion.png",
+    "charts/correlations.png": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/charts/correlations.png",
+    "charts/notes_avis.png": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/charts/notes_avis.png",
+    "charts/prix_par_ville.png": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/charts/prix_par_ville.png",
+    "charts/qualite_prix.png": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/charts/qualite_prix.png",
+    "charts/scores_par_ville.png": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/charts/scores_par_ville.png",
+    "charts/top10.png": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/charts/top10.png",
+    "charts/types_hebergement.png": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/charts/types_hebergement.png"
   },
-  "timestamp": "2026-08-25T09:05:40.380679"
+  "timestamp": "2026-08-25T09:54:25.636844"
 }
