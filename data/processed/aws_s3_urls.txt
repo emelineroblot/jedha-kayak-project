@@ -9,6 +9,9 @@
 🎯 FICHIERS PRINCIPAUX
 ============================================================
 
+🧩 CSV enrichi (livrable)
+https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/data/kayak_enriched.csv
+
 📁 Données CSV
 https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/data/final_recommendations.csv
 
@@ -31,11 +34,17 @@ https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/analysis_f
 📁 TOUS LES FICHIERS
 ============================================================
 
+• data/kayak_enriched.csv
+  https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/data/kayak_enriched.csv
+
 • data/final_recommendations.csv
   https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/data/final_recommendations.csv
 
 • data/top20_recommendations.csv
   https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/data/top20_recommendations.csv
+
+• data/city_weather_scores.csv
+  https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/data/city_weather_scores.csv
 
 • data/top5_destinations.csv
   https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/data/top5_destinations.csv
@@ -63,5 +72,5 @@ https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/analysis_f
 
 
 ============================================================
-Généré le : 2026-08-24 20:01:20
+Généré le : 2026-08-25 08:46:43
 ============================================================

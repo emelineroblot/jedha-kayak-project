@@ -68,7 +68,8 @@ kayak_project/
 │   │       └── ...
 │   │
 │   └── processed/                          # Données traitées
-│       ├── city_weather_scores.csv         # Scores météo par ville
+│       ├── kayak_enriched.csv             # ⭐ LIVRABLE : météo + hôtels, 35 villes
+│       ├── city_weather_scores.csv         # Scores météo des 35 villes
 │       ├── top5_destinations.csv           # Top 5 destinations
 │       ├── final_recommendations.csv       # Recommandations finales
 │       ├── top20_recommendations.csv       # Top 20 hôtels
@@ -237,6 +238,7 @@ dans les données mais exclus du classement (une note absente n'est pas un 0/10)
 🗺️ Carte Complète  : https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/carte_tous_hotels.html
 🏆 Carte Top 20    : https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/carte_top20.html
 📊 Dashboard       : https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/dashboard_complet.png
+🧩 CSV enrichi     : https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/data/kayak_enriched.csv
 📁 Données CSV     : https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/data/final_recommendations.csv
 ```
 
@@ -250,6 +252,11 @@ dans les données mais exclus du classement (une note absente n'est pas un 0/10)
 
 **Actions** :
 1. Connexion à l'instance RDS existante
+
+> **L'extraction se fait depuis S3, pas depuis le disque local.** L'énoncé demande
+> d'« extract your data from S3 and store it in your newly created DB » : le notebook 11
+> lit les CSV via `boto3.get_object` sur le bucket, ce qui fait réellement de S3 la source
+> du data warehouse et non un dépôt de fichiers en parallèle.
 2. Création du schéma de base de données :
    - Table `cities` : Informations des villes
    - Table `hotels` : Catalogue des hôtels
@@ -265,7 +272,7 @@ dans les données mais exclus du classement (une note absente n'est pas un 0/10)
 #### 4.4 Import des Données
 
 **Actions** :
-1. Import des villes (5 destinations)
+1. Import des **35 villes** du périmètre (dont 5 destinations retenues, marquées `is_top5`)
 2. Import des hôtels (74 hôtels)
 3. Import des recommandations (72 entrées classées)
 4. Import de l'historique météo (5 enregistrements)
@@ -273,12 +280,30 @@ dans les données mais exclus du classement (une note absente n'est pas un 0/10)
 
 **Statistiques finales** :
 ```
-✅ 5 villes importées
+✅ 35 villes importées (dont 5 destinations retenues)
 ✅ 74 hôtels importés
 ✅ 72 recommandations importées
-✅ 5 enregistrements météo
+✅ 5 relevés météo détaillés
 💾 Taille de la base : 8,4 MB
 ```
+
+Charger les 35 villes — et pas seulement le Top 5 — permet de **rejouer la sélection des
+destinations en SQL** depuis la base, ce qui était impossible auparavant :
+
+```sql
+SELECT city_name, avg_weather_score, is_top5
+FROM cities
+ORDER BY avg_weather_score DESC;
+```
+
+> ⚠️ **Limite de reconstruction.** Le CSV météo des 35 villes n'était pas versionné et les
+> prévisions OpenWeather ne sont pas rejouables (l'API ne sert que du J+5, jamais
+> d'historique). Les valeurs du run du 11/11/2025 ont été récupérées depuis la carte Plotly
+> versionnée, qui embarque nom, coordonnées et score des 35 villes — mais pas le détail
+> (température, pluie, vent, humidité, nuages), disponible uniquement pour le Top 5.
+> La colonne `weather_detail` trace cette différence (`complet` / `score_seul`), et
+> `weather_history` ne contient donc que les 5 relevés détaillés.
+> Script de reconstruction : `src/recover_city_weather.py`.
 
 Instance : `kayak-db.cta2iqgqyibu.eu-north-1.rds.amazonaws.com:5432`, PostgreSQL 18.3,
 `db.t4g.micro`, base `kayak`.

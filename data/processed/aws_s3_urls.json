@@ -3,6 +3,7 @@
   "region": "eu-north-1",
   "base_url": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com",
   "files": {
+    "🧩 CSV enrichi (livrable)": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/data/kayak_enriched.csv",
     "📁 Données CSV": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/data/final_recommendations.csv",
     "📄 Rapport Final": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/rapport_final.html",
     "🗺️ Carte Complète": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/carte_tous_hotels.html",
@@ -11,8 +12,10 @@
     "📈 Analyse Fusion": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/analysis_fusion.png"
   },
   "all_keys": {
+    "data/kayak_enriched.csv": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/data/kayak_enriched.csv",
     "data/final_recommendations.csv": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/data/final_recommendations.csv",
     "data/top20_recommendations.csv": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/data/top20_recommendations.csv",
+    "data/city_weather_scores.csv": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/data/city_weather_scores.csv",
     "data/top5_destinations.csv": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/data/top5_destinations.csv",
     "data/hotels_cleaned.csv": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/data/hotels_cleaned.csv",
     "data/raw/hotels_top5_all.csv": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/data/raw/hotels_top5_all.csv",
@@ -22,5 +25,5 @@
     "dashboard_complet.png": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/dashboard_complet.png",
     "analysis_fusion.png": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/analysis_fusion.png"
   },
-  "timestamp": "2026-08-24T20:01:20.059300"
+  "timestamp": "2026-08-25T08:46:43.142680"
 }
