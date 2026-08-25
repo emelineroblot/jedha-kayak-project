@@ -17,7 +17,12 @@ body {
   font-family:'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
   line-height:1.65; -webkit-font-smoothing:antialiased;
 }
-.wrap { max-width:1180px; margin:0 auto; padding:0 20px 64px; }
+.wrap { max-width:1180px; margin:0 auto; padding:40px 20px 64px; }
+/* Les cartes de synthese chevauchent le degrade de l'en-tete. Elles doivent
+   donc etre placees AVANT la barre de navigation dans le document : sinon
+   leur marge negative les fait passer sous la barre, qui est collante et
+   opaque, et masque leurs libelles. */
+.statsbar { max-width:1180px; margin:0 auto; padding:0 20px; }
 
 header {
   background:linear-gradient(135deg,#5b5bd6 0%,#7c5cbf 55%,#9d5bb8 100%);
@@ -28,8 +33,9 @@ header p  { margin:0; font-size:1.05rem; opacity:.92; }
 header .meta { margin-top:18px; font-size:.85rem; opacity:.8; }
 
 nav {
-  position:sticky; top:0; z-index:20; background:rgba(255,255,255,.94);
-  backdrop-filter:blur(8px); border-bottom:1px solid var(--bord);
+  position:sticky; top:0; z-index:20; margin-top:36px;
+  background:rgba(255,255,255,.94); backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--bord); border-top:1px solid var(--bord);
 }
 nav ul { max-width:1180px; margin:0 auto; padding:0 20px; display:flex; gap:6px;
          list-style:none; overflow-x:auto; }
@@ -38,7 +44,7 @@ nav a { display:block; padding:14px 14px; color:var(--doux); text-decoration:non
 nav a:hover { color:var(--indigo); border-bottom-color:var(--indigo); }
 
 .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-         gap:16px; margin:-46px 0 48px; }
+         gap:16px; margin:-52px 0 0; }
 .stat { background:var(--carte); border:1px solid var(--bord); border-radius:var(--rayon);
         padding:22px 18px; text-align:center; box-shadow:var(--ombre); }
 .stat .n { font-size:2rem; font-weight:700; color:var(--indigo); line-height:1.2; }
@@ -109,6 +115,16 @@ footer { text-align:center; padding:34px 20px; color:var(--doux); font-size:.85r
   <div class="meta">Météo relevée le 11/11/2025 · séjour du 11/12/2025 au 13/12/2025 (2 nuits, 2 adultes)</div>
 </header>
 
+<div class="statsbar">
+  <div class="stats">
+    <div class="stat"><div class="l">Hébergements</div><div class="n">72</div><div class="u">classés</div></div>
+    <div class="stat"><div class="l">Destinations</div><div class="n">5</div><div class="u">retenues sur 35</div></div>
+    <div class="stat"><div class="l">Score moyen</div><div class="n">7.81</div><div class="u">sur 10</div></div>
+    <div class="stat"><div class="l">Prix moyen</div><div class="n">135 €</div><div class="u">par nuit</div></div>
+    <div class="stat"><div class="l">Meilleure météo</div><div class="n" style="font-size:1.15rem;padding:.45rem 0;">Aix en Provence</div><div class="u">score le plus élevé</div></div>
+  </div>
+</div>
+
 <nav><ul>
   <li><a href="#methode">Méthode</a></li>
   <li><a href="#top5">Top 5</a></li>
@@ -117,14 +133,6 @@ footer { text-align:center; padding:34px 20px; color:var(--doux); font-size:.85r
 </ul></nav>
 
 <div class="wrap">
-
-  <div class="stats">
-    <div class="stat"><div class="l">Hébergements</div><div class="n">72</div><div class="u">classés</div></div>
-    <div class="stat"><div class="l">Destinations</div><div class="n">5</div><div class="u">retenues sur 35</div></div>
-    <div class="stat"><div class="l">Score moyen</div><div class="n">7.81</div><div class="u">sur 10</div></div>
-    <div class="stat"><div class="l">Prix moyen</div><div class="n">135 €</div><div class="u">par nuit</div></div>
-    <div class="stat"><div class="l">Meilleure météo</div><div class="n" style="font-size:1.15rem;padding:.45rem 0;">Aix en Provence</div><div class="u">score le plus élevé</div></div>
-  </div>
 
   <section id="methode">
     <h2>📐 Périmètre et méthode</h2>
@@ -278,7 +286,7 @@ footer { text-align:center; padding:34px 20px; color:var(--doux); font-size:.85r
 </div>
 
 <footer>
-  Rapport généré le 25/08/2026 à 09:53 ·
+  Rapport généré le 25/08/2026 à 09:57 ·
   météo du 11/11/2025 · tarifs pour un séjour du 11/12/2025 au 13/12/2025 (2 nuits, 2 adultes)
 </footer>
 
