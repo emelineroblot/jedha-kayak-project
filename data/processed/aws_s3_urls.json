@@ -6,6 +6,7 @@
     "🧩 CSV enrichi (livrable)": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/data/kayak_enriched.csv",
     "📁 Données CSV": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/data/final_recommendations.csv",
     "📄 Rapport Final": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/rapport_final.html",
+    "🌍 Carte Top 5 destinations": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/carte_destinations.html",
     "🗺️ Carte Complète": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/carte_tous_hotels.html",
     "🏆 Carte Top 20": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/carte_top20.html",
     "📈 Analyse Fusion": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/analysis_fusion.png"
@@ -19,6 +20,7 @@
     "data/hotels_cleaned.csv": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/data/hotels_cleaned.csv",
     "data/raw/hotels_top5_all.csv": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/data/raw/hotels_top5_all.csv",
     "rapport_final.html": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/rapport_final.html",
+    "carte_destinations.html": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/carte_destinations.html",
     "carte_tous_hotels.html": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/carte_tous_hotels.html",
     "carte_top20.html": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/carte_top20.html",
     "analysis_fusion.png": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/analysis_fusion.png",
@@ -30,5 +32,5 @@
     "charts/top10.png": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/charts/top10.png",
     "charts/types_hebergement.png": "https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/charts/types_hebergement.png"
   },
-  "timestamp": "2026-08-25T09:59:09.883822"
+  "timestamp": "2026-08-25T10:09:31.771825"
 }

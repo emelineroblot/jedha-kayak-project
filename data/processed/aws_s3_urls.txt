@@ -18,6 +18,9 @@ https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/data/final
 📄 Rapport Final
 https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/rapport_final.html
 
+🌍 Carte Top 5 destinations
+https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/carte_destinations.html
+
 🗺️ Carte Complète
 https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/carte_tous_hotels.html
 
@@ -55,6 +58,9 @@ https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/analysis_f
 • rapport_final.html
   https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/rapport_final.html
 
+• carte_destinations.html
+  https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/carte_destinations.html
+
 • carte_tous_hotels.html
   https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/carte_tous_hotels.html
 
@@ -87,5 +93,5 @@ https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/analysis_f
 
 
 ============================================================
-Généré le : 2026-08-25 09:59:09
+Généré le : 2026-08-25 10:09:31
 ============================================================

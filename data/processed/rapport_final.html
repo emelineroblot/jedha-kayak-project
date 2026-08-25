@@ -77,8 +77,11 @@ section > .sub { margin:0 0 24px; color:var(--doux); font-size:.95rem; }
 .maps { display:grid; grid-template-columns:repeat(auto-fit,minmax(400px,1fr)); gap:20px; }
 .map { background:var(--carte); border:1px solid var(--bord); border-radius:var(--rayon);
        overflow:hidden; box-shadow:var(--ombre); }
+.map.wide { grid-column:1 / -1; }
+.map.wide iframe { height:540px; }
 .map h3 { margin:0; padding:15px 20px; font-size:.98rem; color:var(--encre);
           border-bottom:1px solid var(--bord); background:#fafbfd; }
+.map h3 span { font-weight:400; color:var(--doux); font-size:.88rem; }
 .map iframe { display:block; width:100%; height:440px; border:0; }
 
 /* ── Analyse visuelle ──────────────────────────────────────────────────── */
@@ -222,15 +225,19 @@ footer { text-align:center; padding:34px 20px; color:var(--doux); font-size:.85r
 
   <section id="cartes">
     <h2>🗺️ Cartes interactives</h2>
-    <p class="sub">Cliquer sur un marqueur pour le détail. Les cartes s'ouvrent aussi en plein écran.</p>
+    <p class="sub">Cliquer sur un marqueur pour le détail. Chaque carte s'ouvre aussi en plein écran.</p>
     <div class="maps">
-      <div class="map">
-        <h3>Les 72 hébergements géolocalisés</h3>
-        <iframe src="carte_tous_hotels.html" title="Carte de tous les hébergements"></iframe>
+      <div class="map wide">
+        <h3>Top 5 des destinations <span>— les 35 villes analysées, les 5 retenues en évidence</span></h3>
+        <iframe src="carte_destinations.html" title="Carte du Top 5 des destinations"></iframe>
       </div>
       <div class="map">
-        <h3>Top 20, marqueurs numérotés</h3>
-        <iframe src="carte_top20.html" title="Carte du Top 20"></iframe>
+        <h3>Top 20 des hébergements <span>— marqueurs numérotés</span></h3>
+        <iframe src="carte_top20.html" title="Carte du Top 20 des hébergements"></iframe>
+      </div>
+      <div class="map">
+        <h3>Les 72 hébergements <span>— vue complète</span></h3>
+        <iframe src="carte_tous_hotels.html" title="Carte de tous les hébergements"></iframe>
       </div>
     </div>
   </section>
@@ -286,7 +293,7 @@ footer { text-align:center; padding:34px 20px; color:var(--doux); font-size:.85r
 </div>
 
 <footer>
-  Rapport généré le 25/08/2026 à 09:57 ·
+  Rapport généré le 25/08/2026 à 10:09 ·
   météo du 11/11/2025 · tarifs pour un séjour du 11/12/2025 au 13/12/2025 (2 nuits, 2 adultes)
 </footer>
 

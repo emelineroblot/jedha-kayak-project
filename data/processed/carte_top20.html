@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_c52c5753022a4c389792f6ef32bd5e9b {
+                #map_c42b090b49fe60d4178710d160c73d9d {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -54,14 +54,14 @@
 <body>
     
     
-            <div class="folium-map" id="map_c52c5753022a4c389792f6ef32bd5e9b" ></div>
+            <div class="folium-map" id="map_c42b090b49fe60d4178710d160c73d9d" ></div>
         
 </body>
 <script>
     
     
-            var map_c52c5753022a4c389792f6ef32bd5e9b = L.map(
-                "map_c52c5753022a4c389792f6ef32bd5e9b",
+            var map_c42b090b49fe60d4178710d160c73d9d = L.map(
+                "map_c42b090b49fe60d4178710d160c73d9d",
                 {
                     center: [43.431290046561344, 5.491804153108526],
                     crs: L.CRS.EPSG3857,
@@ -69,6 +69,8 @@
   "zoom": 10,
   "zoomControl": true,
   "preferCanvas": false,
+  "zoomSnap": 0.25,
+  "zoomDelta": 0.5,
 }
 
                 }
@@ -78,7 +80,7 @@
 
         
     
-            var tile_layer_f87ab8a64adf4f23fdac3ea9b2a5355b = L.tileLayer(
+            var tile_layer_4ce3ac31de08f8961f8d9cad04eb4aba = L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
                 {
   "minZoom": 0,
@@ -95,40 +97,46 @@
             );
         
     
-            tile_layer_f87ab8a64adf4f23fdac3ea9b2a5355b.addTo(map_c52c5753022a4c389792f6ef32bd5e9b);
+            tile_layer_4ce3ac31de08f8961f8d9cad04eb4aba.addTo(map_c42b090b49fe60d4178710d160c73d9d);
         
     
-            var marker_a2d67ccda64c9bb12822943c12133bce = L.marker(
+            map_c42b090b49fe60d4178710d160c73d9d.fitBounds(
+                [[43.12345, 4.8035118], [43.95092289445271, 6.357300000000009]],
+                {"padding": [35, 35]}
+            );
+        
+    
+            var marker_f85057ffb0467a56c12e8fe8253880a7 = L.marker(
                 [43.5587933, 5.4488615],
                 {
 }
-            ).addTo(map_c52c5753022a4c389792f6ef32bd5e9b);
+            ).addTo(map_c42b090b49fe60d4178710d160c73d9d);
         
     
-            var div_icon_cd112918aaa1638a1d2d6cb76b353daa = L.divIcon({
+            var div_icon_4a372dc90eeadb0c3da6e5c776a2c9f3 = L.divIcon({
   "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e1\u003c/div\u003e\n        ",
   "className": "empty",
 });
         
     
-        var popup_c79063b3e7786c1cf8b1fd4b7e371593 = L.popup({
+        var popup_463c56d00a4ac6e9c73b71f61aeb1c02 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_683af39953789313751b0dd09eddcb6e = $(`<div id="html_683af39953789313751b0dd09eddcb6e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #1</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">La Villa Rustica</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Aix en Provence</p>         <p><b>⭐</b> 9.8/10 (66 avis)</p>         <p><b>💰</b> 101 €/nuit</p>         <p><b>🌤️</b> Score météo: 76.33</p>         <p><b>🌡️</b> 13.0°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.87/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/la-villa-rustica.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=&chal_t=1762887750037&force_referer=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
-                popup_c79063b3e7786c1cf8b1fd4b7e371593.setContent(html_683af39953789313751b0dd09eddcb6e);
+                var html_9ef29006e72357c5bff36c1c656b087a = $(`<div id="html_9ef29006e72357c5bff36c1c656b087a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #1</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">La Villa Rustica</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Aix en Provence</p>         <p><b>⭐</b> 9.8/10 (66 avis)</p>         <p><b>💰</b> 101 €/nuit</p>         <p><b>🌤️</b> Score météo: 76.33</p>         <p><b>🌡️</b> 13.0°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.87/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/la-villa-rustica.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=&chal_t=1762887750037&force_referer=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_463c56d00a4ac6e9c73b71f61aeb1c02.setContent(html_9ef29006e72357c5bff36c1c656b087a);
             
         
 
-        marker_a2d67ccda64c9bb12822943c12133bce.bindPopup(popup_c79063b3e7786c1cf8b1fd4b7e371593)
+        marker_f85057ffb0467a56c12e8fe8253880a7.bindPopup(popup_463c56d00a4ac6e9c73b71f61aeb1c02)
         ;
 
         
     
     
-            marker_a2d67ccda64c9bb12822943c12133bce.bindTooltip(
+            marker_f85057ffb0467a56c12e8fe8253880a7.bindTooltip(
                 `<div>
                      #1 - La Villa Rustica
                  </div>`,
@@ -138,40 +146,40 @@
             );
         
     
-                marker_a2d67ccda64c9bb12822943c12133bce.setIcon(div_icon_cd112918aaa1638a1d2d6cb76b353daa);
+                marker_f85057ffb0467a56c12e8fe8253880a7.setIcon(div_icon_4a372dc90eeadb0c3da6e5c776a2c9f3);
             
     
-            var marker_772dfb5c727e013d6fea097a93dafc61 = L.marker(
+            var marker_61f1f8649c12f7b487ae321cdae0a658 = L.marker(
                 [43.12345, 6.35285],
                 {
 }
-            ).addTo(map_c52c5753022a4c389792f6ef32bd5e9b);
+            ).addTo(map_c42b090b49fe60d4178710d160c73d9d);
         
     
-            var div_icon_3d38d4e05d5039536df9407930095e0f = L.divIcon({
+            var div_icon_fc23813d8a9522f9327c5f51bf5afb84 = L.divIcon({
   "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e2\u003c/div\u003e\n        ",
   "className": "empty",
 });
         
     
-        var popup_f4a504aa6219f9725c9064b0667a2920 = L.popup({
+        var popup_b40cb2d008c5cb2a0bb2ab48f67ee0c5 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_0144f4e36c1741798e6da9b546cea73b = $(`<div id="html_0144f4e36c1741798e6da9b546cea73b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #2</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">La Favière proche de la plage</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Bormes les Mimosas</p>         <p><b>⭐</b> 9.5/10 (12 avis)</p>         <p><b>💰</b> 105 €/nuit</p>         <p><b>🌤️</b> Score météo: 76.00</p>         <p><b>🌡️</b> 13.0°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.72/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/la-faviere-proche-de-la-plage.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
-                popup_f4a504aa6219f9725c9064b0667a2920.setContent(html_0144f4e36c1741798e6da9b546cea73b);
+                var html_b6e19f767a3b6bf8059c706368f475c8 = $(`<div id="html_b6e19f767a3b6bf8059c706368f475c8" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #2</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">La Favière proche de la plage</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Bormes les Mimosas</p>         <p><b>⭐</b> 9.5/10 (12 avis)</p>         <p><b>💰</b> 105 €/nuit</p>         <p><b>🌤️</b> Score météo: 76.00</p>         <p><b>🌡️</b> 13.0°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.72/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/la-faviere-proche-de-la-plage.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_b40cb2d008c5cb2a0bb2ab48f67ee0c5.setContent(html_b6e19f767a3b6bf8059c706368f475c8);
             
         
 
-        marker_772dfb5c727e013d6fea097a93dafc61.bindPopup(popup_f4a504aa6219f9725c9064b0667a2920)
+        marker_61f1f8649c12f7b487ae321cdae0a658.bindPopup(popup_b40cb2d008c5cb2a0bb2ab48f67ee0c5)
         ;
 
         
     
     
-            marker_772dfb5c727e013d6fea097a93dafc61.bindTooltip(
+            marker_61f1f8649c12f7b487ae321cdae0a658.bindTooltip(
                 `<div>
                      #2 - La Favière proche de la plage
                  </div>`,
@@ -181,40 +189,40 @@
             );
         
     
-                marker_772dfb5c727e013d6fea097a93dafc61.setIcon(div_icon_3d38d4e05d5039536df9407930095e0f);
+                marker_61f1f8649c12f7b487ae321cdae0a658.setIcon(div_icon_fc23813d8a9522f9327c5f51bf5afb84);
             
     
-            var marker_3ca94b4bdb15a9265eff3c4948553f80 = L.marker(
+            var marker_b0859e783028ccb12e182e6f20bb518c = L.marker(
                 [43.150652, 6.3411229],
                 {
 }
-            ).addTo(map_c52c5753022a4c389792f6ef32bd5e9b);
+            ).addTo(map_c42b090b49fe60d4178710d160c73d9d);
         
     
-            var div_icon_674775acccd5b19710490b070c43a400 = L.divIcon({
+            var div_icon_c12bda7d986b739a1ee23cf9e90e2c25 = L.divIcon({
   "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e3\u003c/div\u003e\n        ",
   "className": "empty",
 });
         
     
-        var popup_9b5a60f47b6b3daf826a243584c39125 = L.popup({
+        var popup_1ccd832625570d57fb3695fa068f4f64 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_f10f057359737acccd3f2e37ef162e10 = $(`<div id="html_f10f057359737acccd3f2e37ef162e10" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #3</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Romantic getaway in Bormes</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Bormes les Mimosas</p>         <p><b>⭐</b> 9.5/10 (12 avis)</p>         <p><b>💰</b> 129 €/nuit</p>         <p><b>🌤️</b> Score météo: 76.00</p>         <p><b>🌡️</b> 13.0°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.60/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/romantic-getaway-in-bormes.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
-                popup_9b5a60f47b6b3daf826a243584c39125.setContent(html_f10f057359737acccd3f2e37ef162e10);
+                var html_7e9ef13f042b319af3651ead628ab61f = $(`<div id="html_7e9ef13f042b319af3651ead628ab61f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #3</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Romantic getaway in Bormes</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Bormes les Mimosas</p>         <p><b>⭐</b> 9.5/10 (12 avis)</p>         <p><b>💰</b> 129 €/nuit</p>         <p><b>🌤️</b> Score météo: 76.00</p>         <p><b>🌡️</b> 13.0°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.60/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/romantic-getaway-in-bormes.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_1ccd832625570d57fb3695fa068f4f64.setContent(html_7e9ef13f042b319af3651ead628ab61f);
             
         
 
-        marker_3ca94b4bdb15a9265eff3c4948553f80.bindPopup(popup_9b5a60f47b6b3daf826a243584c39125)
+        marker_b0859e783028ccb12e182e6f20bb518c.bindPopup(popup_1ccd832625570d57fb3695fa068f4f64)
         ;
 
         
     
     
-            marker_3ca94b4bdb15a9265eff3c4948553f80.bindTooltip(
+            marker_b0859e783028ccb12e182e6f20bb518c.bindTooltip(
                 `<div>
                      #3 - Romantic getaway in Bormes
                  </div>`,
@@ -224,40 +232,40 @@
             );
         
     
-                marker_3ca94b4bdb15a9265eff3c4948553f80.setIcon(div_icon_674775acccd5b19710490b070c43a400);
+                marker_b0859e783028ccb12e182e6f20bb518c.setIcon(div_icon_c12bda7d986b739a1ee23cf9e90e2c25);
             
     
-            var marker_befe04c3775c9c07e29a4885eb5eef93 = L.marker(
+            var marker_b73f8725278f4a3b00f78a92549dc5d7 = L.marker(
                 [43.95092289445271, 4.818413211967911],
                 {
 }
-            ).addTo(map_c52c5753022a4c389792f6ef32bd5e9b);
+            ).addTo(map_c42b090b49fe60d4178710d160c73d9d);
         
     
-            var div_icon_2da4093f30ad87c9092df1b9084627d3 = L.divIcon({
+            var div_icon_9fa508935e7ddb15a55286167ad562ed = L.divIcon({
   "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e4\u003c/div\u003e\n        ",
   "className": "empty",
 });
         
     
-        var popup_aaa98b1b28eb24f14f6c662b928296e2 = L.popup({
+        var popup_b945cbfcba4c68de46422c4f125ad950 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_43a265c6bccd2ab3deb41370e628a637 = $(`<div id="html_43a265c6bccd2ab3deb41370e628a637" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #4</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Apartment-NO elevator-Free private parking-Self check in !! Appartement-PAS ascenseur-Parking privé gratuit-Arrivée autonome!!</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Avignon</p>         <p><b>⭐</b> 9.6/10 (158 avis)</p>         <p><b>💰</b> 108 €/nuit</p>         <p><b>🌤️</b> Score météo: 71.83</p>         <p><b>🌡️</b> 12.9°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.57/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/intramuros-parking-prive-wifi-smarttv50.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
-                popup_aaa98b1b28eb24f14f6c662b928296e2.setContent(html_43a265c6bccd2ab3deb41370e628a637);
+                var html_8e065d0ca5c062dda62bcad305ee8d63 = $(`<div id="html_8e065d0ca5c062dda62bcad305ee8d63" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #4</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Apartment-NO elevator-Free private parking-Self check in !! Appartement-PAS ascenseur-Parking privé gratuit-Arrivée autonome!!</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Avignon</p>         <p><b>⭐</b> 9.6/10 (158 avis)</p>         <p><b>💰</b> 108 €/nuit</p>         <p><b>🌤️</b> Score météo: 71.83</p>         <p><b>🌡️</b> 12.9°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.57/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/intramuros-parking-prive-wifi-smarttv50.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_b945cbfcba4c68de46422c4f125ad950.setContent(html_8e065d0ca5c062dda62bcad305ee8d63);
             
         
 
-        marker_befe04c3775c9c07e29a4885eb5eef93.bindPopup(popup_aaa98b1b28eb24f14f6c662b928296e2)
+        marker_b73f8725278f4a3b00f78a92549dc5d7.bindPopup(popup_b945cbfcba4c68de46422c4f125ad950)
         ;
 
         
     
     
-            marker_befe04c3775c9c07e29a4885eb5eef93.bindTooltip(
+            marker_b73f8725278f4a3b00f78a92549dc5d7.bindTooltip(
                 `<div>
                      #4 - Apartment-NO elevator-Free private parking-Self check in !! Appartement-PAS ascenseur-Parking privé gratuit-Arrivée autonome!!
                  </div>`,
@@ -267,40 +275,40 @@
             );
         
     
-                marker_befe04c3775c9c07e29a4885eb5eef93.setIcon(div_icon_2da4093f30ad87c9092df1b9084627d3);
+                marker_b73f8725278f4a3b00f78a92549dc5d7.setIcon(div_icon_9fa508935e7ddb15a55286167ad562ed);
             
     
-            var marker_8f0d682d836390fb79e07389d086d99f = L.marker(
+            var marker_2eb08b7d35487b85062ecaa2200d0061 = L.marker(
                 [43.9496041, 4.81154160000006],
                 {
 }
-            ).addTo(map_c52c5753022a4c389792f6ef32bd5e9b);
+            ).addTo(map_c42b090b49fe60d4178710d160c73d9d);
         
     
-            var div_icon_d9fe9e573d78a738481137044a88afbf = L.divIcon({
+            var div_icon_e64cb61cc7a5876666a0635e380e80ff = L.divIcon({
   "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e5\u003c/div\u003e\n        ",
   "className": "empty",
 });
         
     
-        var popup_23fea8744f9e29c924a72aa24ca0aa59 = L.popup({
+        var popup_20cc679ad7cabc31d1bde12ca9a6579b = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_69b8e37f385bd2e25bca0a8438056fdd = $(`<div id="html_69b8e37f385bd2e25bca0a8438056fdd" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #5</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">L'Oriflamme</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Avignon</p>         <p><b>⭐</b> 9.5/10 (431 avis)</p>         <p><b>💰</b> 59 €/nuit</p>         <p><b>🌤️</b> Score météo: 71.83</p>         <p><b>🌡️</b> 12.9°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.49/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/sutdio-quot-l-39-oriflamme-quot.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
-                popup_23fea8744f9e29c924a72aa24ca0aa59.setContent(html_69b8e37f385bd2e25bca0a8438056fdd);
+                var html_383ac4d55ac8b76aa467e62dbec3b22f = $(`<div id="html_383ac4d55ac8b76aa467e62dbec3b22f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #5</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">L'Oriflamme</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Avignon</p>         <p><b>⭐</b> 9.5/10 (431 avis)</p>         <p><b>💰</b> 59 €/nuit</p>         <p><b>🌤️</b> Score météo: 71.83</p>         <p><b>🌡️</b> 12.9°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.49/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/sutdio-quot-l-39-oriflamme-quot.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_20cc679ad7cabc31d1bde12ca9a6579b.setContent(html_383ac4d55ac8b76aa467e62dbec3b22f);
             
         
 
-        marker_8f0d682d836390fb79e07389d086d99f.bindPopup(popup_23fea8744f9e29c924a72aa24ca0aa59)
+        marker_2eb08b7d35487b85062ecaa2200d0061.bindPopup(popup_20cc679ad7cabc31d1bde12ca9a6579b)
         ;
 
         
     
     
-            marker_8f0d682d836390fb79e07389d086d99f.bindTooltip(
+            marker_2eb08b7d35487b85062ecaa2200d0061.bindTooltip(
                 `<div>
                      #5 - L'Oriflamme
                  </div>`,
@@ -310,40 +318,40 @@
             );
         
     
-                marker_8f0d682d836390fb79e07389d086d99f.setIcon(div_icon_d9fe9e573d78a738481137044a88afbf);
+                marker_2eb08b7d35487b85062ecaa2200d0061.setIcon(div_icon_e64cb61cc7a5876666a0635e380e80ff);
             
     
-            var marker_d80074a8db8a9a882dfebaa1385ae79d = L.marker(
+            var marker_7c108af8fe765123657d42751a2a86c2 = L.marker(
                 [43.1272081, 6.3316222],
                 {
 }
-            ).addTo(map_c52c5753022a4c389792f6ef32bd5e9b);
+            ).addTo(map_c42b090b49fe60d4178710d160c73d9d);
         
     
-            var div_icon_7d1e7066376d115e86ac294b82a8d899 = L.divIcon({
+            var div_icon_7cd055f1fe44ab8e6714b8630c8d1f51 = L.divIcon({
   "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e6\u003c/div\u003e\n        ",
   "className": "empty",
 });
         
     
-        var popup_778220098d9234f0f14f94078b7a64a0 = L.popup({
+        var popup_68452ad79ec1c51a6fdd04fb25a54b25 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_975f1f18343acb97000a9b6f3a1bdf43 = $(`<div id="html_975f1f18343acb97000a9b6f3a1bdf43" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #6</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Le Mas de la Palmeraie - Studio dans propriété privée au calme avec piscine et tennis</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Bormes les Mimosas</p>         <p><b>⭐</b> 9.7/10 (4 avis)</p>         <p><b>💰</b> 86 €/nuit</p>         <p><b>🌤️</b> Score météo: 76.00</p>         <p><b>🌡️</b> 13.0°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.46/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/le-mas-de-la-palmeraie-studio-dans-propriete-privee-au-calme-avec-piscine-et-ten.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=&chal_t=1762887420179&force_referer=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
-                popup_778220098d9234f0f14f94078b7a64a0.setContent(html_975f1f18343acb97000a9b6f3a1bdf43);
+                var html_b2c5636471a1c6a368f89e9c3eed4071 = $(`<div id="html_b2c5636471a1c6a368f89e9c3eed4071" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #6</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Le Mas de la Palmeraie - Studio dans propriété privée au calme avec piscine et tennis</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Bormes les Mimosas</p>         <p><b>⭐</b> 9.7/10 (4 avis)</p>         <p><b>💰</b> 86 €/nuit</p>         <p><b>🌤️</b> Score météo: 76.00</p>         <p><b>🌡️</b> 13.0°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.46/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/le-mas-de-la-palmeraie-studio-dans-propriete-privee-au-calme-avec-piscine-et-ten.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=&chal_t=1762887420179&force_referer=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_68452ad79ec1c51a6fdd04fb25a54b25.setContent(html_b2c5636471a1c6a368f89e9c3eed4071);
             
         
 
-        marker_d80074a8db8a9a882dfebaa1385ae79d.bindPopup(popup_778220098d9234f0f14f94078b7a64a0)
+        marker_7c108af8fe765123657d42751a2a86c2.bindPopup(popup_68452ad79ec1c51a6fdd04fb25a54b25)
         ;
 
         
     
     
-            marker_d80074a8db8a9a882dfebaa1385ae79d.bindTooltip(
+            marker_7c108af8fe765123657d42751a2a86c2.bindTooltip(
                 `<div>
                      #6 - Le Mas de la Palmeraie - Studio dans propriété privée au calme avec piscine et tennis
                  </div>`,
@@ -353,40 +361,40 @@
             );
         
     
-                marker_d80074a8db8a9a882dfebaa1385ae79d.setIcon(div_icon_7d1e7066376d115e86ac294b82a8d899);
+                marker_7c108af8fe765123657d42751a2a86c2.setIcon(div_icon_7cd055f1fe44ab8e6714b8630c8d1f51);
             
     
-            var marker_259dc203c201ea1c5b8a0bf5f828a96e = L.marker(
+            var marker_03579baf6dad48e7c203efbe6ac7fe91 = L.marker(
                 [43.949537613284, 4.808402317791],
                 {
 }
-            ).addTo(map_c52c5753022a4c389792f6ef32bd5e9b);
+            ).addTo(map_c42b090b49fe60d4178710d160c73d9d);
         
     
-            var div_icon_6ed948272b97891bcd3da4dec743b9bd = L.divIcon({
+            var div_icon_a0d1a7b714b82a9bfb1b9457aaed6d8f = L.divIcon({
   "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e7\u003c/div\u003e\n        ",
   "className": "empty",
 });
         
     
-        var popup_301f5ed43bbfa1f66af6c91e31414238 = L.popup({
+        var popup_b6ab681823e2e85d94681db2d9a27c4b = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_fefaa0d8a4c7574b2fc97169cf975dbf = $(`<div id="html_fefaa0d8a4c7574b2fc97169cf975dbf" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #7</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Centre Palais des Papes B2 Clim - 123Avignon</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Avignon</p>         <p><b>⭐</b> 9.1/10 (50 avis)</p>         <p><b>💰</b> 73 €/nuit</p>         <p><b>🌤️</b> Score météo: 71.83</p>         <p><b>🌡️</b> 12.9°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.43/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/centre-palais-des-papes-clim-123avignon.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=&chal_t=1762886040616&force_referer=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
-                popup_301f5ed43bbfa1f66af6c91e31414238.setContent(html_fefaa0d8a4c7574b2fc97169cf975dbf);
+                var html_08d66015c64ffae0b763923a574df8cc = $(`<div id="html_08d66015c64ffae0b763923a574df8cc" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #7</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Centre Palais des Papes B2 Clim - 123Avignon</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Avignon</p>         <p><b>⭐</b> 9.1/10 (50 avis)</p>         <p><b>💰</b> 73 €/nuit</p>         <p><b>🌤️</b> Score météo: 71.83</p>         <p><b>🌡️</b> 12.9°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.43/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/centre-palais-des-papes-clim-123avignon.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=&chal_t=1762886040616&force_referer=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_b6ab681823e2e85d94681db2d9a27c4b.setContent(html_08d66015c64ffae0b763923a574df8cc);
             
         
 
-        marker_259dc203c201ea1c5b8a0bf5f828a96e.bindPopup(popup_301f5ed43bbfa1f66af6c91e31414238)
+        marker_03579baf6dad48e7c203efbe6ac7fe91.bindPopup(popup_b6ab681823e2e85d94681db2d9a27c4b)
         ;
 
         
     
     
-            marker_259dc203c201ea1c5b8a0bf5f828a96e.bindTooltip(
+            marker_03579baf6dad48e7c203efbe6ac7fe91.bindTooltip(
                 `<div>
                      #7 - Centre Palais des Papes B2 Clim - 123Avignon
                  </div>`,
@@ -396,40 +404,40 @@
             );
         
     
-                marker_259dc203c201ea1c5b8a0bf5f828a96e.setIcon(div_icon_6ed948272b97891bcd3da4dec743b9bd);
+                marker_03579baf6dad48e7c203efbe6ac7fe91.setIcon(div_icon_a0d1a7b714b82a9bfb1b9457aaed6d8f);
             
     
-            var marker_c0d8cfe3408f3574f4ef00fb2987583b = L.marker(
+            var marker_02102e463af087a4868d047e875ade76 = L.marker(
                 [43.2178808, 5.53613129999997],
                 {
 }
-            ).addTo(map_c52c5753022a4c389792f6ef32bd5e9b);
+            ).addTo(map_c42b090b49fe60d4178710d160c73d9d);
         
     
-            var div_icon_a630b5cd1e1930730a7e893dc87b325d = L.divIcon({
+            var div_icon_2b54bfb4e19822e7aadb329654520d17 = L.divIcon({
   "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e8\u003c/div\u003e\n        ",
   "className": "empty",
 });
         
     
-        var popup_71d50143dc91b9f0c3b8ace3fc37746a = L.popup({
+        var popup_d3ce204d3ffc7233ebbba7a2023ad586 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_994075b7009330b3f79fc9908f83186c = $(`<div id="html_994075b7009330b3f79fc9908f83186c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #8</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Le Bosquet</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Cassis</p>         <p><b>⭐</b> 9.3/10 (26 avis)</p>         <p><b>💰</b> 140 €/nuit</p>         <p><b>🌤️</b> Score météo: 73.67</p>         <p><b>🌡️</b> 14.3°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.37/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/le-bosquet-cassis1.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
-                popup_71d50143dc91b9f0c3b8ace3fc37746a.setContent(html_994075b7009330b3f79fc9908f83186c);
+                var html_957281cd6d0fcf7a2e5c692253f8954a = $(`<div id="html_957281cd6d0fcf7a2e5c692253f8954a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #8</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Le Bosquet</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Cassis</p>         <p><b>⭐</b> 9.3/10 (26 avis)</p>         <p><b>💰</b> 140 €/nuit</p>         <p><b>🌤️</b> Score météo: 73.67</p>         <p><b>🌡️</b> 14.3°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.37/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/le-bosquet-cassis1.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_d3ce204d3ffc7233ebbba7a2023ad586.setContent(html_957281cd6d0fcf7a2e5c692253f8954a);
             
         
 
-        marker_c0d8cfe3408f3574f4ef00fb2987583b.bindPopup(popup_71d50143dc91b9f0c3b8ace3fc37746a)
+        marker_02102e463af087a4868d047e875ade76.bindPopup(popup_d3ce204d3ffc7233ebbba7a2023ad586)
         ;
 
         
     
     
-            marker_c0d8cfe3408f3574f4ef00fb2987583b.bindTooltip(
+            marker_02102e463af087a4868d047e875ade76.bindTooltip(
                 `<div>
                      #8 - Le Bosquet
                  </div>`,
@@ -439,40 +447,40 @@
             );
         
     
-                marker_c0d8cfe3408f3574f4ef00fb2987583b.setIcon(div_icon_a630b5cd1e1930730a7e893dc87b325d);
+                marker_02102e463af087a4868d047e875ade76.setIcon(div_icon_2b54bfb4e19822e7aadb329654520d17);
             
     
-            var marker_ab02534335ff74c94453f767f4e40e0e = L.marker(
+            var marker_f2567757e06634f993c30d109bb79ae8 = L.marker(
                 [43.2177957, 5.5358322],
                 {
 }
-            ).addTo(map_c52c5753022a4c389792f6ef32bd5e9b);
+            ).addTo(map_c42b090b49fe60d4178710d160c73d9d);
         
     
-            var div_icon_291a1c7a0c1775d0204dcfd66acc0bf4 = L.divIcon({
+            var div_icon_ca227266c70dace743d6b88957483db0 = L.divIcon({
   "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e9\u003c/div\u003e\n        ",
   "className": "empty",
 });
         
     
-        var popup_35f4d619a45263eb5f4f974c12d995b2 = L.popup({
+        var popup_b68e86eb82d8f1698191e9ff70c3587b = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_1aa86fda3ce5225dd668d3039c1c3f53 = $(`<div id="html_1aa86fda3ce5225dd668d3039c1c3f53" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #9</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">La Cigale du Port</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Cassis</p>         <p><b>⭐</b> 9.0/10 (48 avis)</p>         <p><b>💰</b> 120 €/nuit</p>         <p><b>🌤️</b> Score météo: 73.67</p>         <p><b>🌡️</b> 14.3°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.35/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/le-roucas-cassis.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
-                popup_35f4d619a45263eb5f4f974c12d995b2.setContent(html_1aa86fda3ce5225dd668d3039c1c3f53);
+                var html_fe1f573386f92e6d39c2a488fdc682f1 = $(`<div id="html_fe1f573386f92e6d39c2a488fdc682f1" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #9</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">La Cigale du Port</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Cassis</p>         <p><b>⭐</b> 9.0/10 (48 avis)</p>         <p><b>💰</b> 120 €/nuit</p>         <p><b>🌤️</b> Score météo: 73.67</p>         <p><b>🌡️</b> 14.3°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.35/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/le-roucas-cassis.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_b68e86eb82d8f1698191e9ff70c3587b.setContent(html_fe1f573386f92e6d39c2a488fdc682f1);
             
         
 
-        marker_ab02534335ff74c94453f767f4e40e0e.bindPopup(popup_35f4d619a45263eb5f4f974c12d995b2)
+        marker_f2567757e06634f993c30d109bb79ae8.bindPopup(popup_b68e86eb82d8f1698191e9ff70c3587b)
         ;
 
         
     
     
-            marker_ab02534335ff74c94453f767f4e40e0e.bindTooltip(
+            marker_f2567757e06634f993c30d109bb79ae8.bindTooltip(
                 `<div>
                      #9 - La Cigale du Port
                  </div>`,
@@ -482,40 +490,40 @@
             );
         
     
-                marker_ab02534335ff74c94453f767f4e40e0e.setIcon(div_icon_291a1c7a0c1775d0204dcfd66acc0bf4);
+                marker_f2567757e06634f993c30d109bb79ae8.setIcon(div_icon_ca227266c70dace743d6b88957483db0);
             
     
-            var marker_53d078d569b5512e5a03c641d35176ca = L.marker(
+            var marker_bd441d7128b297943300ef8e62cddc52 = L.marker(
                 [43.2187069, 5.5399636],
                 {
 }
-            ).addTo(map_c52c5753022a4c389792f6ef32bd5e9b);
+            ).addTo(map_c42b090b49fe60d4178710d160c73d9d);
         
     
-            var div_icon_6814d1ed07eb28fdf9805a76b237b7c1 = L.divIcon({
+            var div_icon_6daf8ca158642fa1d489d4f022923915 = L.divIcon({
   "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e10\u003c/div\u003e\n        ",
   "className": "empty",
 });
         
     
-        var popup_27a4668fb0ed9577980fe584d6747d16 = L.popup({
+        var popup_091b5dab1ca09bbd1a88b17de43e409b = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_7233da33442fed6bf961253c1d412e9e = $(`<div id="html_7233da33442fed6bf961253c1d412e9e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #10</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Le petit cassis</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Cassis</p>         <p><b>⭐</b> 8.7/10 (105 avis)</p>         <p><b>💰</b> 77 €/nuit</p>         <p><b>🌤️</b> Score météo: 73.67</p>         <p><b>🌡️</b> 14.3°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.31/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/le-petit-cassis-cassis1.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
-                popup_27a4668fb0ed9577980fe584d6747d16.setContent(html_7233da33442fed6bf961253c1d412e9e);
+                var html_e6fa00b713183766f1847d40d5a66869 = $(`<div id="html_e6fa00b713183766f1847d40d5a66869" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #10</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Le petit cassis</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Cassis</p>         <p><b>⭐</b> 8.7/10 (105 avis)</p>         <p><b>💰</b> 77 €/nuit</p>         <p><b>🌤️</b> Score météo: 73.67</p>         <p><b>🌡️</b> 14.3°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.31/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/le-petit-cassis-cassis1.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_091b5dab1ca09bbd1a88b17de43e409b.setContent(html_e6fa00b713183766f1847d40d5a66869);
             
         
 
-        marker_53d078d569b5512e5a03c641d35176ca.bindPopup(popup_27a4668fb0ed9577980fe584d6747d16)
+        marker_bd441d7128b297943300ef8e62cddc52.bindPopup(popup_091b5dab1ca09bbd1a88b17de43e409b)
         ;
 
         
     
     
-            marker_53d078d569b5512e5a03c641d35176ca.bindTooltip(
+            marker_bd441d7128b297943300ef8e62cddc52.bindTooltip(
                 `<div>
                      #10 - Le petit cassis
                  </div>`,
@@ -525,40 +533,40 @@
             );
         
     
-                marker_53d078d569b5512e5a03c641d35176ca.setIcon(div_icon_6814d1ed07eb28fdf9805a76b237b7c1);
+                marker_bd441d7128b297943300ef8e62cddc52.setIcon(div_icon_6daf8ca158642fa1d489d4f022923915);
             
     
-            var marker_61c2b63c9a7e7adefd59136975d83e82 = L.marker(
+            var marker_cd9d12e70f7dff91354ab57a9a735d78 = L.marker(
                 [43.21534787329778, 5.534749031066895],
                 {
 }
-            ).addTo(map_c52c5753022a4c389792f6ef32bd5e9b);
+            ).addTo(map_c42b090b49fe60d4178710d160c73d9d);
         
     
-            var div_icon_762f6d5dacc9d2fc8d2207567db130cf = L.divIcon({
+            var div_icon_db71112760631426ec59ff8dbf2bab95 = L.divIcon({
   "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e11\u003c/div\u003e\n        ",
   "className": "empty",
 });
         
     
-        var popup_2458b4185731e8363ef06e7e45e740b3 = L.popup({
+        var popup_8b6a423645fb0c3892d66a74871a2533 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_72a70e603c7b63745c9dbb41e2def656 = $(`<div id="html_72a70e603c7b63745c9dbb41e2def656" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #11</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">La Rade</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Cassis</p>         <p><b>⭐</b> 9.0/10 (70 avis)</p>         <p><b>💰</b> 130 €/nuit</p>         <p><b>🌤️</b> Score météo: 73.67</p>         <p><b>🌡️</b> 14.3°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.30/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/la-rade-cassis1.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
-                popup_2458b4185731e8363ef06e7e45e740b3.setContent(html_72a70e603c7b63745c9dbb41e2def656);
+                var html_d34a844680ee8da5a54cb5ea0343c493 = $(`<div id="html_d34a844680ee8da5a54cb5ea0343c493" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #11</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">La Rade</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Cassis</p>         <p><b>⭐</b> 9.0/10 (70 avis)</p>         <p><b>💰</b> 130 €/nuit</p>         <p><b>🌤️</b> Score météo: 73.67</p>         <p><b>🌡️</b> 14.3°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.30/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/la-rade-cassis1.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_8b6a423645fb0c3892d66a74871a2533.setContent(html_d34a844680ee8da5a54cb5ea0343c493);
             
         
 
-        marker_61c2b63c9a7e7adefd59136975d83e82.bindPopup(popup_2458b4185731e8363ef06e7e45e740b3)
+        marker_cd9d12e70f7dff91354ab57a9a735d78.bindPopup(popup_8b6a423645fb0c3892d66a74871a2533)
         ;
 
         
     
     
-            marker_61c2b63c9a7e7adefd59136975d83e82.bindTooltip(
+            marker_cd9d12e70f7dff91354ab57a9a735d78.bindTooltip(
                 `<div>
                      #11 - La Rade
                  </div>`,
@@ -568,40 +576,40 @@
             );
         
     
-                marker_61c2b63c9a7e7adefd59136975d83e82.setIcon(div_icon_762f6d5dacc9d2fc8d2207567db130cf);
+                marker_cd9d12e70f7dff91354ab57a9a735d78.setIcon(div_icon_db71112760631426ec59ff8dbf2bab95);
             
     
-            var marker_b61e361cfd3a51f877f2f3d159382e39 = L.marker(
+            var marker_2d19f75ca97f68816a592c7c2a351517 = L.marker(
                 [43.278692338557065, 5.388060361146927],
                 {
 }
-            ).addTo(map_c52c5753022a4c389792f6ef32bd5e9b);
+            ).addTo(map_c42b090b49fe60d4178710d160c73d9d);
         
     
-            var div_icon_7d7c0ea2aaf44c66c22b83f3b1dbdeb2 = L.divIcon({
+            var div_icon_0c8d3bc6a33b66be0669946c2ce49659 = L.divIcon({
   "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e12\u003c/div\u003e\n        ",
   "className": "empty",
 });
         
     
-        var popup_72700a01cc5ff3e9282e8028dfa3626a = L.popup({
+        var popup_192b1460ddcb18121e5e3cb58b62a95b = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_cf7a50e23b9422608bb86e8939c0c056 = $(`<div id="html_cf7a50e23b9422608bb86e8939c0c056" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #12</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Aparthotel Adagio Access Marseille Prado Périer</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Marseille</p>         <p><b>⭐</b> 8.2/10 (2014 avis)</p>         <p><b>💰</b> 101 €/nuit</p>         <p><b>🌤️</b> Score météo: 76.17</p>         <p><b>🌡️</b> 15.1°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.22/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/citea-marseille-prado-perier.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=&chal_t=1762886238254&force_referer=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
-                popup_72700a01cc5ff3e9282e8028dfa3626a.setContent(html_cf7a50e23b9422608bb86e8939c0c056);
+                var html_a4dc046cd53b7785d917dd91679b5068 = $(`<div id="html_a4dc046cd53b7785d917dd91679b5068" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #12</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Aparthotel Adagio Access Marseille Prado Périer</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Marseille</p>         <p><b>⭐</b> 8.2/10 (2014 avis)</p>         <p><b>💰</b> 101 €/nuit</p>         <p><b>🌤️</b> Score météo: 76.17</p>         <p><b>🌡️</b> 15.1°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.22/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/citea-marseille-prado-perier.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=&chal_t=1762886238254&force_referer=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_192b1460ddcb18121e5e3cb58b62a95b.setContent(html_a4dc046cd53b7785d917dd91679b5068);
             
         
 
-        marker_b61e361cfd3a51f877f2f3d159382e39.bindPopup(popup_72700a01cc5ff3e9282e8028dfa3626a)
+        marker_2d19f75ca97f68816a592c7c2a351517.bindPopup(popup_192b1460ddcb18121e5e3cb58b62a95b)
         ;
 
         
     
     
-            marker_b61e361cfd3a51f877f2f3d159382e39.bindTooltip(
+            marker_2d19f75ca97f68816a592c7c2a351517.bindTooltip(
                 `<div>
                      #12 - Aparthotel Adagio Access Marseille Prado Périer
                  </div>`,
@@ -611,40 +619,40 @@
             );
         
     
-                marker_b61e361cfd3a51f877f2f3d159382e39.setIcon(div_icon_7d7c0ea2aaf44c66c22b83f3b1dbdeb2);
+                marker_2d19f75ca97f68816a592c7c2a351517.setIcon(div_icon_0c8d3bc6a33b66be0669946c2ce49659);
             
     
-            var marker_f3f8440e7e885642f52121314e41cfcb = L.marker(
+            var marker_06cf7a916c87887c5746d681a2185ec3 = L.marker(
                 [43.149232813225, 6.341970146281],
                 {
 }
-            ).addTo(map_c52c5753022a4c389792f6ef32bd5e9b);
+            ).addTo(map_c42b090b49fe60d4178710d160c73d9d);
         
     
-            var div_icon_c5dd6e19c205585cb6ee02196dcab1b3 = L.divIcon({
+            var div_icon_06be7cdf4a2ada699152003d30a87f51 = L.divIcon({
   "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e13\u003c/div\u003e\n        ",
   "className": "empty",
 });
         
     
-        var popup_90505a24f0d462eff2d526380294f196 = L.popup({
+        var popup_17948008ab536075e185c305eb86afd0 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_2b72d15c77f647e6d0eeae2f12f1bf32 = $(`<div id="html_2b72d15c77f647e6d0eeae2f12f1bf32" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #13</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Boulevard du Soleil</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Bormes les Mimosas</p>         <p><b>⭐</b> 9.5/10 (58 avis)</p>         <p><b>💰</b> 105 €/nuit</p>         <p><b>🌤️</b> Score météo: 76.00</p>         <p><b>🌡️</b> 13.0°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.19/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/boulevard-du-soleil.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=&chal_t=1762886881324&force_referer=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
-                popup_90505a24f0d462eff2d526380294f196.setContent(html_2b72d15c77f647e6d0eeae2f12f1bf32);
+                var html_f97844d429ccf3abe0638faa98659f76 = $(`<div id="html_f97844d429ccf3abe0638faa98659f76" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #13</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Boulevard du Soleil</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Bormes les Mimosas</p>         <p><b>⭐</b> 9.5/10 (58 avis)</p>         <p><b>💰</b> 105 €/nuit</p>         <p><b>🌤️</b> Score météo: 76.00</p>         <p><b>🌡️</b> 13.0°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.19/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/boulevard-du-soleil.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=&chal_t=1762886881324&force_referer=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_17948008ab536075e185c305eb86afd0.setContent(html_f97844d429ccf3abe0638faa98659f76);
             
         
 
-        marker_f3f8440e7e885642f52121314e41cfcb.bindPopup(popup_90505a24f0d462eff2d526380294f196)
+        marker_06cf7a916c87887c5746d681a2185ec3.bindPopup(popup_17948008ab536075e185c305eb86afd0)
         ;
 
         
     
     
-            marker_f3f8440e7e885642f52121314e41cfcb.bindTooltip(
+            marker_06cf7a916c87887c5746d681a2185ec3.bindTooltip(
                 `<div>
                      #13 - Boulevard du Soleil
                  </div>`,
@@ -654,40 +662,40 @@
             );
         
     
-                marker_f3f8440e7e885642f52121314e41cfcb.setIcon(div_icon_c5dd6e19c205585cb6ee02196dcab1b3);
+                marker_06cf7a916c87887c5746d681a2185ec3.setIcon(div_icon_06be7cdf4a2ada699152003d30a87f51);
             
     
-            var marker_35efc1cfe6e3f89ab8150d7f080ce0fb = L.marker(
+            var marker_ce53c182264a0736399842be80fddd8f = L.marker(
                 [43.52890621393209, 5.440869033336639],
                 {
 }
-            ).addTo(map_c52c5753022a4c389792f6ef32bd5e9b);
+            ).addTo(map_c42b090b49fe60d4178710d160c73d9d);
         
     
-            var div_icon_11136042d5d482e0b7d427dc88bac90c = L.divIcon({
+            var div_icon_f6f42c2f398f3dace1bbde8a7bfa7251 = L.divIcon({
   "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e14\u003c/div\u003e\n        ",
   "className": "empty",
 });
         
     
-        var popup_b2d0b411c3520733631b7e06cdfb2029 = L.popup({
+        var popup_f56d096e632fe5c5c64629ada0c3a4c8 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_2a6681bb99a14156d2ac3b0e455d6517 = $(`<div id="html_2a6681bb99a14156d2ac3b0e455d6517" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #14</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Aparthotel Adagio Aix-en-Provence Centre</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Aix en Provence</p>         <p><b>⭐</b> 8.5/10 (1916 avis)</p>         <p><b>💰</b> 132 €/nuit</p>         <p><b>🌤️</b> Score météo: 76.33</p>         <p><b>🌡️</b> 13.0°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.19/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/pierre-vacances-city-centre.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
-                popup_b2d0b411c3520733631b7e06cdfb2029.setContent(html_2a6681bb99a14156d2ac3b0e455d6517);
+                var html_e757ead0ac25501b1b5e290a991802b8 = $(`<div id="html_e757ead0ac25501b1b5e290a991802b8" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #14</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Aparthotel Adagio Aix-en-Provence Centre</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Aix en Provence</p>         <p><b>⭐</b> 8.5/10 (1916 avis)</p>         <p><b>💰</b> 132 €/nuit</p>         <p><b>🌤️</b> Score météo: 76.33</p>         <p><b>🌡️</b> 13.0°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.19/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/pierre-vacances-city-centre.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_f56d096e632fe5c5c64629ada0c3a4c8.setContent(html_e757ead0ac25501b1b5e290a991802b8);
             
         
 
-        marker_35efc1cfe6e3f89ab8150d7f080ce0fb.bindPopup(popup_b2d0b411c3520733631b7e06cdfb2029)
+        marker_ce53c182264a0736399842be80fddd8f.bindPopup(popup_f56d096e632fe5c5c64629ada0c3a4c8)
         ;
 
         
     
     
-            marker_35efc1cfe6e3f89ab8150d7f080ce0fb.bindTooltip(
+            marker_ce53c182264a0736399842be80fddd8f.bindTooltip(
                 `<div>
                      #14 - Aparthotel Adagio Aix-en-Provence Centre
                  </div>`,
@@ -697,40 +705,40 @@
             );
         
     
-                marker_35efc1cfe6e3f89ab8150d7f080ce0fb.setIcon(div_icon_11136042d5d482e0b7d427dc88bac90c);
+                marker_ce53c182264a0736399842be80fddd8f.setIcon(div_icon_f6f42c2f398f3dace1bbde8a7bfa7251);
             
     
-            var marker_727fcd5a91c4672317cc921405c4b804 = L.marker(
+            var marker_9c078b11aae493db1aec2fd8106e7d46 = L.marker(
                 [43.9465116, 4.8035118],
                 {
 }
-            ).addTo(map_c52c5753022a4c389792f6ef32bd5e9b);
+            ).addTo(map_c42b090b49fe60d4178710d160c73d9d);
         
     
-            var div_icon_666a42fc43bdb98498c21e15a0d9a206 = L.divIcon({
+            var div_icon_f378c7f05de7c661c8ae5e0154600a38 = L.divIcon({
   "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e15\u003c/div\u003e\n        ",
   "className": "empty",
 });
         
     
-        var popup_2f9f094cdc2dcd95b14e152ee3f8d74f = L.popup({
+        var popup_346b359067a9f38c5d7b743a359c0f77 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_36ec3d2c860da405e988eb3840704b56 = $(`<div id="html_36ec3d2c860da405e988eb3840704b56" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #15</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Duplex-Ceiling height 1,9m-Free private parking-Self check in !! Duplex climatisé-Hauteur sous plafond 1,9m-Parking privé gratuit-Arrivée autonome !!</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Avignon</p>         <p><b>⭐</b> 9.7/10 (128 avis)</p>         <p><b>💰</b> 194 €/nuit</p>         <p><b>🌤️</b> Score météo: 71.83</p>         <p><b>🌡️</b> 12.9°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.19/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/duplex-climatise-au-centre-ville-d-avignon-avec-parking-prive-gratuit.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=&chal_t=1762886847527&force_referer=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
-                popup_2f9f094cdc2dcd95b14e152ee3f8d74f.setContent(html_36ec3d2c860da405e988eb3840704b56);
+                var html_dea1c25d1b7810497f9c9969a51c236b = $(`<div id="html_dea1c25d1b7810497f9c9969a51c236b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #15</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Duplex-Ceiling height 1,9m-Free private parking-Self check in !! Duplex climatisé-Hauteur sous plafond 1,9m-Parking privé gratuit-Arrivée autonome !!</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Avignon</p>         <p><b>⭐</b> 9.7/10 (128 avis)</p>         <p><b>💰</b> 194 €/nuit</p>         <p><b>🌤️</b> Score météo: 71.83</p>         <p><b>🌡️</b> 12.9°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.19/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/duplex-climatise-au-centre-ville-d-avignon-avec-parking-prive-gratuit.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=&chal_t=1762886847527&force_referer=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_346b359067a9f38c5d7b743a359c0f77.setContent(html_dea1c25d1b7810497f9c9969a51c236b);
             
         
 
-        marker_727fcd5a91c4672317cc921405c4b804.bindPopup(popup_2f9f094cdc2dcd95b14e152ee3f8d74f)
+        marker_9c078b11aae493db1aec2fd8106e7d46.bindPopup(popup_346b359067a9f38c5d7b743a359c0f77)
         ;
 
         
     
     
-            marker_727fcd5a91c4672317cc921405c4b804.bindTooltip(
+            marker_9c078b11aae493db1aec2fd8106e7d46.bindTooltip(
                 `<div>
                      #15 - Duplex-Ceiling height 1,9m-Free private parking-Self check in !! Duplex climatisé-Hauteur sous plafond 1,9m-Parking privé gratuit-Arrivée autonome !!
                  </div>`,
@@ -740,40 +748,40 @@
             );
         
     
-                marker_727fcd5a91c4672317cc921405c4b804.setIcon(div_icon_666a42fc43bdb98498c21e15a0d9a206);
+                marker_9c078b11aae493db1aec2fd8106e7d46.setIcon(div_icon_f378c7f05de7c661c8ae5e0154600a38);
             
     
-            var marker_069307c95ecaf52b289cd728871377b2 = L.marker(
+            var marker_b397d4e7d36530bef512bf2b33dfa697 = L.marker(
                 [43.12549, 6.357300000000009],
                 {
 }
-            ).addTo(map_c52c5753022a4c389792f6ef32bd5e9b);
+            ).addTo(map_c42b090b49fe60d4178710d160c73d9d);
         
     
-            var div_icon_c6ac754e52d77cefd517ea7f7b0db025 = L.divIcon({
+            var div_icon_7a974ce709ac1c6e294073a04eb4b039 = L.divIcon({
   "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e16\u003c/div\u003e\n        ",
   "className": "empty",
 });
         
     
-        var popup_d7ce05aeb4a969c0215879bb41454353 = L.popup({
+        var popup_9dbb6a1a491a4f294cd91660785b55f7 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_95cb5b764af752b703f8c8b351dcaa60 = $(`<div id="html_95cb5b764af752b703f8c8b351dcaa60" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #16</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Hotel La Voile</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Bormes les Mimosas</p>         <p><b>⭐</b> 8.4/10 (793 avis)</p>         <p><b>💰</b> 123 €/nuit</p>         <p><b>🌤️</b> Score météo: 76.00</p>         <p><b>🌡️</b> 13.0°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.18/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/hotel-la-voile-fr.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
-                popup_d7ce05aeb4a969c0215879bb41454353.setContent(html_95cb5b764af752b703f8c8b351dcaa60);
+                var html_c4c08215833a1597743ea305a566e403 = $(`<div id="html_c4c08215833a1597743ea305a566e403" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #16</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Hotel La Voile</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Bormes les Mimosas</p>         <p><b>⭐</b> 8.4/10 (793 avis)</p>         <p><b>💰</b> 123 €/nuit</p>         <p><b>🌤️</b> Score météo: 76.00</p>         <p><b>🌡️</b> 13.0°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.18/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/hotel-la-voile-fr.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_9dbb6a1a491a4f294cd91660785b55f7.setContent(html_c4c08215833a1597743ea305a566e403);
             
         
 
-        marker_069307c95ecaf52b289cd728871377b2.bindPopup(popup_d7ce05aeb4a969c0215879bb41454353)
+        marker_b397d4e7d36530bef512bf2b33dfa697.bindPopup(popup_9dbb6a1a491a4f294cd91660785b55f7)
         ;
 
         
     
     
-            marker_069307c95ecaf52b289cd728871377b2.bindTooltip(
+            marker_b397d4e7d36530bef512bf2b33dfa697.bindTooltip(
                 `<div>
                      #16 - Hotel La Voile
                  </div>`,
@@ -783,40 +791,40 @@
             );
         
     
-                marker_069307c95ecaf52b289cd728871377b2.setIcon(div_icon_c6ac754e52d77cefd517ea7f7b0db025);
+                marker_b397d4e7d36530bef512bf2b33dfa697.setIcon(div_icon_7a974ce709ac1c6e294073a04eb4b039);
             
     
-            var marker_795083215c5f7f9e1be7d2e9a6f6de01 = L.marker(
+            var marker_6feeafe114bdcdcee12ae52511efa36a = L.marker(
                 [43.2149587, 5.5399611],
                 {
 }
-            ).addTo(map_c52c5753022a4c389792f6ef32bd5e9b);
+            ).addTo(map_c42b090b49fe60d4178710d160c73d9d);
         
     
-            var div_icon_a1afd09dc207c704bd37a4a2ccc311f4 = L.divIcon({
+            var div_icon_984e3c652eef561d02a365ac53c07fdf = L.divIcon({
   "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e17\u003c/div\u003e\n        ",
   "className": "empty",
 });
         
     
-        var popup_291d7d5758c5eaa1d5f3ce5f00305241 = L.popup({
+        var popup_146c2cc5655ad9cd5596d1e30c3f0abc = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_f734c7a5e3464526a2bbd70733e0e513 = $(`<div id="html_f734c7a5e3464526a2bbd70733e0e513" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #17</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Au cœur de Cassis</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Cassis</p>         <p><b>⭐</b> 8.7/10 (18 avis)</p>         <p><b>💰</b> 138 €/nuit</p>         <p><b>🌤️</b> Score météo: 73.67</p>         <p><b>🌡️</b> 14.3°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.14/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/au-coeur-de-cassis-cassis3.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
-                popup_291d7d5758c5eaa1d5f3ce5f00305241.setContent(html_f734c7a5e3464526a2bbd70733e0e513);
+                var html_3672e39da3e3f50b66bd0ef634c30a29 = $(`<div id="html_3672e39da3e3f50b66bd0ef634c30a29" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #17</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Au cœur de Cassis</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Cassis</p>         <p><b>⭐</b> 8.7/10 (18 avis)</p>         <p><b>💰</b> 138 €/nuit</p>         <p><b>🌤️</b> Score météo: 73.67</p>         <p><b>🌡️</b> 14.3°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.14/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/au-coeur-de-cassis-cassis3.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_146c2cc5655ad9cd5596d1e30c3f0abc.setContent(html_3672e39da3e3f50b66bd0ef634c30a29);
             
         
 
-        marker_795083215c5f7f9e1be7d2e9a6f6de01.bindPopup(popup_291d7d5758c5eaa1d5f3ce5f00305241)
+        marker_6feeafe114bdcdcee12ae52511efa36a.bindPopup(popup_146c2cc5655ad9cd5596d1e30c3f0abc)
         ;
 
         
     
     
-            marker_795083215c5f7f9e1be7d2e9a6f6de01.bindTooltip(
+            marker_6feeafe114bdcdcee12ae52511efa36a.bindTooltip(
                 `<div>
                      #17 - Au cœur de Cassis
                  </div>`,
@@ -826,40 +834,40 @@
             );
         
     
-                marker_795083215c5f7f9e1be7d2e9a6f6de01.setIcon(div_icon_a1afd09dc207c704bd37a4a2ccc311f4);
+                marker_6feeafe114bdcdcee12ae52511efa36a.setIcon(div_icon_984e3c652eef561d02a365ac53c07fdf);
             
     
-            var marker_6a822fcbd9a74649d1fd3503863d13d4 = L.marker(
+            var marker_0a9dfef21afc35d287620fe2d1741a0f = L.marker(
                 [43.2178808, 5.5361313],
                 {
 }
-            ).addTo(map_c52c5753022a4c389792f6ef32bd5e9b);
+            ).addTo(map_c42b090b49fe60d4178710d160c73d9d);
         
     
-            var div_icon_7ee666026b09f0715b60cb2ca1933091 = L.divIcon({
+            var div_icon_9a3d8b29a029ea3b7888db8b08e38c81 = L.divIcon({
   "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e18\u003c/div\u003e\n        ",
   "className": "empty",
 });
         
     
-        var popup_e18e75e6b7b20f8ac56c754aacd6bde0 = L.popup({
+        var popup_45aeb99c398ba3300f09f29e7f386614 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_8937430c715f0b956cc91b9c00241612 = $(`<div id="html_8937430c715f0b956cc91b9c00241612" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #18</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">CASSIS RDC Climatisé - Parking gratuit</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Cassis</p>         <p><b>⭐</b> 9.2/10 (56 avis)</p>         <p><b>💰</b> 178 €/nuit</p>         <p><b>🌤️</b> Score météo: 73.67</p>         <p><b>🌡️</b> 14.3°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.13/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/appartement-t3-rdc-cassis.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=&chal_t=1762886486220&force_referer=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
-                popup_e18e75e6b7b20f8ac56c754aacd6bde0.setContent(html_8937430c715f0b956cc91b9c00241612);
+                var html_87c0f6049b0a4a06e7f38a7e61cd1d11 = $(`<div id="html_87c0f6049b0a4a06e7f38a7e61cd1d11" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #18</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">CASSIS RDC Climatisé - Parking gratuit</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Cassis</p>         <p><b>⭐</b> 9.2/10 (56 avis)</p>         <p><b>💰</b> 178 €/nuit</p>         <p><b>🌤️</b> Score météo: 73.67</p>         <p><b>🌡️</b> 14.3°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.13/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/appartement-t3-rdc-cassis.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=&chal_t=1762886486220&force_referer=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_45aeb99c398ba3300f09f29e7f386614.setContent(html_87c0f6049b0a4a06e7f38a7e61cd1d11);
             
         
 
-        marker_6a822fcbd9a74649d1fd3503863d13d4.bindPopup(popup_e18e75e6b7b20f8ac56c754aacd6bde0)
+        marker_0a9dfef21afc35d287620fe2d1741a0f.bindPopup(popup_45aeb99c398ba3300f09f29e7f386614)
         ;
 
         
     
     
-            marker_6a822fcbd9a74649d1fd3503863d13d4.bindTooltip(
+            marker_0a9dfef21afc35d287620fe2d1741a0f.bindTooltip(
                 `<div>
                      #18 - CASSIS RDC Climatisé - Parking gratuit
                  </div>`,
@@ -869,40 +877,40 @@
             );
         
     
-                marker_6a822fcbd9a74649d1fd3503863d13d4.setIcon(div_icon_7ee666026b09f0715b60cb2ca1933091);
+                marker_0a9dfef21afc35d287620fe2d1741a0f.setIcon(div_icon_9a3d8b29a029ea3b7888db8b08e38c81);
             
     
-            var marker_c56c1653c04898687f89361753f90c33 = L.marker(
+            var marker_20cd6e7d8a686157ea9a64c0865cac14 = L.marker(
                 [43.294458339908, 5.377619730094],
                 {
 }
-            ).addTo(map_c52c5753022a4c389792f6ef32bd5e9b);
+            ).addTo(map_c42b090b49fe60d4178710d160c73d9d);
         
     
-            var div_icon_6913ef800a68ed866574a98a597c4262 = L.divIcon({
+            var div_icon_857d97c94493e2820699899e9a540f89 = L.divIcon({
   "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e19\u003c/div\u003e\n        ",
   "className": "empty",
 });
         
     
-        var popup_05295e0be9472670c8d62772a77cc4f2 = L.popup({
+        var popup_2fe4696e5dd0d0124aa54e835368f8ef = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_9df5f9c4a8fc419db3d9d00901b80192 = $(`<div id="html_9df5f9c4a8fc419db3d9d00901b80192" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #19</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">ADIRA Résid'Marseille Vieux-port 2 étoiles</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Marseille</p>         <p><b>⭐</b> 8.4/10 (475 avis)</p>         <p><b>💰</b> 141 €/nuit</p>         <p><b>🌤️</b> Score météo: 76.17</p>         <p><b>🌡️</b> 15.1°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.10/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/adira-resid-marseille-vieux-port.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
-                popup_05295e0be9472670c8d62772a77cc4f2.setContent(html_9df5f9c4a8fc419db3d9d00901b80192);
+                var html_57f4cc347e90ff9731f4f14303dd2010 = $(`<div id="html_57f4cc347e90ff9731f4f14303dd2010" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #19</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">ADIRA Résid'Marseille Vieux-port 2 étoiles</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Marseille</p>         <p><b>⭐</b> 8.4/10 (475 avis)</p>         <p><b>💰</b> 141 €/nuit</p>         <p><b>🌤️</b> Score météo: 76.17</p>         <p><b>🌡️</b> 15.1°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.10/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/adira-resid-marseille-vieux-port.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_2fe4696e5dd0d0124aa54e835368f8ef.setContent(html_57f4cc347e90ff9731f4f14303dd2010);
             
         
 
-        marker_c56c1653c04898687f89361753f90c33.bindPopup(popup_05295e0be9472670c8d62772a77cc4f2)
+        marker_20cd6e7d8a686157ea9a64c0865cac14.bindPopup(popup_2fe4696e5dd0d0124aa54e835368f8ef)
         ;
 
         
     
     
-            marker_c56c1653c04898687f89361753f90c33.bindTooltip(
+            marker_20cd6e7d8a686157ea9a64c0865cac14.bindTooltip(
                 `<div>
                      #19 - ADIRA Résid'Marseille Vieux-port 2 étoiles
                  </div>`,
@@ -912,40 +920,40 @@
             );
         
     
-                marker_c56c1653c04898687f89361753f90c33.setIcon(div_icon_6913ef800a68ed866574a98a597c4262);
+                marker_20cd6e7d8a686157ea9a64c0865cac14.setIcon(div_icon_857d97c94493e2820699899e9a540f89);
             
     
-            var marker_c284106d96690e7391331ad5cd828d3e = L.marker(
+            var marker_6c4cc6059de77938ccfbea8472f07255 = L.marker(
                 [43.222079689063, 5.537926946033],
                 {
 }
-            ).addTo(map_c52c5753022a4c389792f6ef32bd5e9b);
+            ).addTo(map_c42b090b49fe60d4178710d160c73d9d);
         
     
-            var div_icon_ca72250eb478d0595c979804cb53d712 = L.divIcon({
+            var div_icon_91280db7b42a0831ba082c45cbbf12b5 = L.divIcon({
   "html": "\n            \u003cdiv style=\"\n                background-color: #e74c3c;\n                color: white;\n                border-radius: 50%;\n                width: 30px;\n                height: 30px;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                font-weight: bold;\n                font-size: 14px;\n                border: 2px solid white;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.3);\n            \"\u003e20\u003c/div\u003e\n        ",
   "className": "empty",
 });
         
     
-        var popup_dcf3f0de5fcf8030aa98e177138d87c4 = L.popup({
+        var popup_26648615c1fa2b35d11f859d05e9716e = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_ae17b621036527161cddcb637d463295 = $(`<div id="html_ae17b621036527161cddcb637d463295" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #20</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Home Cassis - Maison Julou - Piscine chauffée à 32c</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Cassis</p>         <p><b>⭐</b> 8.7/10 (155 avis)</p>         <p><b>💰</b> 73 €/nuit</p>         <p><b>🌤️</b> Score météo: 73.67</p>         <p><b>🌡️</b> 14.3°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.09/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/home-cassis-maison-julou.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
-                popup_dcf3f0de5fcf8030aa98e177138d87c4.setContent(html_ae17b621036527161cddcb637d463295);
+                var html_7705beb9fdf58479abb7987c7580c317 = $(`<div id="html_7705beb9fdf58479abb7987c7580c317" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; font-family: Arial;">         <h3 style="color: #e74c3c; margin-bottom: 5px;">🏆 Rang #20</h3>         <h4 style="margin: 5px 0; color: #2c3e50;">Home Cassis - Maison Julou - Piscine chauffée à 32c</h4>         <hr style="margin: 5px 0;">         <p><b>📍</b> Cassis</p>         <p><b>⭐</b> 8.7/10 (155 avis)</p>         <p><b>💰</b> 73 €/nuit</p>         <p><b>🌤️</b> Score météo: 73.67</p>         <p><b>🌡️</b> 14.3°C</p>         <p><b>🎯</b> <span style="font-size: 16px; color: #27ae60; font-weight: bold;">Score: 8.09/10</span></p>         <hr style="margin: 5px 0;">         <p style="font-size: 11px;"><a href="https://www.booking.com/hotel/fr/home-cassis-maison-julou.html?checkin=2025-12-11&checkout=2025-12-13&group_adults=2&no_rooms=1&group_children=" target="_blank">🔗 Réserver sur Booking.com</a></p>     </div>     </div>`)[0];
+                popup_26648615c1fa2b35d11f859d05e9716e.setContent(html_7705beb9fdf58479abb7987c7580c317);
             
         
 
-        marker_c284106d96690e7391331ad5cd828d3e.bindPopup(popup_dcf3f0de5fcf8030aa98e177138d87c4)
+        marker_6c4cc6059de77938ccfbea8472f07255.bindPopup(popup_26648615c1fa2b35d11f859d05e9716e)
         ;
 
         
     
     
-            marker_c284106d96690e7391331ad5cd828d3e.bindTooltip(
+            marker_6c4cc6059de77938ccfbea8472f07255.bindTooltip(
                 `<div>
                      #20 - Home Cassis - Maison Julou - Piscine chauffée à 32c
                  </div>`,
@@ -955,7 +963,7 @@
             );
         
     
-                marker_c284106d96690e7391331ad5cd828d3e.setIcon(div_icon_ca72250eb478d0595c979804cb53d712);
+                marker_6c4cc6059de77938ccfbea8472f07255.setIcon(div_icon_91280db7b42a0831ba082c45cbbf12b5);
             
 </script>
 </html>
