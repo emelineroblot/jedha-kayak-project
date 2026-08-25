@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_4412e684b16b55899112560f7c684932 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+<div style="position:fixed; bottom:28px; right:28px; width:220px;
+     background:#fff; z-index:9999; font-size:13px; font-family:'Segoe UI',Arial,sans-serif;
+     border:1px solid #e2e8f0; border-radius:10px; padding:12px 14px;
+     box-shadow:0 4px 14px rgba(15,23,42,.12);">
+  <p style="margin:0 0 8px;font-weight:700;color:#1e293b;">Destinations</p>
+  <p style="margin:5px 0;color:#475569;">
+    <span style="display:inline-block;width:15px;height:15px;border-radius:50%;
+    background:#5b5bd6;vertical-align:-3px;"></span>
+    &nbsp;Top 5 retenu</p>
+  <p style="margin:5px 0;color:#475569;">
+    <span style="display:inline-block;width:11px;height:11px;border-radius:50%;
+    background:#cbd5e1;border:1px solid #94a3b8;vertical-align:-1px;"></span>
+    &nbsp;30 autres villes analysées</p>
+  <p style="margin:9px 0 0;font-size:11px;color:#94a3b8;">
+    Taille du halo proportionnelle au score météo</p>
+</div>
+    
+            <div class="folium-map" id="map_4412e684b16b55899112560f7c684932" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_4412e684b16b55899112560f7c684932 = L.map(
+                "map_4412e684b16b55899112560f7c684932",
+                {
+                    center: [46.6, 2.5],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 10,
+  "zoomControl": true,
+  "preferCanvas": false,
+  "zoomSnap": 0.25,
+  "zoomDelta": 0.5,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_d95ad02c1ced362db51115bd63961868 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_d95ad02c1ced362db51115bd63961868.addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            map_4412e684b16b55899112560f7c684932.fitBounds(
+                [[42.52505, -2.0260409], [50.6365654, 7.7507127]],
+                {"padding": [30, 30]}
+            );
+        
+    
+            var circle_marker_a283168e4b4801464587bd5ec0f84bb6 = L.circleMarker(
+                [43.8374249, 4.3600687],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            circle_marker_a283168e4b4801464587bd5ec0f84bb6.bindTooltip(
+                `<div>
+                     Nimes — score météo 71.2/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_91a5b927d4065ce7d0f4631f086a9d56 = L.circleMarker(
+                [43.5661521, 4.19154],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            circle_marker_91a5b927d4065ce7d0f4631f086a9d56.bindTooltip(
+                `<div>
+                     Aigues Mortes — score météo 70.2/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8de12134eef41fa230692f6bbc2d17ef = L.circleMarker(
+                [43.4515922, 4.4277202],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            circle_marker_8de12134eef41fa230692f6bbc2d17ef.bindTooltip(
+                `<div>
+                     Saintes Maries de la mer — score météo 70.0/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8c39388ca9eb9fa6b8a55ee57a93f4da = L.circleMarker(
+                [42.52505, 3.0831554],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            circle_marker_8c39388ca9eb9fa6b8a55ee57a93f4da.bindTooltip(
+                `<div>
+                     Collioure — score météo 68.0/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ff9037725700a7a0de0f60ee88b2795f = L.circleMarker(
+                [44.0121279, 4.4196718],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            circle_marker_ff9037725700a7a0de0f60ee88b2795f.bindTooltip(
+                `<div>
+                     Uzes — score météo 65.7/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_480828a3ec51edd9c3348943e940d0d4 = L.circleMarker(
+                [45.7578137, 4.8320114],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            circle_marker_480828a3ec51edd9c3348943e940d0d4.bindTooltip(
+                `<div>
+                     Lyon — score météo 63.5/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_176b7efd4416d07e2b93689616be2cc6 = L.circleMarker(
+                [45.1875602, 5.7357819],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            circle_marker_176b7efd4416d07e2b93689616be2cc6.bindTooltip(
+                `<div>
+                     Grenoble — score météo 63.2/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fa9d7261cc6aff6b6f4f951e3b817022 = L.circleMarker(
+                [43.7496562, 6.3285616],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            circle_marker_fa9d7261cc6aff6b6f4f951e3b817022.bindTooltip(
+                `<div>
+                     Gorges du Verdon — score météo 63.0/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_27d0de8d753b99849251bcd1158e86b4 = L.circleMarker(
+                [45.8992348, 6.1288847],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            circle_marker_27d0de8d753b99849251bcd1158e86b4.bindTooltip(
+                `<div>
+                     Annecy — score météo 62.8/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ee05a3a1aa6296298c0a41c12cd3cdb3 = L.circleMarker(
+                [43.6044638, 1.4442433],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            circle_marker_ee05a3a1aa6296298c0a41c12cd3cdb3.bindTooltip(
+                `<div>
+                     Toulouse — score météo 58.2/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2a4bdf7f411f9d2d3feb1b39a25362d8 = L.circleMarker(
+                [43.4945144, -1.4736657],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            circle_marker_2a4bdf7f411f9d2d3feb1b39a25362d8.bindTooltip(
+                `<div>
+                     Bayonne — score météo 58.0/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ba589b63f7fa489d6ecdc1190dfa3e5b = L.circleMarker(
+                [48.8534951, 2.3483915],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            circle_marker_ba589b63f7fa489d6ecdc1190dfa3e5b.bindTooltip(
+                `<div>
+                     Paris — score météo 57.8/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9c6f018e83b48ef9d54d68d06c69d812 = L.circleMarker(
+                [48.584614, 7.7507127],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            circle_marker_9c6f018e83b48ef9d54d68d06c69d812.bindTooltip(
+                `<div>
+                     Strasbourg — score météo 57.3/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_faa0da0d3887c06e0310b9805423e55d = L.circleMarker(
+                [43.2130358, 2.3491069],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            circle_marker_faa0da0d3887c06e0310b9805423e55d.bindTooltip(
+                `<div>
+                     Carcassonne — score météo 56.8/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2a4cd3fc7b96b15f3bba1d2249f2d45b = L.circleMarker(
+                [50.6365654, 3.0635282],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            circle_marker_2a4cd3fc7b96b15f3bba1d2249f2d45b.bindTooltip(
+                `<div>
+                     Lille — score météo 56.8/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9b7e0f422ba0c2f3b8016deac85becd0 = L.circleMarker(
+                [43.4832523, -1.5592776],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            circle_marker_9b7e0f422ba0c2f3b8016deac85becd0.bindTooltip(
+                `<div>
+                     Biarritz — score météo 56.7/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b87ae8bbd9b2b9ed20b2e0daa6d9c327 = L.circleMarker(
+                [44.0175835, 1.3549991],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            circle_marker_b87ae8bbd9b2b9ed20b2e0daa6d9c327.bindTooltip(
+                `<div>
+                     Montauban — score météo 54.3/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_852bbe519149a9b97db414c64b28fbd5 = L.circleMarker(
+                [48.0777517, 7.3579641],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            circle_marker_852bbe519149a9b97db414c64b28fbd5.bindTooltip(
+                `<div>
+                     Colmar — score météo 53.7/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ab7846a6fa990f51c339e591060d878a = L.circleMarker(
+                [48.0447968, 7.3079618],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            circle_marker_ab7846a6fa990f51c339e591060d878a.bindTooltip(
+                `<div>
+                     Eguisheim — score météo 53.2/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_60032737961fbefb3c3441ac0be5d5fe = L.circleMarker(
+                [48.2494107, 7.3443202],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            circle_marker_60032737961fbefb3c3441ac0be5d5fe.bindTooltip(
+                `<div>
+                     Chateau du Haut Koenigsbourg — score météo 52.8/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_377b68559a007e731ebe6d0eead5a657 = L.circleMarker(
+                [47.2380222, 6.0243622],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            circle_marker_377b68559a007e731ebe6d0eead5a657.bindTooltip(
+                `<div>
+                     Besancon — score météo 52.5/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_527100fb566487ffc1bb798b96919c4e = L.circleMarker(
+                [47.3215806, 5.0414701],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            circle_marker_527100fb566487ffc1bb798b96919c4e.bindTooltip(
+                `<div>
+                     Dijon — score météo 50.8/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4fecb2c0c4ad04b6c977d62efdc0626c = L.circleMarker(
+                [49.4404591, 1.0939658],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            circle_marker_4fecb2c0c4ad04b6c977d62efdc0626c.bindTooltip(
+                `<div>
+                     Rouen — score météo 50.7/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bfa08c32c8b16a3bca4c7d2343fc5331 = L.circleMarker(
+                [46.159732, -1.1515951],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            circle_marker_bfa08c32c8b16a3bca4c7d2343fc5331.bindTooltip(
+                `<div>
+                     La Rochelle — score météo 48.8/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_10ac8e5df948ca52f62b2912b997d3c6 = L.circleMarker(
+                [48.649518, -2.0260409],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            circle_marker_10ac8e5df948ca52f62b2912b997d3c6.bindTooltip(
+                `<div>
+                     St Malo — score météo 48.5/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8688d8242d94595e74b440d5a48b69c7 = L.circleMarker(
+                [42.9455368, 1.4065544],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            circle_marker_8688d8242d94595e74b440d5a48b69c7.bindTooltip(
+                `<div>
+                     Ariege — score météo 45.5/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8b3893636497c6f893f41707939aff8a = L.circleMarker(
+                [49.8941708, 2.2956951],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            circle_marker_8b3893636497c6f893f41707939aff8a.bindTooltip(
+                `<div>
+                     Amiens — score météo 44.5/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fbd3b425a978282b560be27e70b37bdb = L.circleMarker(
+                [49.4938975, 0.1079732],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            circle_marker_fbd3b425a978282b560be27e70b37bdb.bindTooltip(
+                `<div>
+                     Le Havre — score météo 44.3/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d3d57b53e74a69b0428eed83f10d0317 = L.circleMarker(
+                [49.2764624, -0.7024738],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            circle_marker_d3d57b53e74a69b0428eed83f10d0317.bindTooltip(
+                `<div>
+                     Bayeux — score météo 38.3/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7f271593d74d4dc23ef4d5e3d92ea16a = L.circleMarker(
+                [48.6359541, -1.51146],
+                {"bubblingMouseEvents": true, "color": "#94a3b8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbd5e1", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 1}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            circle_marker_7f271593d74d4dc23ef4d5e3d92ea16a.bindTooltip(
+                `<div>
+                     Mont Saint Michel — score météo 37.5/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_268da27811a42d09fd9aef0a60ceeaa7 = L.circleMarker(
+                [43.5298424, 5.4474738],
+                {"bubblingMouseEvents": true, "color": "#5b5bd6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#5b5bd6", "fillOpacity": 0.18, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 21.2, "stroke": true, "weight": 2}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            var marker_5b3d8080452c7acc0913c327e5fc6069 = L.marker(
+                [43.5298424, 5.4474738],
+                {
+}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            var div_icon_e5fcaa70d50638a66f1ab4a401e19e98 = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background:#5b5bd6; color:#fff; border-radius:50%;\n                width:30px; height:30px; display:flex; align-items:center;\n                justify-content:center; font-weight:700; font-size:14px;\n                border:2px solid #fff; box-shadow:0 2px 6px rgba(15,23,42,.35);\n                font-family:\u0027Segoe UI\u0027,Arial,sans-serif;\"\u003e1\u003c/div\u003e\n        ",
+  "className": "empty",
+});
+        
+    
+        var popup_dbb29970a666c144712c673eccb11a41 = L.popup({
+  "maxWidth": 290,
+});
+
+        
+            
+                var html_076a4bd3fc3c89cdb50b571878097567 = $(`<div id="html_076a4bd3fc3c89cdb50b571878097567" style="width: 100.0%; height: 100.0%;">     <div style="width:270px;font-family:'Segoe UI',Arial,sans-serif;">         <h3 style="margin:0 0 4px;color:#5b5bd6;font-size:15px;">#1 — Aix en Provence</h3>         <hr style="margin:6px 0;border:none;border-top:1px solid #e2e8f0;">         <p style="margin:4px 0;"><b>🌤️ Score météo</b> : 76.33/100</p>         <p style="margin:4px 0;"><b>🌡️ Température</b> : 13.0 °C</p>         <p style="margin:4px 0;"><b>🏨 Hébergements</b> : 15 classés</p>         <p style="margin:4px 0;"><b>💰 Prix moyen</b> : 135 €/nuit</p>         <p style="margin:4px 0;font-size:12px;color:#475569;">             Meilleur choix : La Villa Rustica</p>     </div>     </div>`)[0];
+                popup_dbb29970a666c144712c673eccb11a41.setContent(html_076a4bd3fc3c89cdb50b571878097567);
+            
+        
+
+        marker_5b3d8080452c7acc0913c327e5fc6069.bindPopup(popup_dbb29970a666c144712c673eccb11a41)
+        ;
+
+        
+    
+    
+            marker_5b3d8080452c7acc0913c327e5fc6069.bindTooltip(
+                `<div>
+                     #1 Aix en Provence — 76.3/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5b3d8080452c7acc0913c327e5fc6069.setIcon(div_icon_e5fcaa70d50638a66f1ab4a401e19e98);
+            
+    
+            var circle_marker_5bb57ca98d57a6a7f995bda739726a41 = L.circleMarker(
+                [43.2961743, 5.3699525],
+                {"bubblingMouseEvents": true, "color": "#5b5bd6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#5b5bd6", "fillOpacity": 0.18, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20.944000000000006, "stroke": true, "weight": 2}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            var marker_32f617f14935c77f55c7082b7933ab38 = L.marker(
+                [43.2961743, 5.3699525],
+                {
+}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            var div_icon_fd801ecd0b45e4f960975917a4edb5a3 = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background:#5b5bd6; color:#fff; border-radius:50%;\n                width:30px; height:30px; display:flex; align-items:center;\n                justify-content:center; font-weight:700; font-size:14px;\n                border:2px solid #fff; box-shadow:0 2px 6px rgba(15,23,42,.35);\n                font-family:\u0027Segoe UI\u0027,Arial,sans-serif;\"\u003e2\u003c/div\u003e\n        ",
+  "className": "empty",
+});
+        
+    
+        var popup_402b835f7bc97667a81acfeb5760c94c = L.popup({
+  "maxWidth": 290,
+});
+
+        
+            
+                var html_20de41776f76e80cf5c7ff6348d8c753 = $(`<div id="html_20de41776f76e80cf5c7ff6348d8c753" style="width: 100.0%; height: 100.0%;">     <div style="width:270px;font-family:'Segoe UI',Arial,sans-serif;">         <h3 style="margin:0 0 4px;color:#5b5bd6;font-size:15px;">#2 — Marseille</h3>         <hr style="margin:6px 0;border:none;border-top:1px solid #e2e8f0;">         <p style="margin:4px 0;"><b>🌤️ Score météo</b> : 76.17/100</p>         <p style="margin:4px 0;"><b>🌡️ Température</b> : 15.1 °C</p>         <p style="margin:4px 0;"><b>🏨 Hébergements</b> : 14 classés</p>         <p style="margin:4px 0;"><b>💰 Prix moyen</b> : 132 €/nuit</p>         <p style="margin:4px 0;font-size:12px;color:#475569;">             Meilleur choix : Aparthotel Adagio Access Marseille Prado Périer</p>     </div>     </div>`)[0];
+                popup_402b835f7bc97667a81acfeb5760c94c.setContent(html_20de41776f76e80cf5c7ff6348d8c753);
+            
+        
+
+        marker_32f617f14935c77f55c7082b7933ab38.bindPopup(popup_402b835f7bc97667a81acfeb5760c94c)
+        ;
+
+        
+    
+    
+            marker_32f617f14935c77f55c7082b7933ab38.bindTooltip(
+                `<div>
+                     #2 Marseille — 76.2/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_32f617f14935c77f55c7082b7933ab38.setIcon(div_icon_fd801ecd0b45e4f960975917a4edb5a3);
+            
+    
+            var circle_marker_863402b2c0100baddfec53ea2fe86974 = L.circleMarker(
+                [43.1506968, 6.3419285],
+                {"bubblingMouseEvents": true, "color": "#5b5bd6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#5b5bd6", "fillOpacity": 0.18, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20.672000000000004, "stroke": true, "weight": 2}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            var marker_6ee4c25e5a160e432cfb8c160fe2e7cf = L.marker(
+                [43.1506968, 6.3419285],
+                {
+}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            var div_icon_a9fe2e72ef8aff9cee05a9f80f9d566f = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background:#5b5bd6; color:#fff; border-radius:50%;\n                width:30px; height:30px; display:flex; align-items:center;\n                justify-content:center; font-weight:700; font-size:14px;\n                border:2px solid #fff; box-shadow:0 2px 6px rgba(15,23,42,.35);\n                font-family:\u0027Segoe UI\u0027,Arial,sans-serif;\"\u003e3\u003c/div\u003e\n        ",
+  "className": "empty",
+});
+        
+    
+        var popup_8580e424258f658820befefc9df4cf7a = L.popup({
+  "maxWidth": 290,
+});
+
+        
+            
+                var html_690ddcc58a8fda893306e04c60bca1ca = $(`<div id="html_690ddcc58a8fda893306e04c60bca1ca" style="width: 100.0%; height: 100.0%;">     <div style="width:270px;font-family:'Segoe UI',Arial,sans-serif;">         <h3 style="margin:0 0 4px;color:#5b5bd6;font-size:15px;">#3 — Bormes les Mimosas</h3>         <hr style="margin:6px 0;border:none;border-top:1px solid #e2e8f0;">         <p style="margin:4px 0;"><b>🌤️ Score météo</b> : 76.00/100</p>         <p style="margin:4px 0;"><b>🌡️ Température</b> : 13.0 °C</p>         <p style="margin:4px 0;"><b>🏨 Hébergements</b> : 14 classés</p>         <p style="margin:4px 0;"><b>💰 Prix moyen</b> : 192 €/nuit</p>         <p style="margin:4px 0;font-size:12px;color:#475569;">             Meilleur choix : La Favière proche de la plage</p>     </div>     </div>`)[0];
+                popup_8580e424258f658820befefc9df4cf7a.setContent(html_690ddcc58a8fda893306e04c60bca1ca);
+            
+        
+
+        marker_6ee4c25e5a160e432cfb8c160fe2e7cf.bindPopup(popup_8580e424258f658820befefc9df4cf7a)
+        ;
+
+        
+    
+    
+            marker_6ee4c25e5a160e432cfb8c160fe2e7cf.bindTooltip(
+                `<div>
+                     #3 Bormes les Mimosas — 76.0/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6ee4c25e5a160e432cfb8c160fe2e7cf.setIcon(div_icon_a9fe2e72ef8aff9cee05a9f80f9d566f);
+            
+    
+            var circle_marker_1ff234f6d76c93135514ece462a68fa9 = L.circleMarker(
+                [43.2140359, 5.5396318],
+                {"bubblingMouseEvents": true, "color": "#5b5bd6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#5b5bd6", "fillOpacity": 0.18, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 16.944000000000006, "stroke": true, "weight": 2}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            var marker_b4eda139dd24f5b2ec744b124769e8f9 = L.marker(
+                [43.2140359, 5.5396318],
+                {
+}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            var div_icon_464b99e2813f9da4518fe6b83444d6a3 = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background:#5b5bd6; color:#fff; border-radius:50%;\n                width:30px; height:30px; display:flex; align-items:center;\n                justify-content:center; font-weight:700; font-size:14px;\n                border:2px solid #fff; box-shadow:0 2px 6px rgba(15,23,42,.35);\n                font-family:\u0027Segoe UI\u0027,Arial,sans-serif;\"\u003e4\u003c/div\u003e\n        ",
+  "className": "empty",
+});
+        
+    
+        var popup_f5404ba982374cd15c8046ed3c924f24 = L.popup({
+  "maxWidth": 290,
+});
+
+        
+            
+                var html_3a1efeb276a9e82631e1f9f4ee46357f = $(`<div id="html_3a1efeb276a9e82631e1f9f4ee46357f" style="width: 100.0%; height: 100.0%;">     <div style="width:270px;font-family:'Segoe UI',Arial,sans-serif;">         <h3 style="margin:0 0 4px;color:#5b5bd6;font-size:15px;">#4 — Cassis</h3>         <hr style="margin:6px 0;border:none;border-top:1px solid #e2e8f0;">         <p style="margin:4px 0;"><b>🌤️ Score météo</b> : 73.67/100</p>         <p style="margin:4px 0;"><b>🌡️ Température</b> : 14.3 °C</p>         <p style="margin:4px 0;"><b>🏨 Hébergements</b> : 14 classés</p>         <p style="margin:4px 0;"><b>💰 Prix moyen</b> : 113 €/nuit</p>         <p style="margin:4px 0;font-size:12px;color:#475569;">             Meilleur choix : Le Bosquet</p>     </div>     </div>`)[0];
+                popup_f5404ba982374cd15c8046ed3c924f24.setContent(html_3a1efeb276a9e82631e1f9f4ee46357f);
+            
+        
+
+        marker_b4eda139dd24f5b2ec744b124769e8f9.bindPopup(popup_f5404ba982374cd15c8046ed3c924f24)
+        ;
+
+        
+    
+    
+            marker_b4eda139dd24f5b2ec744b124769e8f9.bindTooltip(
+                `<div>
+                     #4 Cassis — 73.7/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b4eda139dd24f5b2ec744b124769e8f9.setIcon(div_icon_464b99e2813f9da4518fe6b83444d6a3);
+            
+    
+            var circle_marker_782a0d374e6b54fd5757165736a08be9 = L.circleMarker(
+                [43.9492493, 4.8059012],
+                {"bubblingMouseEvents": true, "color": "#5b5bd6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#5b5bd6", "fillOpacity": 0.18, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14.0, "stroke": true, "weight": 2}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            var marker_3d86ea32f9aa0f420aef3feb3993a12d = L.marker(
+                [43.9492493, 4.8059012],
+                {
+}
+            ).addTo(map_4412e684b16b55899112560f7c684932);
+        
+    
+            var div_icon_f9b0e629e50e20afb0bec8f01a00c72b = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background:#5b5bd6; color:#fff; border-radius:50%;\n                width:30px; height:30px; display:flex; align-items:center;\n                justify-content:center; font-weight:700; font-size:14px;\n                border:2px solid #fff; box-shadow:0 2px 6px rgba(15,23,42,.35);\n                font-family:\u0027Segoe UI\u0027,Arial,sans-serif;\"\u003e5\u003c/div\u003e\n        ",
+  "className": "empty",
+});
+        
+    
+        var popup_0497c6d1509df4ab62e239981f24365c = L.popup({
+  "maxWidth": 290,
+});
+
+        
+            
+                var html_dc7d5ba84880d6253132d30850154744 = $(`<div id="html_dc7d5ba84880d6253132d30850154744" style="width: 100.0%; height: 100.0%;">     <div style="width:270px;font-family:'Segoe UI',Arial,sans-serif;">         <h3 style="margin:0 0 4px;color:#5b5bd6;font-size:15px;">#5 — Avignon</h3>         <hr style="margin:6px 0;border:none;border-top:1px solid #e2e8f0;">         <p style="margin:4px 0;"><b>🌤️ Score météo</b> : 71.83/100</p>         <p style="margin:4px 0;"><b>🌡️ Température</b> : 12.9 °C</p>         <p style="margin:4px 0;"><b>🏨 Hébergements</b> : 15 classés</p>         <p style="margin:4px 0;"><b>💰 Prix moyen</b> : 110 €/nuit</p>         <p style="margin:4px 0;font-size:12px;color:#475569;">             Meilleur choix : Apartment-NO elevator-Free private parking-Self check in !! Appartement-PAS ascenseur-Parking privé gratuit-Arrivée autonome!!</p>     </div>     </div>`)[0];
+                popup_0497c6d1509df4ab62e239981f24365c.setContent(html_dc7d5ba84880d6253132d30850154744);
+            
+        
+
+        marker_3d86ea32f9aa0f420aef3feb3993a12d.bindPopup(popup_0497c6d1509df4ab62e239981f24365c)
+        ;
+
+        
+    
+    
+            marker_3d86ea32f9aa0f420aef3feb3993a12d.bindTooltip(
+                `<div>
+                     #5 Avignon — 71.8/100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3d86ea32f9aa0f420aef3feb3993a12d.setIcon(div_icon_f9b0e629e50e20afb0bec8f01a00c72b);
+            
+</script>
+</html>
