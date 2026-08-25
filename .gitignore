@@ -16,10 +16,18 @@ __pycache__/
 *.ipynb_checkpoints
 
 # Data files (ne pas versionner les gros fichiers)
-data/raw/*.csv
-data/raw/*.json
-data/processed/*.csv
+# Les motifs precedents ne couvraient pas les sous-dossiers : les JSON bruts
+# (2,4 Mo) etaient versionnes tandis que les livrables CSV, eux, etaient exclus.
+data/raw/**/*.json
+data/raw/**/*.csv
 *.xlsx
+
+# ... mais les livrables du projet doivent etre dans le depot : un jury qui
+# clone doit pouvoir relire les resultats sans rejouer tout le pipeline.
+!data/processed/*.csv
+
+# Artefact d'un ancien bug de chemin relatif (voir docs/audit-code.md, B15)
+notebooks/data/
 
 # IDE
 .vscode/
