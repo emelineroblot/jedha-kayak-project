@@ -4,12 +4,16 @@
 
 ## 📋 Table des Matières
 
-- [Vue d'ensemble](#vue-densemble)
-- [Objectifs](#objectifs)
-- [Architecture du Projet](#architecture-du-projet)
-- [Étapes du Projet](#étapes-du-projet)
-- [Installation](#installation)
-- [Auteur](#auteur)
+- [Vue d'ensemble](#-vue-densemble)
+- [Résultats](#-résultats)
+- [Objectifs](#-objectifs)
+- [Architecture du Projet](#-architecture-du-projet)
+- [Étapes du Projet](#-étapes-du-projet)
+- [Livrables en ligne](#-livrables-en-ligne)
+- [Installation](#-installation)
+- [Limites assumées](#-limites-assumées)
+- [Stack technique](#-stack-technique)
+- [Auteur](#-auteur)
 
 ---
 
@@ -26,6 +30,63 @@ Le système génère des **recommandations personnalisées** sous forme de :
 - 📈 Visualisations analytiques
 - 📄 Rapport HTML complet
 - ☁️ **Déploiement cloud sur AWS**
+
+---
+
+## 📈 Résultats
+
+Collecte du **11/11/2025** : prévisions OpenWeather sur 6 jours pour les 35 villes, puis
+tarifs Booking pour un séjour de **2 nuits à J+30, 2 adultes**.
+
+### Top 5 des destinations retenues
+
+| # | Ville | Score météo /100 | Temp. moy. | Pluie (vol.) | Nuages |
+|---|---|---|---|---|---|
+| 1 | **Aix en Provence** | **76,33** | 13,0 °C | 0,0 mm | 59 % |
+| 2 | **Marseille** | **76,17** | 15,1 °C | 0,15 mm | 61 % |
+| 3 | **Bormes les Mimosas** | **76,00** | 13,0 °C | 0,0 mm | 50 % |
+| 4 | **Cassis** | **73,67** | 14,3 °C | 0,34 mm | 57 % |
+| 5 | **Avignon** | **71,83** | 12,9 °C | 0,0 mm | 52 % |
+
+Les 5 villes retenues sont toutes en Provence, et les scores se tiennent en **4,5 points**
+(71,83 → 76,33). C'est précisément pour cela que le score final utilise une échelle absolue
+et non une normalisation min-max — voir [Étape 3](#31-fusion-des-données).
+
+### Top 10 des hébergements recommandés
+
+`Score final = 0,40 × météo + 0,40 × note Booking + 0,20 × prix (inversé)`
+
+| # | Hébergement | Ville | Note | €/pers/nuit | Score final |
+|---|---|---|---|---|---|
+| 1 | La Villa Rustica | Aix en Provence | 9,8 | 25,27 € | **8,87** |
+| 2 | La Favière proche de la plage | Bormes les Mimosas | 9,5 | 26,13 € | 8,72 |
+| 3 | Romantic getaway in Bormes | Bormes les Mimosas | 9,5 | 32,18 € | 8,60 |
+| 4 | Apartment-NO elevator-Free private parking | Avignon | 9,6 | 27,00 € | 8,57 |
+| 5 | L'Oriflamme | Avignon | 9,5 | 29,37 € | 8,49 |
+| 6 | Le Mas de la Palmeraie - Studio | Bormes les Mimosas | 9,7 | 42,76 € | 8,46 |
+| 7 | Centre Palais des Papes B2 Clim | Avignon | 9,1 | 24,34 € | 8,43 |
+| 8 | Le Bosquet | Cassis | 9,3 | 34,89 € | 8,37 |
+| 9 | La Cigale du Port | Cassis | 9,0 | 29,91 € | 8,35 |
+| 10 | Le petit cassis | Cassis | 8,7 | 25,63 € | 8,31 |
+
+**Aucun hôtel marseillais dans le Top 10** alors que Marseille est 2ᵉ au score météo — son
+meilleur établissement n'arrive qu'au 12ᵉ rang. La météo ne départage presque rien (0,16 point
+d'écart avec Aix), et c'est la **qualité** qui tranche : Marseille affiche la note médiane la
+plus basse des cinq villes (**8,30** contre 8,50 à 8,70 ailleurs), malgré le prix médian le
+plus bas (**35,31 €** par personne et par nuit). Les 40 % de poids « qualité » pèsent plus que
+les 20 % de « prix ».
+
+### Le pipeline en chiffres
+
+| Indicateur | Valeur |
+|---|---|
+| Villes analysées | **35** (dont 5 retenues) |
+| Hôtels collectés | 75 → **74** après dédoublonnage sur `listing_id` |
+| Hôtels classés | **72** (2 sans aucun avis, non classables) |
+| Livrable `kayak_enriched.csv` | **104 lignes × 26 colonnes** (74 lignes hôtel + 30 villes sans hôtel) |
+| Prix par personne et par nuit | 18,14 € (min) · **40,60 € (médiane)** · 431,53 € (max) |
+| Base RDS PostgreSQL | 4 tables, 3 vues, **8,4 Mo** |
+| Objets publiés sur S3 | **19** |
 
 ---
 
@@ -55,53 +116,78 @@ Le système génère des **recommandations personnalisées** sous forme de :
 
 ## 🏗️ Architecture du Projet
 ```
-kayak_project/
+jedha-kayak-project/
 │
 ├── data/
 │   ├── raw/                                # Données brutes
-│   │   ├── cities.csv                      # Liste des 35 villes
-│   │   ├── weather_raw.csv                 # Données météo brutes
-│   │   ├── hotels_top5_all.csv             # Tous les hôtels (Top 5)
-│   │   └── hotels/                         # CSV par ville
-│   │       ├── hotels_marseille.csv
-│   │       ├── hotels_cassis.csv
+│   │   ├── cities_coordinates.csv          # Coordonnées GPS des 35 villes
+│   │   ├── hotels_top5_all.csv             # Tous les hôtels du Top 5, consolidés
+│   │   ├── hotels/                         # CSV par ville
+│   │   │   ├── hotels_marseille.csv
+│   │   │   ├── hotels_cassis.csv
+│   │   │   └── ...
+│   │   └── hotels_json/                    # Réponses BrightData brutes, par ville
+│   │       ├── marseille_raw.json
 │   │       └── ...
 │   │
 │   └── processed/                          # Données traitées
-│       ├── kayak_enriched.csv             # ⭐ LIVRABLE : météo + hôtels, 35 villes
+│       ├── kayak_enriched.csv              # ⭐ LIVRABLE : météo + hôtels, 35 villes
 │       ├── city_weather_scores.csv         # Scores météo des 35 villes
 │       ├── top5_destinations.csv           # Top 5 destinations
-│       ├── final_recommendations.csv       # Recommandations finales
+│       ├── hotels_cleaned.csv              # Hôtels après parsing et dédoublonnage
+│       ├── final_recommendations.csv       # Recommandations finales (72 classées)
 │       ├── top20_recommendations.csv       # Top 20 hôtels
+│       ├── carte_destinations.html         # Carte du Top 5 des destinations
 │       ├── carte_tous_hotels.html          # Carte interactive complète
 │       ├── carte_top20.html                # Carte Top 20
-│       ├── dashboard_complet.png           # Graphiques d'analyse
+│       ├── analysis_fusion.png             # Planche d'analyse de la fusion
+│       ├── charts/                         # Les 7 graphiques du dashboard
+│       │   ├── scores_par_ville.png
+│       │   ├── top10.png
+│       │   ├── qualite_prix.png
+│       │   └── ...
 │       ├── rapport_final.html              # Rapport complet
-│       ├── aws_s3_urls.txt                 # URLs S3 publiques
-│       └── rds_import_report.txt           # Rapport import base de données
+│       ├── aws_s3_urls.txt                 # URLs S3 publiques (lisible)
+│       └── aws_s3_urls.json                # URLs S3 publiques (exploitable)
 │
 ├── notebooks/                              # Notebooks Jupyter
-│   ├── 01_data_collection.ipynb            # Étape 1 : Récupération des coordonnées gps des 35 villes
+│   ├── 01_data_collection.ipynb            # Étape 1 : Coordonnées GPS des 35 villes
 │   ├── 02_data_weather.ipynb               # Étape 2 : Récupération données météo
-│   ├── 03_scoring_weather_cities.ipynb     # Étape 3 : Scoring du temps par ville en fonction critères météo 
-│   ├── 04_hotels_scraping.ipynb            # Étape 4 : Scraping hôtels 
-│   ├── 05_hotels_cleaning.ipynb            # Étape 5 : Enrichissement données hôtels
-│   ├── 06_fusion_meteo_hotels.ipynb        # Étape 6 : Fusion data hôtels et météo
-│   ├── 07_visualisations_rapport.ipynb     # Étape 7 : Création visualisations et rapport final
+│   ├── 03_scoring_weather_cities.ipynb     # Étape 3 : Scoring météo par ville
+│   ├── 04_hotels_scraping.ipynb            # Étape 4 : Scraping hôtels
+│   ├── 05_hotels_cleaning.ipynb            # Étape 5 : Parsing et nettoyage hôtels
+│   ├── 06_fusion_meteo_hotels.ipynb        # Étape 6 : Fusion météo + hôtels
+│   ├── 07_visualisations_rapport.ipynb     # Étape 7 : Visualisations et rapport
 │   ├── 08_aws_setup.ipynb                  # Étape 8 : Configuration AWS
 │   ├── 09_deploy_s3.ipynb                  # Étape 9 : Déploiement S3
 │   ├── 10_setup_rds.ipynb                  # Étape 10 : Configuration RDS
-│   └── 11_import_data_rds.ipynb            # Étape 11 : Import données RDS
+│   └── 11_import_data_rds.ipynb            # Étape 11 : Import S3 → RDS
+│
+├── visualizations/                         # Sorties de l'analyse météo (étape 3)
+│   ├── top5_destinations_map.html          # Carte Plotly des 35 villes scorées
+│   ├── top5_radar_comparison.html          # Radar comparatif du Top 5
+│   ├── weather_scores_heatmap.png
+│   └── ...
 │
 ├── src/                                    # Scripts Python
-│   ├── fetch_results.py                    # Etape 2 scraping hôtels
-│   └── trigger_scrapping.py                # Etape 1 scraping hôtels
+│   ├── config.py                           # Constantes partagées (séjour, taux de change)
+│   ├── trigger_scraping.py                 # Scraping hôtels : déclenchement BrightData
+│   ├── fetch_results.py                    # Scraping hôtels : récupération et parsing
+│   ├── reparse_hotels.py                   # Reparse des JSON bruts sans rappeler l'API
+│   └── recover_city_weather.py             # Reconstruction des scores météo des 35 villes
+│
+├── config/
+│   └── .env.example                        # Template des variables d'environnement
 │
 ├── requirements.txt                        # Dépendances Python
-├── .env.example                            # Template variables d'environnement
 ├── .gitignore                              # Fichiers ignorés par Git
 └── README.md                               # Ce fichier
 ```
+
+> **Ce qui est versionné, et pourquoi.** Les livrables de `data/processed/` sont dans le dépôt :
+> un jury qui clone doit pouvoir relire les résultats sans rejouer le pipeline ni disposer de
+> clés d'API. En revanche `data/raw/cities_coordinates.csv` est régénéré par le notebook 01, et
+> le fichier `config/.env` (secrets) n'est évidemment pas versionné.
 
 ---
 
@@ -151,6 +237,8 @@ dans les données mais exclus du classement (une note absente n'est pas un 0/10)
 > pour la **durée totale du séjour** (2 nuits). Les prix sont donc reconstruits au
 > parsing : offre la moins chère de l'établissement, ramenée à la nuit et à la personne,
 > puis convertie au taux BCE du jour de la collecte (1 USD = 0,86393 EUR au 11/11/2025).
+> Ces constantes sont centralisées dans `src/config.py` pour que le déclenchement du
+> scraping et le parsing ne puissent pas diverger.
 
 ---
 
@@ -187,24 +275,26 @@ dans les données mais exclus du classement (une note absente n'est pas un 0/10)
 
 **Actions** :
 1. **Cartes interactives** (Folium) :
+   - Carte du Top 5 des destinations
    - Tous les hôtels géolocalisés
    - Top 20 avec marqueurs numérotés
    - Popups détaillés (score, prix, météo)
    - Légende par code couleur
 
-2. **Dashboard analytique** (8 graphiques) :
-   - Distribution des scores par ville
-   - Top 10 hôtels
-   - Corrélation qualité/prix
-   - Impact météo sur le score
-   - Répartition par type de propriété
+2. **Dashboard analytique** — 8 graphiques :
+   - `analysis_fusion.png` : planche de synthèse de la fusion météo × hôtels
+   - `charts/` : les 7 graphiques unitaires (scores par ville, Top 10, corrélation
+     qualité/prix, notes et avis, prix par ville, types d'hébergement, corrélations)
 
-3. **Rapport HTML interactif** :
-   - Design moderne et responsive
+   > L'ancienne planche unique `dashboard_complet.png` n'est plus générée : ses graphiques
+   > ont été éclatés en fichiers unitaires, lisibles individuellement dans le rapport.
+
+3. **Rapport HTML interactif** (`rapport_final.html`) :
+   - Design responsive
    - Statistiques clés
    - Top 5 détaillé
-   - Cartes intégrées
-   - Graphiques d'analyse
+   - Les 3 cartes intégrées en `<iframe>`
+   - Graphiques embarqués en base64 — le rapport reste lisible même téléchargé seul
 
 ---
 
@@ -224,27 +314,15 @@ dans les données mais exclus du classement (une note absente n'est pas un 0/10)
 #### 4.2 Déploiement S3
 
 **Actions** :
-1. Upload des fichiers vers S3 :
-   - Rapport HTML final
-   - Cartes interactives
-   - Graphiques et dashboards
-   - Données CSV
+1. Upload des 19 objets vers S3 : rapport, cartes, graphiques et données CSV
 2. Configuration de l'accès public via Bucket Policy
-3. Génération des URLs publiques
+3. Génération des URLs publiques (`data/processed/aws_s3_urls.txt` et `.json`)
 
-**Résultat** :
-```
-📄 Rapport Final   : https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/rapport_final.html
-🗺️ Carte Complète  : https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/carte_tous_hotels.html
-🏆 Carte Top 20    : https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/carte_top20.html
-📊 Dashboard       : https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/dashboard_complet.png
-🧩 CSV enrichi     : https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/data/kayak_enriched.csv
-📁 Données CSV     : https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/data/final_recommendations.csv
-```
-
-> Le rapport HTML référence ses cartes et son dashboard par des chemins **relatifs plats**.
-> Ces trois fichiers doivent donc être déposés dans le **même préfixe** que le rapport, à la
-> racine du bucket — sinon les deux iframes et l'image renvoient un 404 une fois en ligne.
+> Le rapport HTML référence ses **trois cartes** par des chemins **relatifs plats**
+> (`carte_destinations.html`, `carte_top20.html`, `carte_tous_hotels.html`). Ces fichiers
+> doivent donc être déposés dans le **même préfixe** que le rapport, à la racine du bucket —
+> sinon les trois iframes renvoient un 404 une fois en ligne. Les graphiques, eux, sont
+> encodés en base64 dans le rapport et ne dépendent d'aucun chemin.
 
 ---
 
@@ -315,21 +393,41 @@ une note de 0/10, ils ne peuvent donc pas être classés.
 
 ---
 
+## ☁️ Livrables en ligne
+
+Bucket `260824-181205-jedha-kayak-project` (région `eu-north-1`), accès public en lecture.
+Liens vérifiés le 28/08/2026.
+
+| Livrable | URL |
+|---|---|
+| 📄 **Rapport final** | https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/rapport_final.html |
+| 🌍 Carte du Top 5 | https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/carte_destinations.html |
+| 🗺️ Carte complète | https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/carte_tous_hotels.html |
+| 🏆 Carte Top 20 | https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/carte_top20.html |
+| 📈 Planche d'analyse | https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/analysis_fusion.png |
+| 🧩 **CSV enrichi** (livrable) | https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/data/kayak_enriched.csv |
+| 📁 Recommandations finales | https://260824-181205-jedha-kayak-project.s3.eu-north-1.amazonaws.com/data/final_recommendations.csv |
+
+La liste complète des 19 objets publiés est dans `data/processed/aws_s3_urls.txt`.
+
+---
+
 ## 💻 Installation
 
 ### Prérequis
 
-- Python 3.8+
+- Python 3.10+
 - pip
 - Jupyter Notebook
-- Compte BrightData (pour scraping Booking.com)
-- Compte AWS (pour déploiement cloud)
+- Compte BrightData (pour le scraping Booking.com)
+- Compte OpenWeatherMap (pour la météo)
+- Compte AWS (pour le déploiement cloud)
 
 ### Étapes
 ```bash
 # 1. Cloner le dépôt
-git clone https://github.com/emelineroblot/kayak_project.git
-cd kayak_project
+git clone https://github.com/emelineroblot/jedha-kayak-project.git
+cd jedha-kayak-project
 
 # 2. Créer un environnement virtuel
 python -m venv venv
@@ -344,12 +442,76 @@ source venv/bin/activate
 pip install -r requirements.txt
 
 # 4. Configurer les variables d'environnement
-cp .env.example .env
-# Éditer .env et ajouter :
-# - Clé API BrightData
-# - Credentials AWS (Access Key, Secret Key)
-# - Configuration RDS (Host, Database, User, Password)
+cp config/.env.example config/.env
+# Puis éditer config/.env (voir la liste des variables dans le template)
 ```
+
+> Les notebooks chargent les secrets via `load_dotenv('../config/.env')` : le fichier doit
+> bien se trouver dans `config/`, pas à la racine du dépôt.
+
+### Relire les résultats sans rejouer le pipeline
+
+Les livrables sont versionnés. Sans aucune clé d'API :
+
+```bash
+# Le rapport complet, hors ligne
+python -m http.server 8000 --directory data/processed
+# puis ouvrir http://localhost:8000/rapport_final.html
+```
+
+---
+
+## ⚠️ Limites assumées
+
+1. **Les deux fenêtres temporelles ne coïncident pas.** Les villes sont sélectionnées sur une
+   prévision météo à 6 jours, les hôtels interrogés pour un séjour à **J+30**. On recommande
+   donc un hébergement pour une date dont on ne connaît pas la météo. C'est un choix : à J+30
+   les tarifs sont disponibles et stables, alors que l'API météo gratuite ne dépasse pas J+5.
+
+2. **Le run n'est pas rejouable à l'identique.** OpenWeather ne sert pas d'historique et les
+   tarifs Booking changent en continu. Rejouer les notebooks produira d'autres chiffres — les
+   CSV versionnés sont la trace du run du 11/11/2025.
+
+3. **Détail météo disponible pour 5 villes sur 35.** Voir la note de reconstruction en 4.4 :
+   la colonne `weather_detail` distingue `complet` de `score_seul`.
+
+4. **Échantillon d'hôtels petit et non exhaustif.** ~15 établissements par ville sur une seule
+   requête Booking, pour 2 adultes et 2 nuits. Le classement décrit cette collecte, pas le
+   marché de l'hébergement de ces villes.
+
+5. **Un doublon corrigé, mais la déduplication reste faible.** Elle porte sur `listing_id` :
+   deux annonces distinctes du même établissement ne seraient pas détectées.
+
+6. **La pondération 40/40/20 est un choix produit, pas un optimum mesuré.** Aucune donnée de
+   réservation ne permet de la valider ; elle est explicite et modifiable en un point du code.
+
+7. **Prix convertis à un taux figé.** 1 USD = 0,86393 EUR (BCE, 11/11/2025). Les montants sont
+   comparables entre eux, mais ne reflètent plus les prix actuels.
+
+8. **Pas de suite de tests automatisés.** La cohérence est assurée par la centralisation des
+   constantes dans `src/config.py` et par les contrôles d'intégrité exécutés après l'import RDS,
+   pas par des tests unitaires.
+
+---
+
+## 🛠️ Stack technique
+
+```
+pandas, numpy                   manipulation des données
+requests, aiohttp               appels API (OpenWeather, BrightData)
+folium                          cartes interactives (Top 5, tous hôtels, Top 20)
+plotly                          cartes et radars de l'analyse météo
+matplotlib, seaborn             dashboard analytique
+boto3                           S3 (upload, lecture des CSV pour l'import RDS)
+psycopg2                        PostgreSQL sur AWS RDS
+python-dotenv                   chargement des secrets depuis config/.env
+jupyter                         11 notebooks, exécutés dans l'ordre
+```
+
+Versions figées dans `requirements.txt`.
+
+**Services externes** : OpenWeatherMap (météo), BrightData (Booking.com),
+AWS S3 (diffusion des livrables), AWS RDS PostgreSQL 18.3 (`db.t4g.micro`).
 
 ---
 
@@ -362,7 +524,7 @@ cp .env.example .env
 
 ---
 
-**Dernière mise à jour** : Novembre 2025
+**Données collectées** : 11 novembre 2025
+**Dernière mise à jour du dépôt** : 28 août 2026
 
-**Status** : ✅ **PROJET COMPLET** - Toutes les étapes terminées (Étapes 1-4)
-
+**Status** : ✅ **PROJET COMPLET** — Étapes 1 à 4 terminées, livrables publiés sur S3 et RDS
